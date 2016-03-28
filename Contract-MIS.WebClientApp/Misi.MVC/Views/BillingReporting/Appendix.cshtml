@@ -1,0 +1,104 @@
+﻿@using Misi.MVC.Resources;
+@using Kendo.Mvc.UI;
+@using Misi.MVC.ViewModels.BillingReporting
+@model AppendixTableViewModel
+@{
+    ViewBag.Title = SharedResource.Preview + " " + BillingReportingResource.Appendix + " "  + ViewBag.bilDoc;
+}
+    
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("Appendix", "BillingReporting", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", SharedResource.PreviewServiceRequest)
+        <div class="panel-body" style="display: block;">
+            <!--Begin row-->
+            <div class="row">  
+                <!-- Content PreviewServiceRequest -->
+                <div class="@CSSResource.FullPage">
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+                    @(Html.Kendo().Grid<AppendixTableViewModel>()
+                          .Name("grid")
+                        .Events(events => events.ExcelExport("excelExportFunctionForAppendix"))
+                        .Excel(ex => ex.FileName("Appendix" + "_" + DateTime.Now.ToString(ConfigResource.FormatDate + "_" + ConfigResource.FormatTime) + ".xlsx").AllPages(true))
+        
+                          .Columns(
+                              column =>
+                              {
+                                  column.Bound(e => e.BillingItem).Width(100);
+                                  column.Bound(e => e.Type).Width(150);
+                                  column.Bound(e => e.MaterialType).Width(150);
+                                  column.Bound(e => e.MaterialNo).Width(180);
+                                  column.Bound(e => e.Description).Width(150);
+                                  column.Bound(e => e.Equipment).Width(150);
+                                  column.Bound(e => e.SerialNumber).Width(180);
+                                  column.Bound(e => e.Location).Width(180);
+                                  column.Bound(e => e.SalaryNumber).Width(150);
+                                  column.Bound(e => e.Holder).Width(150);
+                                  column.Bound(e => e.SubArea).Width(150);
+                                  column.Bound(e => e.Year).Width(180);
+                                  column.Bound(e => e.Currency).Width(180);
+                                  column.Bound(e => e.Charges).Width(150);
+                                  column.Bound(e => e.Deduction).Width(150);
+                                  column.Bound(e => e.ContractNo).Width(150);
+                                  column.Bound(e => e.ContractItem).Width(180);
+                                  column.Bound(e => e.IdrNo).Width(180);
+                                  column.Bound(e => e.IdrDate).Width(150);
+                                  column.Bound(e => e.ValidFrom).Width(150);
+                                  column.Bound(e => e.ValidTo).Width(150);
+                                  column.Bound(e => e.PersArea).Width(180);
+                                  column.Bound(e => e.OrgUnit).Width(180);
+                                  column.Bound(e => e.OuCode).Width(150);
+                                  column.Bound(e => e.CostCenter).Width(150);
+                                  column.Bound(e => e.OriginMatCode).Width(150);
+                                  column.Bound(e => e.OtherInformation).Width(180);
+                                  column.Bound(e => e.Remarks).Width(180);
+                              })
+                            .ToolBar(toolbar =>
+                            {
+                                toolbar.Template(@<text>
+                                                    <div>
+                                                        <button id="export-to-excel-button" class="k-button k-button-icontext k-grid-excel">
+                                                            <span class="k-icon k-i-excel"></span>
+                                                            Export to Excel
+                                                        </button>
+                                                    </div>
+                                                </text>);
+                            })
+                          .Groupable()
+                          .Sortable()
+                          .Resizable(resize => resize.Columns(true))
+                          .Reorderable(reorder => reorder.Columns(true))
+                          .ColumnMenu()
+                          .Scrollable()
+                          .Pageable(pageable => pageable.Refresh(true))
+                          .DataSource(dataSource => dataSource
+                              .Ajax()
+                              .PageSize(1000)
+                              .ServerOperation(false)                              
+                              .Read(read => read.Action("AppendixItems_Read", "BillingReporting", new { bilDoc = ViewBag.bilDoc }))
+                          )
+                    )
+                </div>
+            </div>
+            <!--End Row-->
+        </div>
+
+    </div>
+}
+
+@section javascript{
+    
+    <script type="text/kendo-template" id="messageBoxForGrid">
+    <div class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+         style="margin: 0.5em; display: block; " data-for="#=field#" data-valmsg-for="#=field#" id="#=field#_validationMessage">
+        <span class="k-icon k-warning"> </span>#=message#<div class="k-callout k-callout-n"></div>
+    </div>
+    </script>
+    
+    
+}

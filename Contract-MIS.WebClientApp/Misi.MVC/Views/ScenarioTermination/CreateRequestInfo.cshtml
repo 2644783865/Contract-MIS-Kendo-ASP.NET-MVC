@@ -1,0 +1,126 @@
+﻿@using Misi.MVC.ViewModels;
+@using Misi.MVC.Resources;
+@using Kendo.Mvc.UI;
+@model Misi.MVC.ViewModels.ScenarioTermination.RequestInfoViewModel
+
+@{
+    ViewBag.Title = SharedResource.Create + " " + SharedResource.RequestInfo;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("CreateRequestInfo", "ScenarioTermination", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+   
+
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", SharedResource.RequestInfo)
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <!-- Content Form Routinginformation -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoHeadingViewModel.ServiceId).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.RequestInfoHeadingViewModel.ServiceId).Class(CSSResource.FormControlGlobal).Readonly(true)
+                            @Html.ValidationMessageFor(m => m.RequestInfoHeadingViewModel.ServiceId)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoHeadingViewModel.Scenario).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.RequestInfoHeadingViewModel.Scenario).Class(CSSResource.FormControlGlobal).Readonly(true)
+                            @Html.ValidationMessageFor(m => m.RequestInfoHeadingViewModel.Scenario)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoHeadingViewModel.DetailScenariosListItems).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().MultiSelect().Name("scenario").BindTo(Model.RequestInfoHeadingViewModel.DetailScenariosListItems).Value(Model.RequestInfoHeadingViewModel.DetailScenariosListItems.Where(e => e.Selected).Select(e => e.Value))
+                            @Html.ValidationMessageFor(m => m.RequestInfoHeadingViewModel.DetailScenariosListItems)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoHeadingViewModel.IssuedByListItems).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DropDownList().Name("IssuedBy").BindTo(Model.RequestInfoHeadingViewModel.IssuedByListItems).Value(Model.RequestInfoHeadingViewModel.IssuedByListItems.FirstOrDefault(e => e.Selected).Value).Enable(false)
+                            @Html.ValidationMessageFor(m => m.RequestInfoHeadingViewModel.IssuedByListItems)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoHeadingViewModel.IssuedDate).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @*@Html.Bootstrap().TextBoxFor(m => m.RequestInfoHeadingViewModel.IssuedDate).Class(CSSResource.FormControlGlobal)*@
+                            @Html.Kendo().DatePickerFor(m => m.RequestInfoHeadingViewModel.IssuedDate).Value(DateTime.Today).Format(ConfigResource.FormatDate).Enable(false)
+                            @Html.ValidationMessageFor(m => m.RequestInfoHeadingViewModel.IssuedDate)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoHeadingViewModel.RequestedViaListItems).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DropDownList().Name("RequestedVia").BindTo(Model.RequestInfoHeadingViewModel.RequestedViaListItems).Value(Model.RequestInfoHeadingViewModel.RequestedViaListItems.FirstOrDefault(e => e.Selected).Value)
+                            @Html.ValidationMessageFor(m => m.RequestInfoHeadingViewModel.RequestedViaListItems)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoHeadingViewModel.RequestMemo).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextAreaFor(m => m.RequestInfoHeadingViewModel.RequestMemo).Class(CSSResource.TextAreaControl)
+                            @Html.ValidationMessageFor(m => m.RequestInfoHeadingViewModel.RequestMemo)
+                        </div>
+                    </div>
+                </div>
+                <!--Upload File-->
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoHeadingViewModel.FileUpload).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @(Html.Kendo().Upload().Name("files").Multiple(false).Async(a => a.Save("Save", "ScenarioTermination").Remove("Remove", "ScenarioTermination").AutoUpload(false)))
+                        </div>
+                    </div>
+                </div>
+                <!--End Upload File-->
+                <div class="col-lg-12">
+                    <!-- Content Form Routing Table -->
+                    @(Html.Kendo().Grid(Model.RequestInfoHeadingViewModel.TerminationRequestInfoLineViewModels)
+                          .Name("TerminationTable")
+                          .Columns(
+                              c =>
+                              {
+                                  c.Bound(e => e.Item).Width(100);
+                                  c.Bound(e => e.Company).Width(150);
+                                  c.Bound(e => e.HolderName).Width(150);
+                                  c.Bound(e => e.SalaryNumber).Width(150);
+                                  c.Bound(e => e.UserId).Width(150);
+                                  c.Bound(e => e.Branch).Width(150);
+                                  c.Bound(e => e.Application).Width(150);
+                                  c.Bound(e => e.RequestDate).Width(150);
+                                  c.Bound(e => e.RequestedBy).Width(150);
+                                  c.Bound(e => e.ExtensionNumber).Width(180);
+                                  c.Bound(e => e.Status).Width(100);
+                              })
+                              .ColumnMenu()
+                              .Sortable()
+                              .Scrollable()
+                     )
+                    <!-- Content Form Routing Table -->
+                </div>
+
+                <!-- Content Form Routinginformation -->
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="@CSSResource.FullPage">
+                    @Html.Bootstrap().SubmitButton().Text(SharedResource.SaveDraft).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                    @Html.Bootstrap().ActionLink(SharedResource.Next, "CreateRoutingInfo", "ScenarioTermination").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconNext))
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

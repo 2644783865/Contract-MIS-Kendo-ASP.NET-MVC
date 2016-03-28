@@ -1,0 +1,80 @@
+﻿@using Misi.MVC.ViewModels.ServiceRequest
+@using Misi.MVC.Resources
+
+@model CreateServiceRequestViewModel
+
+@{
+    ViewBag.Title = SharedResource.Create + " " + SharedResource.RequestInfo;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("Create", "ServiceRequest", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", ServiceRequestResource.CreateServiceRequest)
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <!-- Content Form Routinginformation -->
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        <label class="@CSSResource.FormLabel">@ServiceRequestResource.CreateRefAuto</label>
+                        <div class=@CSSResource.FormControlDiv>
+                            <span class="switch event-switch fixed-width-lg">
+                                <input type="radio" checked="checked" value="1" id="reference_on" name="reference" class="toggle-radio">
+                                <label for="reference_on">@SharedResource.Yes</label>
+                                <input type="radio" value="0" id="reference_off" name="reference" class="toggle-radio">
+                                <label for="reference_off">@SharedResource.No</label>
+                                <a class="slide-button btn"></a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.Scenarios).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().DropDownListFor(m => m.Scenarios.PostData, Model.Scenarios.Sources).Class(CSSResource.FormControlGlobal)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.IssuedByListItems).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().DropDownListFor(m => m.IssuedByListItems.PostData, Model.IssuedByListItems.Sources).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.IssuedByListItems)
+                        </div>
+                    </div>
+                    <div class="form-group" id="wrapper_ticket">
+                        @(Html.Bootstrap().LabelFor(m => m.TicketId).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.TicketId).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.TicketId)
+                        </div>
+                    </div>
+                    <div class="form-group" id="wrapper_notification">
+                        @(Html.Bootstrap().LabelFor(m => m.NotificationId).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.NotificationId).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.NotificationId)
+                        </div>
+                    </div>
+                    <div class="form-group" id="wrapper_service">
+                        @(Html.Bootstrap().LabelFor(m => m.ServiceId).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.ServiceId).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.ServiceId)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <div class="row">
+                <div class="@CSSResource.FullPage">
+                    @Html.Bootstrap().SubmitButton().Text(SharedResource.Create).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconAdd))
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

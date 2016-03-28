@@ -1,0 +1,79 @@
+﻿@using Misi.MVC.Resources
+@model Misi.MVC.ViewModels.ProformaInvoice.CreateIncorrectExternalDataViewModel
+
+
+@{
+    ViewBag.Title = ProformaInvoiceResource.CreateIncorrectExternalData;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("CreateIncorrectExternalData", "ProformaInvoice", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", ProformaInvoiceResource.CreateIncorrectExternalData)
+        <div class="panel-body" style="display: block;">
+
+            <div class="row">
+                <div class=@CSSResource.FullPage>
+                    @(Html.Kendo().Grid(Model.BillingItemViewModel)
+                          .Name("GridBillingItemViewModel")
+                          .Columns(
+                              column =>
+                              {
+                                  column.Bound(m => m.BillingItem).Width(200);
+                                  column.Bound(m => m.BillingNo).Width(200);
+                                  column.Bound(m => m.Type).Width(200);
+                                  column.Bound(m => m.MaterialType).Width(200);
+                                  column.Bound(m => m.MaterialNo).Width(200);
+                                  column.Bound(m => m.Description).Width(300);
+                                  column.Bound(m => m.Equipment).Width(200);
+                                  column.Bound(m => m.SerialNumber).Width(200);
+                                  column.Bound(m => m.Location).Width(200);
+                                  column.Bound(m => m.SalaryNumber).Width(200);
+                                  column.Bound(m => m.HolderName).Width(200);
+                                  column.Bound(m => m.SubArea).Width(200);
+                                  column.Bound(m => m.Year).Width(100);
+                                  column.Bound(m => m.Currency).Width(100);
+                                  column.Bound(m => m.Charge).Width(100);
+                                  column.Bound(m => m.Deduction).Width(200);
+                                  column.Bound(m => m.ContractNumber).Width(200);
+                                  column.Bound(m => m.IdrNo).Width(200);
+                                  column.Bound(m => m.IdrDate).Width(200);
+                                  column.Bound(m => m.ValidFrom).Width(200);
+                                  column.Bound(m => m.ValidTo).Width(200);
+                                  column.Bound(m => m.PersArea).Width(200);
+                                  column.Bound(m => m.OrgUnit).Width(200);
+                                  column.Bound(m => m.OuCode).Width(150);
+                                  column.Bound(m => m.CostCenter).Width(200);
+                                  column.Bound(m => m.OriginMatCode).Width(200);
+                                  column.Bound(m => m.OtherInformation).Width(300);
+                                  column.Bound(m => m.Remarks).Width(300);
+                              }
+                          )
+                          .ColumnMenu()
+                          .Pageable()
+                          .Scrollable()
+                          .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+                          .Resizable(resize => resize.Columns(true))
+                          .Reorderable(reorder => reorder.Columns(true))
+                        // .Selectable(selectable => selectable.Mode(GridSelectionMode.Multiple))
+                        //.Navigatable()
+                        )
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="panel-footer">
+            <div class="row">
+                <div class="@CSSResource.FullPage">
+                    @Html.Bootstrap().SubmitButton().Text(SharedResource.Save).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+}

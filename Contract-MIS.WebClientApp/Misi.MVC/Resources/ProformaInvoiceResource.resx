@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BillingDateFrom" xml:space="preserve">
+    <value>Billing Date From</value>
+  </data>
+  <data name="BillingDateTo" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="BillingDocsCriteria" xml:space="preserve">
+    <value>Billing Docs Criteria</value>
+  </data>
+  <data name="BillingItem" xml:space="preserve">
+    <value>Billing Item</value>
+  </data>
+  <data name="BillingNo" xml:space="preserve">
+    <value>Billing Document No.</value>
+  </data>
+  <data name="BillingType" xml:space="preserve">
+    <value>Billing Type</value>
+  </data>
+  <data name="Charge" xml:space="preserve">
+    <value>Charges</value>
+  </data>
+  <data name="CostCenter" xml:space="preserve">
+    <value>Cost Center</value>
+  </data>
+  <data name="CreateOn" xml:space="preserve">
+    <value>Create On</value>
+  </data>
+  <data name="HolderName" xml:space="preserve">
+    <value>Holder</value>
+  </data>
+  <data name="ItemNumber" xml:space="preserve">
+    <value>Item No</value>
+  </data>
+  <data name="MaterialType" xml:space="preserve">
+    <value>Material Type</value>
+  </data>
+  <data name="OrgUnit" xml:space="preserve">
+    <value>Org. Unit</value>
+  </data>
+  <data name="OriginMatCode" xml:space="preserve">
+    <value>Origin Mat. Code</value>
+  </data>
+  <data name="OUCode" xml:space="preserve">
+    <value>OU Code</value>
+  </data>
+  <data name="PersArea" xml:space="preserve">
+    <value>Pers. Area</value>
+  </data>
+  <data name="SdDocument" xml:space="preserve">
+    <value>SD Document</value>
+  </data>
+  <data name="SubArea" xml:space="preserve">
+    <value>Sub Area</value>
+  </data>
+  <data name="ValidFrom" xml:space="preserve">
+    <value>Valid From</value>
+  </data>
+  <data name="ValidTo" xml:space="preserve">
+    <value>Valid To</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="SDDocumentLineItem" xml:space="preserve">
+    <value>SD Document Line Item</value>
+  </data>
+  <data name="Deduction" xml:space="preserve">
+    <value>Deduction</value>
+  </data>
+  <data name="SNorIDNumber" xml:space="preserve">
+    <value>SNorIDNumber</value>
+  </data>
+  <data name="DisplayInvoice" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="RunInvoice" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="ReasonForRejection" xml:space="preserve">
+    <value>Reason for Rejection</value>
+  </data>
+  <data name="CreatedOn" xml:space="preserve">
+    <value>Created On</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="BillingErrorLog" xml:space="preserve">
+    <value>Billing Error Log</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="Final" xml:space="preserve">
+    <value>Final</value>
+  </data>
+  <data name="MSTProformaInvoice" xml:space="preserve">
+    <value>MST Proforma Invoice (ZF9)
+</value>
+  </data>
+  <data name="SoldToPartyTo" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="BillingRun" xml:space="preserve">
+    <value>Billing Run</value>
+  </data>
+  <data name="MainProformaInvoice" xml:space="preserve">
+    <value>Main Proforma Invoice</value>
+  </data>
+  <data name="SoldToPartyFrom" xml:space="preserve">
+    <value>Sold-To Party</value>
+  </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="MainInvoice" xml:space="preserve">
+    <value>Main Proforma Invoice</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="CreateIncorrectExternalData" xml:space="preserve">
+    <value>Create Incorrect External Data</value>
+  </data>
+  <data name="Equipment" xml:space="preserve">
+    <value>Equipment</value>
+  </data>
+  <data name="IdrDate" xml:space="preserve">
+    <value>IDR Date</value>
+  </data>
+  <data name="IdrNo" xml:space="preserve">
+    <value>IDR No.</value>
+  </data>
+  <data name="MaterialNo" xml:space="preserve">
+    <value>Material No.</value>
+  </data>
+  <data name="SalaryNumber" xml:space="preserve">
+    <value>Salary Number</value>
+  </data>
+  <data name="SerialNumber" xml:space="preserve">
+    <value>Serial Number</value>
+  </data>
+  <data name="SoldToParty" xml:space="preserve">
+    <value>Sold-To Party</value>
+  </data>
+  <data name="IsSelected" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="BillingdocNumber1" xml:space="preserve">
+    <value>1970000000</value>
+  </data>
+  <data name="BillingdocNumber2" xml:space="preserve">
+    <value>1960000000</value>
+  </data>
+  <data name="BillingdocNumber3" xml:space="preserve">
+    <value>1950000000</value>
+  </data>
+  <data name="BillingdocNumber4" xml:space="preserve">
+    <value>1940000000</value>
+  </data>
+  <data name="CreatedbyList" xml:space="preserve">
+    <value>Billing Admin</value>
+  </data>
+  <data name="BillingDocumentDisplayPopupTitle" xml:space="preserve">
+    <value>Display - Billing Document</value>
+  </data>
+  <data name="BillingDocumentRunPopupTitle" xml:space="preserve">
+    <value>Run - Billing Document</value>
+  </data>
+  <data name="BillingTypeMSTProformaInvoice" xml:space="preserve">
+    <value>MST Proforma Invoice (ZF9)</value>
+  </data>
+  <data name="MainInformationHeader" xml:space="preserve">
+    <value>Harap isi field di bawah ini untuk transaksi berikut:
+
+ Create New                      :   -  Billing Date From/ To                          
+                                                    -  Sold-To Party                                                                                                            
+Run &amp; Display Invoice   :   - Billing Date From/ To 
+                                                    - Sold-To Party
+                                                    - Billing Run</value>
+  </data>
+  <data name="BillingDocumentCreateNewPopupTitle" xml:space="preserve">
+    <value>Create New Proforma Invoice from Document Number</value>
+  </data>
+  <data name="BillingDocNumber" xml:space="preserve">
+    <value>Billing Doc Number</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="CreatedTime" xml:space="preserve">
+    <value>Created Time</value>
+  </data>
+  <data name="SelectedDocument" xml:space="preserve">
+    <value>Selected Document</value>
+  </data>
+  <data name="IsActiveDocumentSelected" xml:space="preserve">
+    <value>Active Billing Document</value>
+  </data>
+  <data name="IsBlockedDocumentSelected" xml:space="preserve">
+    <value>Blocked Billing Document</value>
+  </data>
+  <data name="BillingBlock" xml:space="preserve">
+    <value>Billing Block</value>
+  </data>
+  <data name="BillingBlocked" xml:space="preserve">
+    <value>Billing Blocked</value>
+  </data>
+  <data name="CompletionOfContract" xml:space="preserve">
+    <value>Completion of Contract</value>
+  </data>
+  <data name="EquipmentRejection" xml:space="preserve">
+    <value>Equipment Rejection</value>
+  </data>
+  <data name="TechnicalReason" xml:space="preserve">
+    <value>Technical Reason</value>
+  </data>
+  <data name="ContractItem" xml:space="preserve">
+    <value>Contract Item</value>
+  </data>
+  <data name="ProformaInvoiceHeader" xml:space="preserve">
+    <value>Proforma Invoice Header</value>
+  </data>
+  <data name="ProformaInvoiceItem" xml:space="preserve">
+    <value>Proforma Invoice Item</value>
+  </data>
+  <data name="ContractNumber" xml:space="preserve">
+    <value>Contract Number</value>
+  </data>
+  <data name="EstimatedTime" xml:space="preserve">
+    <value>Estimated Time</value>
+  </data>
+  <data name="IsFinal" xml:space="preserve">
+    <value>Is Final Version?</value>
+  </data>
+  <data name="SubmitToSAP" xml:space="preserve">
+    <value>Submit to SAP</value>
+  </data>
+  <data name="RepairAndMaintenance" xml:space="preserve">
+    <value>Repair and Maintenance</value>
+  </data>
+  <data name="CurrentNumberOfRows" xml:space="preserve">
+    <value>Current number of rows</value>
+  </data>
+  <data name="ConfirmSubmitToSAP" xml:space="preserve">
+    <value>Please make sure that you have Updated Changes first before Submitting to SAP</value>
+  </data>
+  <data name="InfoRefreshIfLargeData" xml:space="preserve">
+    <value>Kindly press REFRESH button on the bottom-left of table below.</value>
+  </data>
+  <data name="SubmitToSAPSucessMessage" xml:space="preserve">
+    <value>Hurray!! You have submited Billing Run to SAP successfully!!</value>
+  </data>
+  <data name="UpdateChangeSuccessMessage" xml:space="preserve">
+    <value>Hurray!! You have updated this Billing Run to Database successfully!!</value>
+  </data>
+  <data name="IsSavedAsDraft" xml:space="preserve">
+    <value>Do you want to save as draft?</value>
+  </data>
+  <data name="SaveAsDraftSuccessMessage" xml:space="preserve">
+    <value>Hurray!! You have saved this Billing Run to Database successfully!!</value>
+  </data>
+  <data name="Additionalparts" xml:space="preserve">
+    <value>Additional parts</value>
+  </data>
+  <data name="AssignedbytheSystem" xml:space="preserve">
+    <value>Assigned by the System (Internal)</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Availability</value>
+  </data>
+  <data name="BillingBlocked1" xml:space="preserve">
+    <value>Billing Blocked</value>
+  </data>
+  <data name="BillingbyDebitMemo" xml:space="preserve">
+    <value>Billing by Debit Memo</value>
+  </data>
+  <data name="Competitorbetter" xml:space="preserve">
+    <value>Competitor better</value>
+  </data>
+  <data name="CompletionofContract1" xml:space="preserve">
+    <value>Completion of Contract</value>
+  </data>
+  <data name="Coverage" xml:space="preserve">
+    <value>Coverage</value>
+  </data>
+  <data name="Custtoreceivereplacement" xml:space="preserve">
+    <value>Cust.to receive replacement</value>
+  </data>
+  <data name="Deliverydatetoolate" xml:space="preserve">
+    <value>Delivery date too late</value>
+  </data>
+  <data name="DocumentHeld" xml:space="preserve">
+    <value>Document Held</value>
+  </data>
+  <data name="DontPrint" xml:space="preserve">
+    <value>Don't Print</value>
+  </data>
+  <data name="DoubleInput" xml:space="preserve">
+    <value>Double Input</value>
+  </data>
+  <data name="EquipmentRejection1" xml:space="preserve">
+    <value>Equipment Rejection</value>
+  </data>
+  <data name="EquipmentReplacement" xml:space="preserve">
+    <value>Equipment Replacement</value>
+  </data>
+  <data name="ExcessHours" xml:space="preserve">
+    <value>Excess Hours</value>
+  </data>
+  <data name="Guarantee" xml:space="preserve">
+    <value>Guarantee</value>
+  </data>
+  <data name="LostSales" xml:space="preserve">
+    <value>Lost Sales</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="Poorquality" xml:space="preserve">
+    <value>Poor quality</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="ProductSpecification" xml:space="preserve">
+    <value>Product Specification</value>
+  </data>
+  <data name="PTTUservicerejection" xml:space="preserve">
+    <value>PTTU service rejection</value>
+  </data>
+  <data name="Rejectinprogress" xml:space="preserve">
+    <value>Reject in progress</value>
+  </data>
+  <data name="Relationship" xml:space="preserve">
+    <value>Relationship</value>
+  </data>
+  <data name="ReplacementITDevice" xml:space="preserve">
+    <value>Replacement IT Device</value>
+  </data>
+  <data name="Replacementparts" xml:space="preserve">
+    <value>Replacement parts</value>
+  </data>
+  <data name="ReturnedITDevice" xml:space="preserve">
+    <value>Returned IT Device</value>
+  </data>
+  <data name="RevokeUserApplication" xml:space="preserve">
+    <value>Revoke User Application</value>
+  </data>
+  <data name="SSBServiceRejection" xml:space="preserve">
+    <value>SSB Service Rejection</value>
+  </data>
+  <data name="Standardizaton" xml:space="preserve">
+    <value>Standardizaton</value>
+  </data>
+  <data name="Termofpayment" xml:space="preserve">
+    <value>Term of payment</value>
+  </data>
+  <data name="Tooexpensive" xml:space="preserve">
+    <value>Too expensive</value>
+  </data>
+  <data name="Transactionisbeingblock" xml:space="preserve">
+    <value>Transaction is being block</value>
+  </data>
+  <data name="Transactionisbeingchecked" xml:space="preserve">
+    <value>Transaction is being checked</value>
+  </data>
+  <data name="Transactiontobedeal" xml:space="preserve">
+    <value>Transaction to be deal</value>
+  </data>
+  <data name="Unreasonablerequest" xml:space="preserve">
+    <value>Unreasonable request</value>
+  </data>
+  <data name="UpgradeITDevice" xml:space="preserve">
+    <value>Upgrade IT Device</value>
+  </data>
+  <data name="ZProgramDoNotUse" xml:space="preserve">
+    <value>ZProgram Do Not Use</value>
+  </data>
+  <data name="HeaderProformaInvoice" xml:space="preserve">
+    <value>Header - Proforma Invoice</value>
+  </data>
+  <data name="TableProformaInvoice" xml:space="preserve">
+    <value>Table - Proforma Invoice</value>
+  </data>
+  <data name="PleaseSelectReasonForRejection" xml:space="preserve">
+    <value>Please select ...</value>
+  </data>
+  <data name="DisplayProformaInvoice" xml:space="preserve">
+    <value>Display Proforma Invoice</value>
+  </data>
+  <data name="NewProformaInvoice" xml:space="preserve">
+    <value>New Proforma Invoice</value>
+  </data>
+  <data name="RunProformaInvoice" xml:space="preserve">
+    <value>Run Proforma Invoice</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>TF400324: Team Foundation services are not available from server win2k8r2tfs.tmt.co.id.</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Technical information (for administrator):</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>The remote name could not be resolved: 'win2k8r2tfs.tmt.co.id' Retry</value>
+  </data>
+</root>

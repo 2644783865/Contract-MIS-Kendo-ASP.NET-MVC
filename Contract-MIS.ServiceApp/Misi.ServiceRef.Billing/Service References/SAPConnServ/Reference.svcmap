@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f6a29448-473f-4ff8-992b-0af1f5f26908" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8086/Service/SAPConnector.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SAPConnector.xsd" MetadataType="Schema" ID="69eb843c-6fb6-4c0b-bd78-e887be641f62" SourceId="1" SourceUrl="http://localhost:8086/Service/SAPConnector.svc?xsd=xsd1" />
+    <MetadataFile FileName="SAPConnector1.xsd" MetadataType="Schema" ID="f54f2963-0e8a-459c-8086-a2c552d3c412" SourceId="1" SourceUrl="http://localhost:8086/Service/SAPConnector.svc?xsd=xsd0" />
+    <MetadataFile FileName="SAPConnector2.xsd" MetadataType="Schema" ID="04223628-b434-4f0f-8328-1722dbef1526" SourceId="1" SourceUrl="http://localhost:8086/Service/SAPConnector.svc?xsd=xsd2" />
+    <MetadataFile FileName="SAPConnector.wsdl" MetadataType="Wsdl" ID="f792ae4a-b711-499b-8b6a-af1e0414d6c3" SourceId="1" SourceUrl="http://localhost:8086/Service/SAPConnector.svc?wsdl" />
+    <MetadataFile FileName="SAPConnector.disco" MetadataType="Disco" ID="e0ef9af8-3c21-4be2-9dee-c3ff2e3d7a30" SourceId="1" SourceUrl="http://localhost:8086/Service/SAPConnector.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

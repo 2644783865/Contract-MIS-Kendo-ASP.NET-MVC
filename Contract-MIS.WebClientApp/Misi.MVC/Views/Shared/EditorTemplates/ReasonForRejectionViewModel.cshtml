@@ -1,0 +1,10 @@
+﻿@using System.Collections
+@using Misi.MVC.ViewModels.ProformaInvoice
+@model Misi.MVC.ViewModels.ProformaInvoice.ReasonForRejectionViewModel
+
+@{
+    @(Html.Kendo().DropDownListFor(m => m)
+        .DataValueField("ReasonForRejectionID")
+        .DataTextField("ReasonForRejectionName")
+                        .BindTo(ViewBag.ReasonForRejectionData as IEnumerable<ReasonForRejectionViewModel>))     
+}

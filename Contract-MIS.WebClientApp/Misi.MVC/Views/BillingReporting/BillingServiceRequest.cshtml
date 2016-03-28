@@ -1,0 +1,100 @@
+﻿@using Misi.MVC.Resources
+@using Misi.MVC.ViewModels.BillingReporting
+@using Kendo.Mvc.UI
+
+@model BillingServiceRequestViewModel
+
+@{
+    ViewBag.Title = BillingReportingResource.BillingServiceRequestTitle;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("BillingServiceRequest", "BillingReporting", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", BillingReportingResource.BillingServiceRequestTitle)
+        <div class="row">
+            <div class=@CSSResource.HalfPage>
+                <div class="form-group">
+                    @(Html.Bootstrap().LabelFor(m => m.IssuedDateFrom).Class(CSSResource.FormLabel))
+                    <div class=@CSSResource.FormControlDiv>
+                        @(Html.Kendo().DatePickerFor(m => m.IssuedDateFrom).Format(ConfigResource.FormatDate)
+                              .Name("start")
+                              .Events(e => e.Change("startChange"))
+                              )
+                        @Html.ValidationMessageFor(m => m.IssuedDateFrom)
+                    </div>
+                </div>
+            </div>
+            <div class=@CSSResource.HalfPage>
+                <div class="form-group">
+                    @(Html.Bootstrap().LabelFor(m => m.IssuedDateTo).Class(CSSResource.FormLabelPair))
+                    <div class=@CSSResource.FormControlDiv>
+                        @(Html.Kendo().DatePickerFor(m => m.IssuedDateTo).Format(ConfigResource.FormatDate)
+                              .Name("end")
+                              .Events(e => e.Change("endChange")))
+                        @Html.ValidationMessageFor(m => m.IssuedDateTo)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        @CSSResource.Table --> <table><tr><td></td></tr></table>
+
+        <div class="row">
+            <div class="@CSSResource.HalfPage">
+                <div class="form-group">
+                    @(Html.Bootstrap().LabelFor(m => m.ScenarioCheckList).Class(CSSResource.FormLabel))
+                    <div class=@CSSResource.FormControlDiv>
+                        <div class="row">
+                            @Html.Bootstrap().CheckBoxFor(m => m.ScenarioCheckList.IncorrectExternalData)
+                            @(Html.Bootstrap().LabelFor(m => m.ScenarioCheckList.IncorrectExternalData))
+                        </div>
+                        <div class="row">
+                            @Html.Bootstrap().CheckBoxFor(m => m.ScenarioCheckList.Termination)
+                            @(Html.Bootstrap().LabelFor(m => m.ScenarioCheckList.Termination))
+                        </div>
+                        <div class="row">
+                            @Html.Bootstrap().CheckBoxFor(m => m.ScenarioCheckList.ReturnDevice)
+                            @(Html.Bootstrap().LabelFor(m => m.ScenarioCheckList.ReturnDevice))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <div class="bootstrap">
+                <div class="@CSSResource.FullPage">
+                    @Html.Bootstrap().SubmitButton().Text(BillingReportingResource.Print).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconPrint))
+                    @Html.Bootstrap().ActionLink(SharedResource.Cancel, "Index", "Home").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    function startChange() {
+        var endPicker = $("#end").data("kendoDatePicker"),
+            startDate = this.value();
+
+        if (startDate) {
+            startDate = new Date(startDate);
+            startDate.setDate(startDate.getDate() + 1);
+            endPicker.min(startDate);
+        }
+    }
+
+    function endChange() {
+        var startPicker = $("#start").data("kendoDatePicker"),
+            endDate = this.value();
+
+        if (endDate) {
+            endDate = new Date(endDate);
+            endDate.setDate(endDate.getDate() - 1);
+            startPicker.max(endDate);
+        }
+    }
+</script>

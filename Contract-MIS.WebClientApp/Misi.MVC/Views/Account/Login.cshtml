@@ -1,0 +1,233 @@
+﻿@using Misi.MVC.Resources
+@using Misi.MVC.ViewModels.Account
+@model Misi.MVC.ViewModels.Account.LoginViewModel
+
+
+@{
+    ViewBag.Title = AccountResource.LoginTitle;
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div id="login">
+    <div id="content">
+        <div id="login-panel">
+            <div id="login-header">
+                <h1 class="text-center">
+                    <img id="logo" src="~/Content/img/logo-mst-yellow.png" width="100px" />
+                    MISI Quick Win
+                </h1>
+                <hr/>
+                <div id="error" class="hide alert alert-danger"></div>
+            </div>
+            <!-- flip-container -->
+            <div class="flip-container">
+                <!-- flipper -->
+                <div class="flipper">
+                    <!-- front -->
+                    <div class="front panel">
+
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-envelope"></i></span>
+                                    @*<input name="email" id="email" class="form-control global" autofocus="autofocus" tabindex="1" placeholder="Active Directory ( mahadasha\guroh.ramadhan )" type="text">*@
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control global", autofocus = "autofocus", tabindex = "1", placeholder = "Active Directory (guroh.ramadhan )" })
+
+                                </div>
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-key"></i></span>
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control global", autofocus = "autofocus", tabindex = "2", placeholder = "Password" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PasswordSAP, new { @class = "control-label" })
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-key"></i></span>
+                                    @Html.PasswordFor(m => m.PasswordSAP, new { @class = "form-control global", autofocus = "autofocus", tabindex = "3", placeholder = "PasswordSAP" })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.PasswordSAP, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group clearfix">
+                                <a class="go-to-faq pull-right" href="#" tabindex="4">
+                                    Go to FAQ
+                                </a>
+                            </div>
+                            <div class="panel-footer">
+                                <button name="submitLogin" type="submit" tabindex="5" class="btn btn-default btn-lg btn-block" data-style="slide-up" data-spinner-color="black">
+                                    <span class="ladda-label">
+                                        <i class="fa fa-sign-in text-success"></i>
+                                        Sign in
+                                    </span>
+                                </button>
+                            </div>
+                            <input name="redirect" id="redirect" value="&amp;token=f5666b1c18f8bac0050575d788ef5bda" type="hidden" />
+                        }
+                    </div>
+                    <!-- front panel -->
+                    <!-- back panel -->
+                    <div class="back panel">
+                        <h2 class="text-center">FAQ</h2>
+                        <!-- panel-group -->
+                        <div role="tablist" id="accordion" class="panel-group">
+                            <div class="panel panel-default">
+                                <div id="headingOne" role="tab" class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" class="collapsed">
+                                            <i class="fa fa-chevron-down"></i> How to register new user ?
+                                        </a>
+                                    </h4>
+
+                                </div>
+                                <div role="tabpanel" class="panel-collapse collapse" id="collapseOne" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <div class="accordion-inner">
+                                            <ul>
+                                                <li> Click the sign up link </li>
+                                                <li>
+                                                    Fill and submit the registration form
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div id="headingTwo" role="tab" class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#collapseTwo" data-parent="#accordion" data-toggle="collapse" class="collapsed">
+                                            <i class="fa fa-chevron-down"></i> Forgot Password ?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div role="tabpanel" class="panel-collapse collapse" id="collapseTwo" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <div class="accordion-inner">
+                                            <ul>
+                                                <li> Click the sign up link </li>
+                                                <li>
+                                                    Fill and submit the registration form
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div id="headingThree" role="tab" class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#collapseThree" data-parent="#accordion" data-toggle="collapse" class="collapsed">
+                                            <i class="fa fa-chevron-down"></i> How to login ?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div role="tabpanel" class="panel-collapse collapse" id="collapseThree" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <div class="accordion-inner">
+                                            <ul>
+                                                <li>For user who have LAN ID from MST, please login with LAN ID. <a href="login_user_guide.pdf" target="_blank" style="color:#a28a11;font-size:12px" title="Click here for download"><strong></strong></a> </li>
+                                                <li> For user who don't have LAN ID from MST, but have been registered in this application, please use your e-mail address as username. </li>
+                                                <li>For user who don't have LAN ID from MST, but have not been registered in this application, please sign up first. </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div id="headingThree" role="tab" class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#collapseFour" data-parent="#accordion" data-toggle="collapse" class="collapsed">
+                                            <i class="fa fa-chevron-down"></i> I get an error message when login ?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div role="tabpanel" class="panel-collapse collapse" id="collapseFour" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <div class="accordion-inner">
+                                            <ul>
+                                                <li>
+                                                    Press CTRL+Print Screen
+                                                </li>
+                                                <li>
+                                                    Open paint brush or MS Word or email client tools or image tools
+                                                </li>
+                                                <li>
+                                                    Press CTRL+V (Paste) and save image
+                                                </li>
+                                                <li>
+                                                    Attach image or word file and send email to MST Helpdesk
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="panel panel-default">
+                                <div id="headingThree" role="tab" class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a href="#collapseFive" data-parent="#accordion" data-toggle="collapse" class="collapsed">
+                                            <i class="fa fa-chevron-down"></i> How to contact MST Helpdesk ?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div role="tabpanel" class="panel-collapse collapse" id="collapseFive" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <div class="accordion-inner">
+                                            <ul>
+                                                <li>
+                                                    By internal phone ext 2550
+                                                </li>
+                                                <li>
+                                                    By external phone 021-2997 6600 (Hunting)
+                                                </li>
+                                                <li>
+                                                    By email
+                                                    <a href="mailto:helpdesk@mst.co.id" target="_blank" style="color:#a28a11;font-size:12px" title="click here for send email"><strong>helpdesk@mst.co.id</strong></a>
+                                                </li>
+                                                <li>
+                                                    Address : <br>TMT 1 Building GF Floor <br>PT Mitra Solusi Telematika <br>Cilandak KKO Street No. 1 <br>Jakarta 12560
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- panel-group -->
+                        <div class="panel-footer">
+                            <button tabindex="7" class="btn btn-default go-to-login" href="#" type="button">
+                                <i class="fa fa-chevron-left"></i>
+                                Back to login
+                            </button>
+                        </div>
+                    </div>
+                    <!-- panel-group -->
+                </div>
+                <!-- flipper -->
+            </div>
+            <!-- flip-container -->
+            <div id="login-footer">
+                <p class="text-center text-muted">
+
+                    &copy 2015 MITRA <strong>SOLUSI</strong> TELEMATIKA - All rights reserved
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

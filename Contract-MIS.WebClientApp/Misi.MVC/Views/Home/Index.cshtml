@@ -1,0 +1,29 @@
+﻿@using Misi.MVC.Resources
+@model Misi.MVC.ViewModels.ScenarioGeneral.DummyBaseRoutingInfoViewModel
+
+@{
+    ViewBag.Title = SharedResource.Home;
+}
+
+@Html.ValidationSummary()
+@using (Html.BeginForm("CreateRoutingInfoLocation", "ScenarioTermination", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", "Routing Information")
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <!-- Content Form Routinginformation -->
+                <div class="form-group">
+                    @(Html.Bootstrap().LabelFor(m => m.DummyBaseRoutingInfoHeadingViewModel.BaseRoutingHeadingProperty).Class("col-md-3 control-label"))
+                    <div class="col-md-9">
+                        @Html.Bootstrap().TextBoxFor(m => m.DummyBaseRoutingInfoHeadingViewModel.BaseRoutingHeadingProperty).Class(CSSResource.FormControlGlobal)
+                    </div>
+                </div>
+                <!-- Content Form Routinginformation -->
+            </div>
+        </div>
+  
+    
+    </div>
+}

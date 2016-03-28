@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=0.75, maximum-scale=0.75, user-scalable=0" name="viewport">
+    <meta content="NOFOLLOW, NOINDEX" name="robots">
+    <title>Template Admin</title>
+    @*<link type="text/css" rel="stylesheet" href="~/Content/bootstrap.css"/>*@
+    <link href="@(Server.MapPath("~/Content/bootstrap.css"))" rel="stylesheet"/>
+    <style type="text/css">
+    #invoice table tbody tr td {
+        padding: 5px 0;
+    }
+
+    #invoice table thead th {
+        padding: 30px 0 7px;
+    }
+
+    #invoice table.table-custom thead th {
+        padding: 0;
+        border-bottom: none;
+    }
+
+    #invoice table.table-custom thead td {
+         border-top: none;
+         border-bottom: none;
+    }
+
+    .text-uppercase {
+        text-transform: uppercase;
+    }
+
+    .table-custom {
+        border-bottom: 1px solid #DDDDDD;
+    }
+
+    .total {
+        border-bottom: 1px solid #dddddd;
+        margin: -10px 0 10px;
+    }
+
+    .amount {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .total-inner {
+        padding-right: 0;
+    }
+
+    .no-border td, .no-border-top td {
+        border-top: 0 none !important;
+    }
+
+    .pagebreak {
+        page-break-after: always;
+        /*page-break-before: always;*/
+        /*Coba tambahkan 
+            page-break-inside: avoid/always*/ 
+    }
+
+    .no-border {
+        /*float: left;*/
+        margin-bottom: -10px;
+        margin-top: -10px;
+    }
+
+    #invoice table tbody tr td.no-border {
+        border-top: 0 none !important;
+    }
+
+    .no-border h4 {
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 3px;
+    }
+
+    
+</style>
+    <style type="text/css">  
+        h5 {
+            page-break-before: always;
+        }
+    
+    </style>
+
+   
+    
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

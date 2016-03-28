@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Error404";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div id="login">
+    <div id="content">
+        <div id="login-panel">
+            <div id="login-header">
+                <h1 class="text-center">
+                    Error404 - Page is not found
+                </h1>
+                <hr />
+            </div>
+            <!-- flip-container -->
+            <div class="flip-container">
+                <!-- flipper -->
+                <div class="flipper">
+                    <!-- front -->
+                    <div class="front panel">
+                        <p style="text-align: center">
+                            Please contact <a href="mailto:helpdesk@mst.co.id">helpdesk@mst.co.id</a>
+                        </p>
+                        <div class="panel-footer">
+                            <button id="back-to-dashboard-button" class="btn-default btn-lg btn-block" data-style="slide-up" data-spinner-color="black">
+                                <span class="ladda-label">
+                                    <i class="fa fa-sign-in text-success"></i>
+                                    Back to Dashboard
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="login-footer">
+                <p class="text-center text-muted">
+
+                    &copy 2015 MITRA <strong>SOLUSI</strong> TELEMATIKA - All rights reserved
+
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section javaScript{
+    <script type="text/javascript">
+        $("#back-to-dashboard-button").click(function () {
+            window.location = "/Account/Login";
+        });
+    </script>
+}

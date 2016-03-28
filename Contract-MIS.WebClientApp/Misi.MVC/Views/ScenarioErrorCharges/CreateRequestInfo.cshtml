@@ -1,0 +1,117 @@
+﻿@using Misi.MVC.ViewModels;
+@using Misi.MVC.Resources;
+@using Kendo.Mvc.UI;
+@model Misi.MVC.ViewModels.ScenarioErrorCharges.RequestInfoViewModel
+
+@{
+    ViewBag.Title = SharedResource.Create + " " + SharedResource.RequestInfo;
+}
+
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+@using (Html.BeginForm("CreateRequestInfo", "ScenarioErrorCharges", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", SharedResource.RequestInfo)
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <!-- Content Form Routinginformation -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.ServiceId).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.RequestInfoMainViewModel.ServiceId).Class(CSSResource.FormControlGlobal).Readonly(true)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.ServiceId)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.RequestedBy).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+
+                            @Html.Bootstrap().TextBoxFor(m => m.RequestInfoMainViewModel.RequestedBy).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.RequestedBy)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.SnOrIdNumber).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.RequestInfoMainViewModel.SnOrIdNumber).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.SnOrIdNumber)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.Company).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.RequestInfoMainViewModel.Company).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.Company)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.Location).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextAreaFor(m => m.RequestInfoMainViewModel.Location).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.Location)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.Email).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.RequestInfoMainViewModel.Email).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.Email)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.RequestedDate).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DatePickerFor(m => m.RequestInfoMainViewModel.RequestedDate).Format(ConfigResource.FormatDate).Value(DateTime.Today)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.RequestedDate)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.RequestedVia).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.RequestInfoMainViewModel.RequestedVia).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.RequestedVia)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.RequestMemo).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextAreaFor(m => m.RequestInfoMainViewModel.RequestMemo).Class(CSSResource.TextAreaControl)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.RequestMemo)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.IssuedByList).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DropDownList().Name("IssuedBy").BindTo(Model.RequestInfoMainViewModel.IssuedByListItems).Value(Model.RequestInfoMainViewModel.IssuedByListItems.FirstOrDefault(e => e.Selected).Value).Enable(false)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.IssuedByList)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RequestInfoMainViewModel.IssuedDate).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DatePickerFor(m => m.RequestInfoMainViewModel.IssuedDate).Format(ConfigResource.FormatDate).Value(DateTime.Today)
+                            @Html.ValidationMessageFor(m => m.RequestInfoMainViewModel.IssuedDate)
+                        </div>
+                    </div>
+                </div>
+                <!-- Content Form Routinginformation -->
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="bootstrap">
+                <div class="@CSSResource.FullPage">
+                    @Html.Bootstrap().SubmitButton().Text(SharedResource.SaveDraft).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                    @Html.Bootstrap().ActionLink(SharedResource.Next, "CreateRoutingInfo", "ScenarioErrorCharges").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconNext))
+                    @Html.Bootstrap().Button().Text(SharedResource.Cancel).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                </div>
+            </div>
+        </div>
+    </div>
+  
+}

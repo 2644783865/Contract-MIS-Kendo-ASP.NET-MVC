@@ -1,0 +1,54 @@
+﻿@using Misi.MVC.Resources
+
+@model Misi.MVC.ViewModels.ScenarioTransferAssets.RoutingInfoHeadingViewModel
+
+
+<div class="row">
+    <div class="@CSSResource.FullPage">
+        <div class="@CSSResource.HalfPage">
+            <div class="form-group">
+                @(Html.Bootstrap().LabelFor(m => m.RoutingCreationDate).Class(CSSResource.FormLabel))
+                <div class=@CSSResource.FormControlDiv>
+                    @Html.Kendo().DatePickerFor(m => m.RoutingCreationDate).Format(ConfigResource.FormatDate).Value(DateTime.Today).Enable(false)
+                    @Html.ValidationMessageFor(m => m.RoutingCreationDate)
+                </div>
+            </div>
+            <div class="form-group">
+                @(Html.Bootstrap().LabelFor(m => m.PredefinedScenarioViewModel.PredefinedScenario).Class(CSSResource.FormLabel))
+                <div class=@CSSResource.FormControlDiv>
+                    <div class="row">
+                        <div class=@CSSResource.HalfPage>
+                            @Html.Bootstrap().TextBoxFor(m => m.PredefinedScenarioViewModel.PredefinedScenario.FirstOrDefault(e => e.Selected).Value).Class("form-control global").Readonly()
+                            @Html.ValidationMessageFor(m => m.PredefinedScenarioViewModel.PredefinedScenario)
+                        </div>
+                        <div class=@CSSResource.HalfPage>
+                            @Html.Kendo().DropDownList().Name("subpredefinedscenario").BindTo(Model.PredefinedScenarioViewModel.SubPredefinedScenarioList).Value(Model.PredefinedScenarioViewModel.SubPredefinedScenarioList.FirstOrDefault(e => e.Selected).Value).Events(e => e.Select("onSelectedSubScenarioDropDownList"))
+                            @Html.ValidationMessageFor(m => m.PredefinedScenarioViewModel.SubPredefinedScenarioList)
+                        </div>
+                        <div class="@CSSResource.HelpText">
+                            @(Html.Bootstrap().LabelFor(m => m.ScenarioType).Class("global"))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="clearFix" />
+    </div>
+</div>
+
+
+<script type="text/javascript">
+   
+    function onSelectedSubScenarioDropDownList(e) {
+        var data = $("#TransferAssetType").data("kendoDropDownList");
+        var dataItem = this.dataItem(e.item.index());
+
+        if (dataItem.Value === "Location" ) {
+            window.location = "/ScenarioTransferAssets/CreateRoutingInfoLocation/";
+        } else {
+            window.location = "/ScenarioTransferAssets/CreateRoutingInfoHolder/";
+        }
+    }
+      
+</script>
+

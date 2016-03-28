@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SAPProxyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
+      <xsd:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Model.SAP" />
+      <xsd:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Object" />
+      <xsd:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Model.Common" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISAPProxyService_QuerySoldToParties_InputMessage">
+    <wsdl:part name="parameters" element="tns:QuerySoldToParties" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QuerySoldToParties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QuerySoldToPartiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QuerySoldToParties_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q1:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryBillingNumbers_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryBillingNumbers" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryBillingNumbers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryBillingNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryBillingNumbers_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q2:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryTotalBillingRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryTotalBillingRecords" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryTotalBillingRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryTotalBillingRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryTotalBillingRecords_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q3:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryRunInvoiceHeader" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryRunInvoiceHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceHeader_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q4:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceBillingsAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryRunInvoiceBillingsAll" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceBillingsAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryRunInvoiceBillingsAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceBillingsAll_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q5:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceHeaderFromDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryRunInvoiceHeaderFromDB" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceHeaderFromDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryRunInvoiceHeaderFromDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryRunInvoiceHeaderFromDB_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q6:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_UpdateRunInvoiceBilling_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRunInvoiceBilling" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_UpdateRunInvoiceBilling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRunInvoiceBillingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_UpdateRunInvoiceBilling_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q7:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveRunInvoiceBillings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRunInvoiceBillings" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveRunInvoiceBillings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRunInvoiceBillingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveRunInvoiceBillings_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q8:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryBillingRunsFromDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryBillingRunsFromDB" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryBillingRunsFromDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryBillingRunsFromDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_QueryBillingRunsFromDB_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q9:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveInitialSAPData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInitialSAPData" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveInitialSAPData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInitialSAPDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveInitialSAPData_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q10:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SubmitInvoiceProforma_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitInvoiceProforma" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SubmitInvoiceProforma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitInvoiceProformaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SubmitInvoiceProforma_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q11:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SubmitInvoiceProformaByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitInvoiceProformaByID" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SubmitInvoiceProformaByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitInvoiceProformaByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SubmitInvoiceProformaByID_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q12:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintAppendix_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillingsToPrintAppendix" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintAppendix_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillingsToPrintAppendixResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintAppendix_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q13:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintHeader_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillingsToPrintHeader" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintHeader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillingsToPrintHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintHeader_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q14:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrint_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillingsToPrint" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillingsToPrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrint_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q15:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintTotal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillingsToPrintTotal" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintTotal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillingsToPrintTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_GetBillingsToPrintTotal_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q16:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveBillingBlock_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBillingBlock" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveBillingBlock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBillingBlockResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPProxyService_SaveBillingBlock_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q17:FaultException" />
+  </wsdl:message>
+  <wsdl:portType name="ISAPProxyService">
+    <wsdl:operation name="QuerySoldToParties">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/QuerySoldToParties" message="tns:ISAPProxyService_QuerySoldToParties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/QuerySoldToPartiesResponse" message="tns:ISAPProxyService_QuerySoldToParties_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/QuerySoldToPartiesFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_QuerySoldToParties_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryBillingNumbers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/QueryBillingNumbers" message="tns:ISAPProxyService_QueryBillingNumbers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/QueryBillingNumbersResponse" message="tns:ISAPProxyService_QueryBillingNumbers_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/QueryBillingNumbersFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_QueryBillingNumbers_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryTotalBillingRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/QueryTotalBillingRecords" message="tns:ISAPProxyService_QueryTotalBillingRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/QueryTotalBillingRecordsResponse" message="tns:ISAPProxyService_QueryTotalBillingRecords_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/QueryTotalBillingRecordsFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_QueryTotalBillingRecords_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryRunInvoiceHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceHeader" message="tns:ISAPProxyService_QueryRunInvoiceHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceHeaderResponse" message="tns:ISAPProxyService_QueryRunInvoiceHeader_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceHeaderFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_QueryRunInvoiceHeader_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryRunInvoiceBillingsAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceBillingsAll" message="tns:ISAPProxyService_QueryRunInvoiceBillingsAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceBillingsAllResponse" message="tns:ISAPProxyService_QueryRunInvoiceBillingsAll_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceBillingsAllFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_QueryRunInvoiceBillingsAll_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryRunInvoiceHeaderFromDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceHeaderFromDB" message="tns:ISAPProxyService_QueryRunInvoiceHeaderFromDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceHeaderFromDBResponse" message="tns:ISAPProxyService_QueryRunInvoiceHeaderFromDB_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/QueryRunInvoiceHeaderFromDBFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_QueryRunInvoiceHeaderFromDB_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRunInvoiceBilling">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/UpdateRunInvoiceBilling" message="tns:ISAPProxyService_UpdateRunInvoiceBilling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/UpdateRunInvoiceBillingResponse" message="tns:ISAPProxyService_UpdateRunInvoiceBilling_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/UpdateRunInvoiceBillingFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_UpdateRunInvoiceBilling_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRunInvoiceBillings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/SaveRunInvoiceBillings" message="tns:ISAPProxyService_SaveRunInvoiceBillings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/SaveRunInvoiceBillingsResponse" message="tns:ISAPProxyService_SaveRunInvoiceBillings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/SaveRunInvoiceBillingsFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_SaveRunInvoiceBillings_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryBillingRunsFromDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/QueryBillingRunsFromDB" message="tns:ISAPProxyService_QueryBillingRunsFromDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/QueryBillingRunsFromDBResponse" message="tns:ISAPProxyService_QueryBillingRunsFromDB_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/QueryBillingRunsFromDBFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_QueryBillingRunsFromDB_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInitialSAPData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/SaveInitialSAPData" message="tns:ISAPProxyService_SaveInitialSAPData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/SaveInitialSAPDataResponse" message="tns:ISAPProxyService_SaveInitialSAPData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/SaveInitialSAPDataFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_SaveInitialSAPData_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitInvoiceProforma">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/SubmitInvoiceProforma" message="tns:ISAPProxyService_SubmitInvoiceProforma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/SubmitInvoiceProformaResponse" message="tns:ISAPProxyService_SubmitInvoiceProforma_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/SubmitInvoiceProformaFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_SubmitInvoiceProforma_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitInvoiceProformaByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/SubmitInvoiceProformaByID" message="tns:ISAPProxyService_SubmitInvoiceProformaByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/SubmitInvoiceProformaByIDResponse" message="tns:ISAPProxyService_SubmitInvoiceProformaByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/SubmitInvoiceProformaByIDFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_SubmitInvoiceProformaByID_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingsToPrintAppendix">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintAppendix" message="tns:ISAPProxyService_GetBillingsToPrintAppendix_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintAppendixResponse" message="tns:ISAPProxyService_GetBillingsToPrintAppendix_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintAppendixFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_GetBillingsToPrintAppendix_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingsToPrintHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintHeader" message="tns:ISAPProxyService_GetBillingsToPrintHeader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintHeaderResponse" message="tns:ISAPProxyService_GetBillingsToPrintHeader_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintHeaderFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_GetBillingsToPrintHeader_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingsToPrint">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrint" message="tns:ISAPProxyService_GetBillingsToPrint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintResponse" message="tns:ISAPProxyService_GetBillingsToPrint_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_GetBillingsToPrint_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingsToPrintTotal">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintTotal" message="tns:ISAPProxyService_GetBillingsToPrintTotal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintTotalResponse" message="tns:ISAPProxyService_GetBillingsToPrintTotal_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/GetBillingsToPrintTotalFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_GetBillingsToPrintTotal_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveBillingBlock">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPProxyService/SaveBillingBlock" message="tns:ISAPProxyService_SaveBillingBlock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPProxyService/SaveBillingBlockResponse" message="tns:ISAPProxyService_SaveBillingBlock_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISAPProxyService/SaveBillingBlockFaultExceptionFault" name="FaultExceptionFault" message="tns:ISAPProxyService_SaveBillingBlock_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISAPProxyService" type="tns:ISAPProxyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QuerySoldToParties">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/QuerySoldToParties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBillingNumbers">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/QueryBillingNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryTotalBillingRecords">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/QueryTotalBillingRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryRunInvoiceHeader">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/QueryRunInvoiceHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryRunInvoiceBillingsAll">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/QueryRunInvoiceBillingsAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryRunInvoiceHeaderFromDB">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/QueryRunInvoiceHeaderFromDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRunInvoiceBilling">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/UpdateRunInvoiceBilling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRunInvoiceBillings">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/SaveRunInvoiceBillings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBillingRunsFromDB">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/QueryBillingRunsFromDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInitialSAPData">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/SaveInitialSAPData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitInvoiceProforma">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/SubmitInvoiceProforma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitInvoiceProformaByID">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/SubmitInvoiceProformaByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingsToPrintAppendix">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/GetBillingsToPrintAppendix" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingsToPrintHeader">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/GetBillingsToPrintHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingsToPrint">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/GetBillingsToPrint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillingsToPrintTotal">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/GetBillingsToPrintTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBillingBlock">
+      <soap:operation soapAction="http://tempuri.org/ISAPProxyService/SaveBillingBlock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SAPProxyService">
+    <wsdl:port name="BasicHttpBinding_ISAPProxyService" binding="tns:BasicHttpBinding_ISAPProxyService">
+      <soap:address location="http://localhost:27648/Service/SAPProxyService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

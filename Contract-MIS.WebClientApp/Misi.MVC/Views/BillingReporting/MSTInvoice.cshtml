@@ -1,0 +1,203 @@
+﻿@using Misi.MVC.Resources
+@using Misi.MVC.ViewModels.BillingReporting
+@using Kendo.Mvc.UI
+
+@model MSTInvoiceBillingReportingViewModel
+
+@{
+    ViewBag.Title = BillingReportingResource.MSTInvoice;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+@Html.Partial("_PartialMainInformationHeader", ViewData.ModelState)
+
+@using (Html.BeginForm("MSTInvoice", "BillingReporting", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", BillingReportingResource.MSTInvoice)
+        <div class="panel-body" style="display: block;">
+
+            <div class="row">
+                <div class="@CSSResource.TwoThirdPage">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingType).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingType).Class(CSSResource.FormControlGlobal).Readonly()
+                           @*Sebelum diganti = @Html.ValidationMessageFor(m => m.BillingDateFrom)*@ 
+                            @Html.ValidationMessageFor(m => m.BillingType)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="@CSSResource.TwoThirdPage">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingDateFrom).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            <div class=@CSSResource.HalfPage>
+                                @(Html.Kendo().DatePickerFor(m => m.BillingDateFrom)
+                                      .Format(ConfigResource.FormatDate)
+                                      .Events(e => e.Change("startChange"))
+                                )
+                                @Html.ValidationMessageFor(m => m.BillingDateFrom)
+                            </div>
+                            <div class=@CSSResource.HalfPage>
+                                @(Html.Kendo().DatePickerFor(m => m.BillingDateTo)
+                                      .Format(ConfigResource.FormatDate)
+                                      .Events(e => e.Change("endChange"))
+                                )
+                                @Html.ValidationMessageFor(m => m.BillingDateTo)
+                            </div>
+                            <div class="@CSSResource.HelpText">
+                                @(Html.Bootstrap().LabelFor(m => m.BillingDateTo).Class("global"))
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.TwoThirdPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.SoldToPartyFrom).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.EditorFor(m => m.SoldToPartyFrom)
+                            @Html.ValidationMessageFor(m => m.SoldToPartyFrom)
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row" @if (Model.BillingDocNumber == null)
+                             {
+                                <text> style="display:none" </text>
+                             } >                 
+                <div class="@CSSResource.TwoThirdPage">
+                    <div class="form-group">
+                        <div class="panel info-download">
+                            <div class="panel-heading">
+                                <div class="alert alert-download">
+                                    <p>DOWNLOAD @Html.DisplayFor(m => m.SoldToFromValue) @Html.DisplayFor(m => m.BillingDateFrom) @Html.DisplayFor(m => m.BillingDateTo) </p>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <ol class="list-item">
+                                    <li>
+                                        @Html.ActionLink("Invoice Total", "GenerateInvoice", "BillingReporting", new { bilDoc = Model.BillingDocNumber }, new { target = "_blank" })
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Invoice Detail", "GenerateInvoiceDetail", "BillingReporting", new { bilDoc = Model.BillingDocNumber }, new { target = "_blank" })
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Appendix", "Appendix", "BillingReporting", new { bilDoc = Model.BillingDocNumber }, new { target = "_blank" })
+                                    </li>
+                                    @*<li>@ViewBag.bilDoc</li>*@
+                                </ol>
+                            </div>
+                          </div>
+                       </div>
+                    </div>
+            </div>
+            </div>
+            <div class="panel-footer">
+                <div class="bootstrap">
+                    <div class="@CSSResource.FullPage">
+                        <div id="create-new-invoice-wrapper" class="col-md-1" data-toggle="modal" data-target="#modal-routing" data-rel="#">
+                            @Html.Bootstrap().ActionLink(BillingReportingResource.Print, "#").Class(CSSResource.EndFormButton).PrependIcon(CSSResource.IconPrint).HtmlAttributes(new { id = "create-new-invoice-button" })
+                        </div>
+                        <div class="col-md-1" style="margin-left: -35px">
+                            @Html.Bootstrap().ActionLink(SharedResource.Cancel, "MSTInvoice", "BillingReporting").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+<div class="modal fade" id="billing-document-modal" tabindex="-1" role="dialog" aria-labelledby="Modal Routing" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="billing-document-modal-container"></div>
+    </div>
+</div>
+
+@section javaScript{
+    <script type="text/javascript">
+        
+       $('#create-new-invoice-button').click(function () {
+                createNewInvoiceAsyncPost();
+            }
+        );
+
+        
+         
+        function createNewInvoiceAsyncPost() {
+            //var datePickerDateFrom = $("#BillingDateFrom").data("kendoDatePicker");
+            //var datePickerDateTo = $("#BillingDateTo").data("kendoDatePicker");
+            //var dropDownSoldToPartyFrom = $("#SoldToPartyFrom_SelectedItem").data("kendoDropDownList");
+
+            var datePickerDateFromValue = $("#BillingDateFrom").data("kendoDatePicker")._value.toDateString();
+            var datePickerDateToValue = $("#BillingDateTo").data("kendoDatePicker")._value.toDateString();
+            var dropDownSoldToPartyFromValue = $("#SoldToPartyFrom_SelectedItem").data("kendoDropDownList").value();
+
+            $.ajax({
+                url: '/BillingReporting/BillingDocument',
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({
+                    iModel:
+                    {
+                        DateFromValue: datePickerDateFromValue,
+                        DateToValue: datePickerDateToValue,
+                        SoldToFromValue: dropDownSoldToPartyFromValue
+                    }
+                }),
+                async: true,
+                processData: false,
+                cache: false,
+                success: function(data) {
+                    $('#billing-document-modal-container').html(data.html);
+                    $('#billing-document-modal').modal('show');
+                   
+                 },
+                error: function(xhr) {
+                    alert(xhr);
+                    //hideModalLoading();
+                    //window.location = "/Error";
+                }
+            });
+
+           
+        }
+
+        function startChange() {
+            var endPicker = $("#BillingDateTo").data("kendoDatePicker"),
+                startDate = this.value();
+            
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate() + 1);
+                endPicker.min(startDate);
+            }
+            alert(start);
+
+        }
+
+        function endChange() {
+            var startPicker = $("#BillingDateFrom").data("kendoDatePicker"),
+                endDate = this.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate() - 1);
+                startPicker.max(endDate);
+            }
+        }
+
+        function filterBillingRun() {
+            return {
+                soldToPartId: $("#SoldToPartyFrom_SelectedItem").val()
+            };
+        }
+
+    </script>
+}

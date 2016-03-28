@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HelpdeskServ" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8087/Service/HelpdeskServ.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8087/Service/HelpdeskServ.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
+      <xsd:import schemaLocation="http://localhost:8087/Service/HelpdeskServ.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8087/Service/HelpdeskServ.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Service" />
+      <xsd:import schemaLocation="http://localhost:8087/Service/HelpdeskServ.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Object" />
+      <xsd:import schemaLocation="http://localhost:8087/Service/HelpdeskServ.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHelpdeskServ_SelectAllTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllTickets" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_SelectAllTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAllTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_SelectAllTickets_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q1:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_SelectLimitedTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectLimitedTickets" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_SelectLimitedTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectLimitedTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_SelectLimitedTickets_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q2:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_SelectTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectTicket" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_SelectTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_SelectTicket_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q3:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_TotalTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:TotalTickets" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_TotalTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TotalTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelpdeskServ_TotalTickets_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q4:FaultException" />
+  </wsdl:message>
+  <wsdl:portType name="IHelpdeskServ">
+    <wsdl:operation name="SelectAllTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectAllTickets" message="tns:IHelpdeskServ_SelectAllTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectAllTicketsResponse" message="tns:IHelpdeskServ_SelectAllTickets_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectAllTicketsFaultExceptionFault" name="FaultExceptionFault" message="tns:IHelpdeskServ_SelectAllTickets_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLimitedTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectLimitedTickets" message="tns:IHelpdeskServ_SelectLimitedTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectLimitedTicketsResponse" message="tns:IHelpdeskServ_SelectLimitedTickets_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectLimitedTicketsFaultExceptionFault" name="FaultExceptionFault" message="tns:IHelpdeskServ_SelectLimitedTickets_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectTicket" message="tns:IHelpdeskServ_SelectTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectTicketResponse" message="tns:IHelpdeskServ_SelectTicket_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHelpdeskServ/SelectTicketFaultExceptionFault" name="FaultExceptionFault" message="tns:IHelpdeskServ_SelectTicket_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelpdeskServ/TotalTickets" message="tns:IHelpdeskServ_TotalTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelpdeskServ/TotalTicketsResponse" message="tns:IHelpdeskServ_TotalTickets_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHelpdeskServ/TotalTicketsFaultExceptionFault" name="FaultExceptionFault" message="tns:IHelpdeskServ_TotalTickets_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IHelpdeskServ" type="tns:IHelpdeskServ">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelectAllTickets">
+      <soap:operation soapAction="http://tempuri.org/IHelpdeskServ/SelectAllTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLimitedTickets">
+      <soap:operation soapAction="http://tempuri.org/IHelpdeskServ/SelectLimitedTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTicket">
+      <soap:operation soapAction="http://tempuri.org/IHelpdeskServ/SelectTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TotalTickets">
+      <soap:operation soapAction="http://tempuri.org/IHelpdeskServ/TotalTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelpdeskServ">
+    <wsdl:port name="BasicHttpBinding_IHelpdeskServ" binding="tns:BasicHttpBinding_IHelpdeskServ">
+      <soap:address location="http://localhost:8087/Service/HelpdeskServ.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,13 @@
+﻿<div class="bootstrap">
+    <div class="page-head">
+        
+        @*//TODO: Find MVC SiteMap Provider to get current page*@
+
+        <h2 class="page-title">@ViewBag.Title</h2>
+        <ul class="breadcrumb page-breadcrumb">
+            <li class="breadcrumb-container">
+                <a href=""><i class="fa fa-file-text-o"></i>@Html.MvcSiteMap().SiteMapPath()</a>
+            </li>
+        </ul>
+    </div>
+</div>

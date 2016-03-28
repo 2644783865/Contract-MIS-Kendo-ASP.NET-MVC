@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BrokenInstruction1" xml:space="preserve">
+    <value>1. Tolong lengkapi atribut 
+sesuai skenario Broken
+yang berkaitan
+2. Lengkapi Backup Equipment Number jika dibutuhkan</value>
+  </data>
+  <data name="NewContractExtLineInstruction1" xml:space="preserve">
+    <value>1. Mengisi no IDR Web
+2. Mengisi no Quotation
+3. Memasukan Holder 
+    Name &amp; SN dari 
+    customer
+4. Mengisi no SO Contract</value>
+  </data>
+  <data name="NewContractExtLineInstruction2" xml:space="preserve">
+    <value>1. Membuat Extention Line
+di CUCM/ CIME
+2. Mengisi no Extention
+Line</value>
+  </data>
+  <data name="NewContractIpPhoneExtLineInstruction1" xml:space="preserve">
+    <value>1. Mengisi no IDR Web
+2. Mengisi no Quotation
+3. Mengisi Device Request
+4. Memasukan Holder 
+     Name &amp; SN dari 
+     customer</value>
+  </data>
+  <data name="NewContractIpPhoneExtLineInstruction2" xml:space="preserve">
+    <value>1. Mengisi no Equipment
+2. Mengisi no S/N</value>
+  </data>
+  <data name="NewContractIpPhoneExtLineInstruction3" xml:space="preserve">
+    <value>Melakukan reservasi 
+unit : holder name, mengisi lokasi, IDR no, Sold-To Party, mengubah status 
+Equipment menjadi 
+Reserved di SAP</value>
+  </data>
+  <data name="NewContractIpPhoneExtLineInstruction4" xml:space="preserve">
+    <value>1. Mengisi no Asset
+Real dari SAP
+2. Mengisi no CIP dari SAP</value>
+  </data>
+  <data name="NewContractIpPhoneExtLineInstruction5" xml:space="preserve">
+    <value>1. Mengisi no notification
+dari SAP 
+2. melakukan
+instalasi Device
+3. Mengisi no Ext Line</value>
+  </data>
+  <data name="NewContractIpPhoneExtLineInstruction6" xml:space="preserve">
+    <value>1. Mengisi no SO Contract 
+2. Mengisi no SO Delivery</value>
+  </data>
+  <data name="NewContractIpPhoneExtLineInstruction7" xml:space="preserve">
+    <value>1. Mengisi no Delivery 
+Order (DO) dari SAP
+2. Melakukan deliver unit
+tsb</value>
+  </data>
+  <data name="NewContractIpPhoneExtLineInstruction8" xml:space="preserve">
+    <value>Melakukan transfer asset
+dan menjalankan 
+depresiasinya</value>
+  </data>
+  <data name="NewContractIpPhoneInstruction1" xml:space="preserve">
+    <value>1. Mengisi no IDR Web
+2. Mengisi no Quotation
+3. Mengisi Device Request
+4. Memasukan Holder 
+     Name &amp; SN dari 
+     customer
+5. Mengisi no Ext Line</value>
+  </data>
+  <data name="NewContractIpPhoneInstruction2" xml:space="preserve">
+    <value>1. Mengisi no Equipment
+2. Mengisi no S/N</value>
+  </data>
+  <data name="NewContractIpPhoneInstruction3" xml:space="preserve">
+    <value>Melakukan reservasi 
+unit : mengisi holder name, lokasi, IDR no,Sold-To Party, dan mengubah status equipment menjadi 
+Reserved di SAP</value>
+  </data>
+  <data name="NewContractIpPhoneInstruction4" xml:space="preserve">
+    <value>1. Mengisi no Asset
+Real dari SAP
+2. Mengisi no CIP dari SAP</value>
+  </data>
+  <data name="NewContractIpPhoneInstruction5" xml:space="preserve">
+    <value>Mengisi no notification
+dari SAP dan melakukan
+instalasi Device</value>
+  </data>
+  <data name="NewContractIpPhoneInstruction6" xml:space="preserve">
+    <value>1. Mengisi no SO Contract 
+2. Mengisi no SO Delivery</value>
+  </data>
+  <data name="NewContractIpPhoneInstruction7" xml:space="preserve">
+    <value>1. Mengisi no Delivery 
+Order (DO) dari SAP
+2. Melakukan deliver unit
+tsb</value>
+  </data>
+  <data name="NewContractIpPhoneInstruction8" xml:space="preserve">
+    <value>Melakukan transfer asset
+dan menjalankan 
+depresiasinya</value>
+  </data>
+  <data name="NewContractLDPInstruction1" xml:space="preserve">
+    <value>1. Mengisi no IDR Web
+2. Mengisi no Quotation
+3. Mengisi Device Request
+4. Memasukan Holder 
+     Name &amp; SN dari 
+     customer</value>
+  </data>
+  <data name="NewContractLDPInstruction2" xml:space="preserve">
+    <value>1. Mengisi no Equipment
+2. Mengisi no S/N</value>
+  </data>
+  <data name="NewContractLDPInstruction3" xml:space="preserve">
+    <value>Melakukan reservasi 
+unit : mengisi holder name, lokasi, IDR no,Sold-To Party, dan mengubah status equipment menjadi 
+"Reserved" di SAP</value>
+  </data>
+  <data name="NewContractLDPInstruction4" xml:space="preserve">
+    <value>1. Mengisi no Asset
+Real dari SAP
+2. Mengisi no CIP dari SAP</value>
+  </data>
+  <data name="NewContractLDPInstruction5" xml:space="preserve">
+    <value>Mengisi no notification
+dari SAP dan melakukan
+instalasi Device</value>
+  </data>
+  <data name="NewContractLDPInstruction6" xml:space="preserve">
+    <value>1. Mengisi no SO Contract 
+2. Mengisi no SO Delivery</value>
+  </data>
+  <data name="NewContractLDPInstruction7" xml:space="preserve">
+    <value>1. Mengisi no Delivery 
+Order (DO) dari SAP
+2. Melakukan deliver unit
+tsb</value>
+  </data>
+  <data name="NewContractLDPInstruction8" xml:space="preserve">
+    <value>Melakukan transfer asset
+dan menjalankan 
+depresiasinya</value>
+  </data>
+  <data name="NewContractSoftwareInstruction1" xml:space="preserve">
+    <value>1. Mengisi no IDR Web
+2. Mengisi no Quotation
+3. Mengisi no SO Contract
+4. Memasukan Holder 
+     Name &amp; SN dari 
+     customer</value>
+  </data>
+  <data name="NewContractSoftwareInstruction2" xml:space="preserve">
+    <value>Memenuhi service dan mengisi service 
+delivery date</value>
+  </data>
+  <data name="NewInstruction1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NewInstruction2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PlaceholderRespond" xml:space="preserve">
+    <value>Ketik response</value>
+  </data>
+  <data name="Response" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ReturnDeviceInstruction1" xml:space="preserve">
+    <value>Tolong lengkapi informasi  
+return device</value>
+  </data>
+  <data name="ReturnDeviceInstruction2" xml:space="preserve">
+    <value>Tolong stop charges 
+servicenya</value>
+  </data>
+  <data name="ScenarioNewInstruction1" xml:space="preserve">
+    <value>1. Instruction 1
+2. Instruction 2</value>
+  </data>
+  <data name="TerminationInstruction1" xml:space="preserve">
+    <value>Tolong lengkapi  informasi request  terminasi</value>
+  </data>
+  <data name="TerminationInstruction2" xml:space="preserve">
+    <value>Tolong stop charges 
+servicenya</value>
+  </data>
+  <data name="TransferAssetHolderInstruction1" xml:space="preserve">
+    <value>Tolong lengkapi bagian request info</value>
+  </data>
+  <data name="TransferAssetHolderInstruction2" xml:space="preserve">
+    <value>Tolong untuk di-return
+unitnya</value>
+  </data>
+  <data name="TransferAssetHolderInstruction3" xml:space="preserve">
+    <value>1. Tolong stop charging
+2. Tolong open charging
+3. Tolong create 
+     SO Delivery</value>
+  </data>
+  <data name="TransferAssetHolderInstruction4" xml:space="preserve">
+    <value>Tolong di-deliver unitnya</value>
+  </data>
+  <data name="TransferAssetLocationInstruction1" xml:space="preserve">
+    <value>Tolong lengkapi bagian request info</value>
+  </data>
+  <data name="TransferAssetLocationInstruction2" xml:space="preserve">
+    <value>Tolong transfer location</value>
+  </data>
+</root>

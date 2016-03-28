@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index" description="fa fa-home">
+    <mvcSiteMapNode title="Service Request" controller="ServiceRequest" action="Create" description="fa fa-user" isHidden="true">
+      <mvcSiteMapNode title="Create Service Request" controller="ServiceRequest" action="Create" isHidden="true"/>
+      <mvcSiteMapNode title="Maintain Service Request" controller="ServiceRequest" action="Maintain" isHidden="true"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Transfer Assets" controller="ScenarioTransferAssets" action="Index" description="fa fa-bank" isHidden="true">
+      <mvcSiteMapNode title="Request Information" controller="ScenarioTransferAssets" action="CreateRequestInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information by Holder Name" controller="ScenarioTransferAssets" action="CreateRoutingInfoHolder"  isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information by Location" controller="ScenarioTransferAssets" action="CreateRoutingInfoLocation" isHidden="true"/>
+      <mvcSiteMapNode title="Preview" controller="ScenarioTransferAssets" action="Preview"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Termination" controller="ScenarioTermination" action="Index" description="fa fa-exclamation-circle" isHidden="true">
+      <mvcSiteMapNode title="Request Information" controller="ScenarioTermination" action="CreateRequestInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information" controller="ScenarioTermination" action="CreateRoutingInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Preview" controller="ScenarioTermination" action="Preview" isHidden="true"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Broken" controller="ScenarioBroken" action="Index" description="fa fa-chain-broken" isHidden="true">
+      <mvcSiteMapNode title="Request Information" controller="ScenarioBroken" action="CreateRequestInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information" controller="ScenarioBroken" action="CreateRoutingInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Preview" controller="ScenarioBroken" action="Preview" isHidden="true"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Return Device" controller="ScenarioReturnDevice" action="Index" description="fa fa-retweet" isHidden="true">
+      <mvcSiteMapNode title="Request Information" controller="ScenarioReturnDevice" action="CreateRequestInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information" controller="ScenarioReturnDevice" action="CreateRoutingInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Preview" controller="ScenarioReturnDevice" action="Preview" isHidden="true"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Error Charges" controller="ScenarioErrorCharges" action="Index" description="fa fa-close" isHidden="true">
+      <mvcSiteMapNode title="Request Information" controller="ScenarioErrorCharges" action="CreateRequestInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information" controller="ScenarioErrorCharges" action="CreateRoutingInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Preview" controller="ScenarioErrorCharges" action="Preview" isHidden="true"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="New Contract" controller="ScenarioNewContract" action="Index" description="fa fa-file-text-o" isHidden="true">
+      <mvcSiteMapNode title="Request Information" controller="ScenarioNewContract" action="CreateRequestInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information LDP" controller="ScenarioNewContract" action="CreateRoutingInfoLDP" isHidden="true" />
+      <mvcSiteMapNode title="Routing Information IP Phone and ExtLine" controller="ScenarioNewContract" action="CreateRoutingInfoIpPhoneExtLine" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information IP Phone" controller="ScenarioNewContract" action="CreateRoutingInfoIpPhone" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information Extline" controller="ScenarioNewContract" action="CreateRoutingInfoExtLine" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information Software" controller="ScenarioNewContract" action="CreateRoutingInfoSoftware" isHidden="true"/>
+      <mvcSiteMapNode title="Preview" controller="ScenarioNewContract" action="Preview" isHidden="true"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="New Scenario" controller="ScenarioNew" action="Index" description="fa fa-plus-square" isHidden="true">
+      <mvcSiteMapNode title="Request Information" controller="ScenarioNew" action="CreateRequestInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Routing Information" controller="ScenarioNew" action="CreateRoutingInfo" isHidden="true"/>
+      <mvcSiteMapNode title="Preview" controller="ScenarioNew" action="Preview" isHidden="true"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Proforma Invoice" controller="ProformaInvoice" action="Index" description="fa fa-ils">
+      <mvcSiteMapNode title="Main Proforma Invoice" controller="ProformaInvoice" action="Main" isHidden="true"/>
+      <mvcSiteMapNode title="Run Proforma Invoice" controller="ProformaInvoice" action="Run" isHidden="true"/>
+      <mvcSiteMapNode title="Create New Proforma Invoice" controller="ProformaInvoice" action="CreateNew" isHidden="true"/>
+      <mvcSiteMapNode title="Display Proforma Invoice" controller="ProformaInvoice" action="Preview" isHidden="true"/>
+      <mvcSiteMapNode title="Create Incorrect External Data" controller="ProformaInvoice" action="CreateIncorrectExternalData" isHidden="true"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Billing Reporting" controller="BillingReporting" action="Index" description="fa fa-btc">
+      <mvcSiteMapNode title="MST Invoice" controller="BillingReporting" action="MSTInvoice" isHidden="true"/>
+      <mvcSiteMapNode title="Billing Service Request" controller="BillingReporting" action="BillingServiceRequest" isHidden="true"/>
+      <mvcSiteMapNode title="Invoice" controller="BillingReporting" action="Invoice" isHidden="true"/>
+      <mvcSiteMapNode title="Invoice Detail" controller="BillingReporting" action="InvoiceDetail" isHidden="true"/>
+    </mvcSiteMapNode>
+  </mvcSiteMapNode>
+</mvcSiteMap>

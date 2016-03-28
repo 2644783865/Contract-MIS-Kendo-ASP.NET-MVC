@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Misi.Service.Billing.Model.Termination.TerminationRequestDTO">
+    <Position X="2.5" Y="3" Width="2" />
+    <AssociationLine Name="_requestInfo" Type="Misi.Service.Billing.Model.Termination.TerminationRequestInfoDTO">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.227" Y="0.068" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_routing" Type="Misi.Service.Billing.Model.Termination.TerminationRoutingInfoDTO">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.13" Y="0.195" Height="0.182" Width="0.962" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAACAAAAAAAAAAAgAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Termination\TerminationRequestDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_requestInfo" />
+      <Field Name="_routing" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.ServiceRequestDTO">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAAAAAAAAAAAACAAAAAAAAAABAAACAI=</HashCode>
+      <FileName>Model\Common\ServiceRequestDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Termination.TerminationRequestInfoDTO">
+    <Position X="5.75" Y="2.5" Width="2.25" />
+    <AssociationLine Name="_terminations" Type="Misi.Service.Billing.Model.Termination.TerminationItemDTO">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.117" Y="0.245" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABAAAAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Termination\TerminationRequestInfoDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_terminations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Termination.TerminationItemDTO">
+    <Position X="6" Y="4.5" Width="1.75" />
+    <AssociationLine Name="_terminatedContract" Type="Misi.Service.Billing.Model.Termination.TerminatedContractDTO">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.006" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAEAhAAAAAiAAEAAAgAACAAAAgAAAAAFQABAAA=</HashCode>
+      <FileName>Model\Termination\TerminationItemDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_terminatedContract" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Termination.TerminatedContractDTO">
+    <Position X="9.25" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAQAAAAAEAAJGAICAAgCAEAAAAAAAAAgMAAAAA=</HashCode>
+      <FileName>Model\Termination\TerminatedContractDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RequestInfoBaseDTO">
+    <Position X="6" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Model\Common\RequestInfoBaseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Termination.TerminationRoutingInfoDTO">
+    <Position X="2.5" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Termination\TerminationRoutingInfoDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_terminations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RoutingInfoBaseDTO">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <AssociationLine Name="_routings" Type="Misi.Service.Billing.Model.Common.RoutingItemDTO">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.12" Y="0.56" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAoAAAQAAAAAAgAAAAAAABAACAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Model\Common\RoutingInfoBaseDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_routings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RoutingItemDTO">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAAAAAABABAAAAAAAAAAAAjAIAAAIIAgAAAAAAAA=</HashCode>
+      <FileName>Model\Common\RoutingItemDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

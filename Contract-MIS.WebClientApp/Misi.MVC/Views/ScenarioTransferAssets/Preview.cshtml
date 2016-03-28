@@ -1,0 +1,72 @@
+﻿@using Misi.MVC.Resources
+@using Misi.MVC.ViewModels.ScenarioTransferAssets
+@using Misi.MVC.ViewModels.ScenarioGeneral
+@model PreviewTransferAssetsViewModel
+
+@{
+    ViewBag.Title = SharedResource.Preview + " " + SharedResource.TransferAssets;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("Preview", "ScenarioTransferAssets", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", SharedResource.PreviewServiceRequest)
+        <div class="panel-body" style="display: block;">
+            <!--Row-->
+            <div class="row">
+                <!-- Content Form Routinginformation -->
+                <div class=@CSSResource.FullPage>
+                        @(Html.Kendo().Grid<PreviewRequestInfoViewModel>()
+                              .Name("PreviewRequestInfoViewModel")
+                              .Columns(columns =>
+                              {
+                                  columns.Bound(e => e.Item).Width(100);
+                                  columns.Bound(e => e.ServiceId).Width(150);
+                                  columns.Bound(e => e.TicketId).Width(150);
+                                  columns.Bound(e => e.RequestBy).Width(150);
+                                  columns.Bound(e => e.IssuedBy).Width(150);
+                                  columns.Bound(e => e.IssuedDate).Width(170);
+                                  columns.Bound(e => e.SnOrIdNumber).Width(200);
+                                  columns.Bound(e => e.Company).Width(150);
+                                  columns.Bound(e => e.Location).Width(150);
+                                  columns.Bound(e => e.Email).Width(150);
+                                  columns.Bound(e => e.RequestedDate).Width(180);
+                                  columns.Bound(e => e.RequestedVia).Width(180);
+                                  columns.Bound(e => e.TicketCategory).Width(180);
+                                  columns.Bound(e => e.DetailCategory).Width(180);
+                                  columns.Bound(e => e.RequestMemo).Width(180);
+                                  
+                              })
+                              .ColumnMenu() 
+                              .Pageable()
+                              .Scrollable()    
+                                                  
+                              
+                        )
+                     
+
+                </div>
+                <!-- Content Form Routinginformation -->
+            </div>
+            <!--End Row-->
+        </div>
+        <div class="panel-footer">
+            <div class="bootstrap">
+                <div class="@CSSResource.FullPage">
+                    <div class="form-group">
+                        @Html.Bootstrap().SubmitButton().Text(SharedResource.Save).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                        @Html.Bootstrap().Button().Text(SharedResource.AddRouting).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconAdd))
+                        @Html.Bootstrap().ActionLink(SharedResource.Submit, "Index", "ScenarioTransferAssets").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconFinish))
+                        @Html.Bootstrap().ActionLink(SharedResource.Cancel, "Index", "ScenarioTransferAssets").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+}

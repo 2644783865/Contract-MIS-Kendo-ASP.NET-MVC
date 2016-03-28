@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Misi.DAL.Billing.Model.Request.TransferAssetRequest">
+    <Position X="0.5" Y="3" Width="1.75" />
+    <InheritanceLine Type="Misi.DAL.Billing.Model.Common.ServiceRequestBase" FixedFromPoint="true">
+      <Path>
+        <Point X="1.375" Y="2.565" />
+        <Point X="1.375" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAQAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Request\TransferAssetRequest.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_requestInfo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Misi.DAL.Billing.Model.Common.ServiceRequestBase">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAAAAAAAAAAAACAAAAAAAAAABAAACAI=</HashCode>
+      <FileName>Model\Common\ServiceRequestBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.DAL.Billing.Model.RequestInfo.TransferAssetRequestInfo">
+    <Position X="3.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACiAEAAAAAAIAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\RequestInfo\TransferAssetRequestInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

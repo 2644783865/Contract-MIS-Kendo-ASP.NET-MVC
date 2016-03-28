@@ -1,0 +1,318 @@
+﻿@using Misi.MVC.Resources
+@using Misi.MVC.ViewModels.ProformaInvoice
+@model RunProformaInvoiceHeaderViewModel
+
+@{
+    ViewBag.Title = ProformaInvoiceResource.RunProformaInvoice;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+<div class="form-horizontal">
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", ProformaInvoiceResource.HeaderProformaInvoice)
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingDateFrom).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingDateFrom).Class(CSSResource.FormControlGlobal).Readonly()
+                        </div>
+                    </div>
+                </div>
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingDateTo).Class(CSSResource.FormLabelPair))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingDateTo).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.BillingDateTo)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingRun).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingRun).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.BillingRun)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingType).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingType).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.BillingType)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.SoldToParty).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.SoldToParty).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.SoldToParty)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.CreatedBy).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.CreatedBy).Class(CSSResource.FormControlGlobal).Readonly()
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.CreatedOn).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.CreatedOn).Class(CSSResource.FormControlGlobal).Readonly()
+                        </div>
+                    </div>
+                </div>
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.Time).Class(CSSResource.FormLabelPair))
+                        <div class=@CSSResource.FormControlDiv>
+                            @(Html.Bootstrap().TextBoxFor(m => m.Time).Class(CSSResource.FormControlGlobal).Readonly())
+                            @Html.ValidationMessageFor(m => m.Time)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", ProformaInvoiceResource.TableProformaInvoice)
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <div class=@CSSResource.FullPage>
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+                    @(Html.Kendo().Grid<BillingItemViewModel>()
+                          .Name("BillingItemKendoGrid")
+                        .Events(events => events.ExcelExport("excelExportFunction"))
+                        .Excel(ex => ex.FileName(Model.SoldToParty + "_" + DateTime.Now.ToString(ConfigResource.FormatDate + "_" + ConfigResource.FormatTime) + ".xlsx").AllPages(true))
+                        .Columns(
+                              column =>
+                              {
+                                  column.Bound(p => p.ReasonForRejectionVM).Width(200).Locked(true).Lockable(false).ClientTemplate("#=ReasonForRejectionVM.CategoryName#").Filterable(false);
+                                  column.Bound(m => m.LogMessage).Width(200).Locked(true).Lockable(false).ClientTemplate("#= LineItems_Databound(LogMessage)#");
+                                  column.Bound(m => m.Remarks).Width(200).Locked(true).Lockable(false);
+                                  column.Bound(m => m.BillingBlock).Width(200);
+                                  column.Bound(m => m.ContractNumber).Width(200);
+                                  column.Bound(m => m.ContractItem).Width(200);
+                                  column.Bound(m => m.BillingItem).Width(200);
+                                  column.Bound(m => m.BillingNo).Width(200);
+                                  column.Bound(m => m.Type).Width(200);
+                                  column.Bound(m => m.MaterialType).Width(200);
+                                  column.Bound(m => m.MaterialNo).Width(200);
+                                  column.Bound(m => m.Description).Width(300);
+                                  column.Bound(m => m.Equipment).Width(200);
+                                  column.Bound(m => m.SerialNumber).Width(200);
+                                  column.Bound(m => m.Location).Width(150);
+                                  column.Bound(m => m.SalaryNumber).Width(150);
+                                  column.Bound(m => m.HolderName).Width(200);
+                                  column.Bound(m => m.SubArea).Width(150);
+                                  column.Bound(m => m.Year).Width(100);
+                                  column.Bound(m => m.Currency).Width(150);
+                                  column.Bound(m => m.Charge).Width(100);
+                                  column.Bound(m => m.Deduction).Width(200);
+                                  column.Bound(m => m.IdrNo).Width(200);
+                                  column.Bound(m => m.IdrDate).Width(200);
+                                  column.Bound(m => m.ValidFrom).Width(150);
+                                  column.Bound(m => m.ValidTo).Width(150);
+                                  column.Bound(m => m.PersArea).Width(250);
+                                  column.Bound(m => m.OrgUnit).Width(250);
+                                  column.Bound(m => m.OuCode).Width(130);
+                                  column.Bound(m => m.CostCenter).Width(200);
+                                  column.Bound(m => m.OriginMatCode).Width(200);
+                                  column.Bound(m => m.OtherInformation).Width(300);
+                              }
+                          )
+                          .ToolBar(toolbar =>
+                          {
+                              toolbar.Template(@<text>
+                                                    <div id="kendo-toolbars-div">
+                                                        <a id="update-changes-button" class="k-button k-button-icontext k-grid-save-changes" href="javascript:void(0)" data-keyboard="false" data-backdrop="static">
+                                                            <span class="k-icon k-update"></span>
+                                                            Update Changes
+                                                        </a>
+                                                        <a class="k-button k-button-icontext k-grid-cancel-changes" href="javascript:void(0)">
+                                                            <span class="k-icon k-cancel"></span>
+                                                            Cancel Changes
+                                                        </a>
+                                                        
+                        @*The following is not best practice. Please provide a logic either on controller or on helper to define whether the button is displayed*@
+                                                        @if (!(Model.BillingRun.Split('|')[1].Equals(" 0 ") || Model.BillingRun.Split('|')[3].Equals(" Final")))
+                                                        {
+                                                            <button id="submit-to-sap-button" class="k-button k-button-icontext">
+                                                                <span class="k-icon k-i-arrowhead-e"></span>
+                                                                Submit to SAP
+                                                            </button>
+                                                        }
+                                                        <button id="export-to-excel-button" class="k-button k-button-icontext k-grid-excel">
+                                                            <span class="k-icon k-i-excel"></span>
+                                                            Export to Excel
+                                                        </button>
+                                                    </div>
+                                                </text>);
+                          })
+                          .Editable(editable => editable.Mode(GridEditMode.InCell))
+                                                                      .Filterable(ftb => ftb.Mode(GridFilterMode.Row).Operators(operators => operators
+                                                            .ForString(str => str.Clear()
+                                                                .StartsWith("Starts with")
+                                                                .IsEqualTo("Is equal to")
+                                                                .IsNotEqualTo("Is not equal to")
+                                                            )))
+                          .Groupable()
+                          .Sortable()
+                          .Resizable(resize => resize.Columns(true))
+                          .Reorderable(reorder => reorder.Columns(true))
+                          .ColumnMenu()
+                          .Scrollable()
+                          .Pageable(pageable => pageable.Refresh(true))
+                          .DataSource(dataSource => dataSource
+                              .Ajax()
+                              .Batch(true)
+                              .PageSize(1000)
+                              .ServerOperation(false)
+                              .Events(events => events.Error("error_handler_proformainvoice_grid")
+                                  .Sync("sync_hanlder_proformainvoice_grid")
+                                  .RequestStart("request_start_handler_proformainvoice_grid")
+                                  .RequestEnd("request_end_handler_proformainvoice_grid"))
+                              .Model(model =>
+                              {
+                                  model.Id(p => p.BillingItemId);
+                                  model.Field(p => p.BillingItemId).Editable(false);
+                                  model.Field(p => p.ReasonForRejectionVM).DefaultValue(
+                                      ViewData["defaultCategory"] as Misi.MVC.ViewModels.Shared.CategoryViewModel);
+                                  model.Field(p => p.LogMessage).Editable(false);
+                                  model.Field(p => p.BillingBlock).Editable(false);
+                                  model.Field(p => p.BillingItem).Editable(false);
+                                  model.Field(m => m.ContractNumber).Editable(false);
+                                  model.Field(m => m.ContractItem).Editable(false);
+                                  model.Field(p => p.BillingNo).Editable(false);
+                                  model.Field(p => p.Type).Editable(false);
+                                  model.Field(p => p.MaterialType).Editable(false);
+                                  model.Field(p => p.MaterialNo).Editable(false);
+                                  model.Field(p => p.Description).Editable(false);
+                                  model.Field(p => p.Equipment).Editable(false);
+                                  model.Field(p => p.SerialNumber).Editable(false);
+                                  model.Field(p => p.Location).Editable(false);
+                                  model.Field(m => m.SalaryNumber).Editable(false);
+                                  model.Field(m => m.HolderName).Editable(false);
+                                  model.Field(m => m.SubArea).Editable(false);
+                                  model.Field(m => m.Year).Editable(false);
+                                  model.Field(m => m.Currency).Editable(false);
+                                  model.Field(m => m.Charge).Editable(false);
+                                  model.Field(m => m.Deduction).Editable(false);
+                                  model.Field(m => m.IdrNo).Editable(false);
+                                  model.Field(m => m.IdrDate).Editable(false);
+                                  model.Field(m => m.ValidFrom).Editable(false);
+                                  model.Field(m => m.ValidTo).Editable(false);
+                                  model.Field(m => m.PersArea).Editable(false);
+                                  model.Field(m => m.OrgUnit).Editable(false);
+                                  model.Field(m => m.OuCode).Editable(false);
+                                  model.Field(m => m.CostCenter).Editable(false);
+                                  model.Field(m => m.OriginMatCode).Editable(false);
+                                  model.Field(m => m.OtherInformation).Editable(false);
+                              })
+                              .Update(update => update.Action("BillingItems_Update", "ProformaInvoice"))
+                              .Read(read => read.Action("BillingItemsFromDB_Read" , "ProformaInvoice"))
+                          ))
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="voffset7"></div>
+</div>
+
+@section javaScript{
+    
+    <script type="text/kendo-template" id="messageBoxForGrid">
+    <div class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+         style="margin: 0.5em; display: block; " data-for="#=field#" data-valmsg-for="#=field#" id="#=field#_validationMessage">
+        <span class="k-icon k-warning"> </span>#=message#<div class="k-callout k-callout-n"></div>
+    </div>
+    </script>
+
+    <script type="text/javascript">
+        function LineItems_Databound(data) {
+            if (data == "Success") {
+                return "<div'><img style='width:15px;' src='/Content/img/sukses.png'/>" + data + " </div>";
+            }
+            else if(data == "") {
+                return data;
+            } else if (data != "" && data != "Success") {
+                return "<div'><img style='width:15px;' src='/Content/img/gagal.png'/>" + data + " </div>";
+            }
+        }
+        $(document).ready(function () {
+            var grid = $("#BillingItemKendoGrid").data("kendoGrid");
+        });
+        $("#submit-to-sap-button").click(function () {
+        var answer = confirm("@ProformaInvoiceResource.ConfirmSubmitToSAP");
+            if (answer) {
+                $.ajax({
+                    url: '/ProformaInvoice/SubmitToSAP',
+                    dataType: "json",
+                    type: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    async: false,
+                    processData: false,
+                    cache: false,
+                    beforeSend: function() {
+                        showModalLoading();
+                    },
+                    success: function(data) {
+                        hideModalLoading();
+                        alert(data.messageToShow);
+                        window.location = data.urlToRedirect;
+                    },
+                    error: function (xhr) {
+                        hideModalLoading();
+                        window.location = "/Error";
+                    }
+                });
+            }
+        });
+
+        var update_change_flag = false;
+        $("#update-changes-button").mouseover(function () {
+            update_change_flag = true;
+        });
+
+        function sync_hanlder_proformainvoice_grid() {
+            alert("@ProformaInvoiceResource.UpdateChangeSuccessMessage");
+            window.location = "/ProformaInvoice/RedirectToBillingRun";
+        }
+
+        function request_start_handler_proformainvoice_grid() {
+            if (update_change_flag)
+                showModalLoading();
+            
+        }
+
+        function request_end_handler_proformainvoice_grid() {
+            if (update_change_flag)
+                hideModalLoading();
+        }
+
+</script>
+
+}

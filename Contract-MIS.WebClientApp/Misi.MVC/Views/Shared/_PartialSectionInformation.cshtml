@@ -1,0 +1,31 @@
+﻿@using Misi.MVC.Resources
+@model string
+
+<div class="panel-heading">
+    <div class="caption"><i class="@{
+                                       if (Model == SharedResource.RoutingInfo)
+                                       {
+                                           @CSSResource.IconRoutingInformation
+                                       }
+                                       else if (Model == SharedResource.ScenarioAttribute)
+                                       {
+                                           @CSSResource.IconScenarioAttribute
+                                       }
+                                       else
+                                       {
+                                           @CSSResource.IconRoutingTable
+                                       }
+                                   }"></i> @Model ...</div>
+    <div class="actions mg-r-10">
+        <div class="btn-group">
+            <span class="pull-right open">
+                <a href="#" data-toggle="tooltip" data-original-title="fullscreen" class="btn btn-default border-circle fullscreen label-tooltip">
+                    <i class="icon-resize-full"></i>
+                </a>
+                <a href="#" class="btn btn-default border-circle show_hide" data-toggle="dropdown">
+                    <i class="icon-chevron-down"></i>
+                </a><div class="dropdown-backdrop"></div>
+            </span>
+        </div>
+    </div>
+</div>

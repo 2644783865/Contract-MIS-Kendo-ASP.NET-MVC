@@ -1,0 +1,37 @@
+﻿e@using Microsoft.AspNet.Identity
+@using Misi.MVC.Controllers
+@using Misi.MVC.Helpers
+@using Misi.MVC.Resources
+<header class="bootstrap" id="header">
+    <nav id="header_infos" role="navigation">
+        <div class="navbar-header">
+            <a id="header_shopname" href="#">
+                <img src="~/Content/img/logo.gif">@SharedResource.WebSiteTitle
+            </a>
+            
+            <ul id="header_employee_box">
+                <li class="dropdown" id="employee_infos">
+                    <a data-toggle="dropdown" class="employee_name dropdown-toggle" href="">
+                        <span class="employee_avatar_small">
+                            <img width="32" height="32" src="~/Content/img/guruhkharisma@yahoo.com.jpg.png" alt="" class="imgm img-thumbnail">
+                        </span>
+                        <span class="string-long">@UserManagementHelper.GetADUsername()</span>
+                        <span class="string-short">ME</span>
+                        <i class="caret"></i>
+                    </a>
+                    <ul class="dropdown-menu" id="employee_links">
+                        <li>
+                            <span class="employee_avatar">
+                                <img width="96" height="96" src="~/Content/img/guruhkharisma@yahoo.com.jpg.png" alt="" class="imgm img-thumbnail">
+                            </span>
+                        </li>
+                        <li><a href=""><i class="fa fa-wrench"></i>@AccountResource.UserPreference</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/Account/LogOff" id="header_logout"><i class="fa fa-sign-out"></i>@AccountResource.LogOut</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- end header -->

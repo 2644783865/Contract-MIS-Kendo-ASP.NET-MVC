@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Misi.MVC.ViewModels.BillingReporting.MaterialSubCategoryLineViewModel>
+
+    @{
+        Layout = null;
+    }
+
+    @*<table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.MaterialSubCategoryName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SubQty)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SubTotalCharges)</td>
+                    <td>
+                        @Html.Partial("DetailMaterialSubCategoryLine", item.DetailMaterialSubCategoryLineViewModels)
+                    </td>
+                </tr> 
+            }
+        </table>*@
+
+<!-----MaterialSubCategoryLine -> MaterialSubCategoryName-->
+    @foreach (var item in Model) 
+{
+    <tr class="no-border-top" style="font-size: 15px">
+        <td colspan="5">
+           <strong>@Html.DisplayFor(modelItem => item.MaterialSubCategoryName)</strong>
+        </td>
+    </tr>
+        @Html.Partial("DetailMaterialSubCategoryLine", item.DetailMaterialSubCategoryLineViewModels)
+        
+        <!-- SubQTY & SubTotalCharges (MaterialSubCategoryLine) -->
+          <tr>
+            <td>&nbsp;</td>
+            <td class="text-uppercase"><strong>Total @Html.DisplayFor(modelItem => item.MaterialSubCategoryName)</strong></td>
+            <td class="text-center"><strong>@Html.DisplayFor(modelItem => item.SubQty)</strong></td>
+            <td class="text-right"><strong></strong></td>
+            <td class="text-right"><strong>@Html.DisplayFor(modelItem => item.SubTotalCharges)</strong></td>
+          </tr>
+        <!-- SubQTY & SubTotalCharges (MaterialSubCategoryLine) -->
+        
+        
+        
+    }
+
+<!-----MaterialSubCategoryLine -> MaterialSubCategoryName-->

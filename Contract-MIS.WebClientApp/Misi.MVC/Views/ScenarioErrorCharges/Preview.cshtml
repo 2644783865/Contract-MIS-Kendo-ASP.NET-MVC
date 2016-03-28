@@ -1,0 +1,110 @@
+﻿@using Misi.MVC.ViewModels.ScenarioErrorCharges;
+@using Misi.MVC.Resources;
+@using Kendo.Mvc.UI;
+@model PreviewErrorChargesViewModel
+
+@{
+    ViewBag.Title = SharedResource.Preview + " " + SharedResource.ErrorCharges;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("Preview", "ScenarioErrorCharges", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", SharedResource.PreviewServiceRequest)
+        <div class="panel-body" style="display: block;">
+            <!--Begin Row-->
+            <div class="row">
+                <!-- Content PreviewServiceRequest -->
+                <div class="@CSSResource.FullPage">
+                    @(Html.Kendo().Grid<PreviewRequestInfoTableViewModel>()
+                              .Name("ErrorChargesTable")
+                              .Columns(
+                                  c =>
+                                  {
+                                      c.Bound(e => e.Item).Width(100);
+                                      c.Bound(e => e.ServiceId).Width(150);
+                                      c.Bound(e => e.RequestedBy).Width(150);
+                                      c.Bound(e => e.IssuedBy).Width(150);
+                                      c.Bound(e => e.IssuedDate).Width(180);
+                                      c.Bound(e => e.SnOrIdNumber).Width(180);
+                                      c.Bound(e => e.Company).Width(150);
+                                      c.Bound(e => e.Location).Width(150);
+                                      c.Bound(e => e.Email).Width(100);
+                                      c.Bound(e => e.RequestedDate).Width(150);
+                                      c.Bound(e => e.RequestedVia).Width(150);
+                                      c.Bound(e => e.RequestMemo).Width(150);
+                                      c.Bound(e => e.Modify).Width(100);
+                                  })
+                                      .ColumnMenu()
+                                      .Pageable()
+                                      .Sortable()
+                                      .Scrollable()
+                                      .ClientDetailTemplateId("subitem")
+                    )
+                    <script id="subitem" type="text/kendo-tmpl">
+                        @(Html.Kendo().Grid<PreviewRequestInfoSubTableViewModel>()
+                                  .Name("grid_#=Item_ID#")
+                                  .Columns(c =>
+                                  {
+                                      c.Bound(o => o.Item).Width(100);
+                                      c.Bound(o => o.RoutingCreationDate).Width(200);
+                                      c.Bound(o => o.SoldToParty).Width(180);
+                                      c.Bound(o => o.HolderNameDetails).Width(200);
+                                      c.Bound(o => o.SoContractNumber).Width(200);
+                                      c.Bound(o => o.LineNumber).Width(180);
+                                      c.Bound(o => o.Material).Width(100);
+                                      c.Bound(o => o.TargetQty).Width(180);
+                                      c.Bound(o => o.Unit).Width(100);
+                                      c.Bound(o => o.MaterialDescription).Width(200);
+                                      c.Bound(o => o.ItemCategory).Width(180);
+                                      c.Bound(o => o.ContractStart).Width(180);
+                                      c.Bound(o => o.ContractEnd).Width(180);
+                                      c.Bound(o => o.Currency).Width(150);
+                                      c.Bound(o => o.Charges).Width(100);
+                                      c.Bound(o => o.ActualCharges).Width(180);
+                                      c.Bound(o => o.Deduction).Width(150);
+                                      c.Bound(o => o.ReasonForRejection).Width(200);
+                                      c.Bound(o => o.WbsElement).Width(180);
+                                      c.Bound(o => o.PurchaseOrder).Width(180);
+                                      c.Bound(o => o.PoNumber).Width(180);
+                                      c.Bound(o => o.MaterialPricing).Width(200);
+                                      c.Bound(o => o.PriceGroup).Width(180);
+                                      c.Bound(o => o.SaStatus).Width(180);
+                                      c.Bound(o => o.AmStatus).Width(180);
+                                      c.Bound(o => o.BaStatus).Width(150);
+                                      c.Bound(o => o.RoutingStatus).Width(180);
+                                  })
+        //.Pageable()
+        //.Sortable()
+                                  .ToClientTemplate()
+                        )
+                    </script>
+                    <script>
+                        function dataBound() {
+                            this.expandRow(this.tbody.find("tr.k-master-row").first());
+                        }
+                    </script>
+                </div>
+                <!-- Content PreviewServiceRequest -->
+            </div>
+            <!--End Row-->
+        </div>
+        <div class="panel-footer">
+            <div class="bootstrap">
+                <div class="@CSSResource.FullPage">
+                    <div class="form-group">
+                        @Html.Bootstrap().SubmitButton().Text(SharedResource.Save).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                        @Html.Bootstrap().Button().Text(SharedResource.AddRouting).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconAdd))
+                        @Html.Bootstrap().ActionLink(SharedResource.Submit, "Index", "ScenarioErrorCharges").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconFinish))
+                        @Html.Bootstrap().ActionLink(SharedResource.Cancel, "Index", "ScenarioNewContract").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

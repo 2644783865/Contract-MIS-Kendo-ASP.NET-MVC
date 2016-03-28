@@ -1,0 +1,128 @@
+﻿@using Misi.MVC.ViewModels.ScenarioErrorCharges;
+@using Misi.MVC.Resources;
+@using Kendo.Mvc.UI;
+@model RoutingInfoViewModel
+
+@{
+    ViewBag.Title = SharedResource.Create + " " + SharedResource.RoutingInfo +  " " + SharedResource.ErrorCharges;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+@using (Html.BeginForm("CreateRoutingInfo", "ScenarioErrorCharges", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+        <div class="panel">
+            @Html.Partial("_PartialSectionInformation", SharedResource.RoutingInfo)
+            <div class="panel-body" style="display: block;">
+                <div class="row">
+                    <!-- Content Form Routinginformation -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.RoutingCreationDate).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @*@Html.Bootstrap().TextBoxFor(m => m.RoutingInfoHeadingViewModel.RoutingCreationDate).Class(CSSResource.FormControlGlobal)*@
+                                @Html.Kendo().DatePickerFor(m => m.RoutingInfoHeadingViewModel.RoutingCreationDate).Value(DateTime.Today).Format(ConfigResource.FormatDate).Enable(false)
+                                @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.RoutingCreationDate)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.RoutingMemo).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+
+                                @Html.Bootstrap().TextAreaFor(m => m.RoutingInfoHeadingViewModel.RoutingMemo).Class(CSSResource.TextAreaControl)
+                                @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.RoutingMemo)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.SoldToParty).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @Html.Bootstrap().TextAreaFor(m => m.RoutingInfoHeadingViewModel.SoldToParty).Class(CSSResource.FormControlGlobal)
+                                @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.SoldToParty)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="@CSSResource.FullPage">
+                            <!-- Content Form Routing Table -->
+                            @(Html.Kendo().Grid<RoutingInfoTableLineViewModel>()
+                              .Name("ErrorChargesTable")
+                              .Columns(
+                                  c =>
+                                  {
+                                      c.Bound(e => e.Item).Width(100);
+                                      c.Bound(e => e.HolderNameDetails).Width(180);
+                                      c.Bound(e => e.SoContractNumber).Width(180);
+                                      c.Bound(e => e.LineNumber).Width(150);
+                                      c.Bound(e => e.Material).Width(100);
+                                      c.Bound(e => e.TargetQty).Width(150);
+                                      c.Bound(e => e.Unit).Width(100);
+                                      c.Bound(e => e.MaterialDescription).Width(180);
+                                      c.Bound(e => e.ItemCategory).Width(150);
+                                      c.Bound(e => e.ContractStart).Width(150);
+                                      c.Bound(e => e.ContractEnd).Width(150);
+                                      c.Bound(e => e.Currency).Width(150);
+                                      c.Bound(e => e.Charges).Width(100);
+                                      c.Bound(e => e.ReasonForRejection).Width(190);
+                                      c.Bound(e => e.WbsElement).Width(150);
+                                      c.Bound(e => e.PurchaseOrder).Width(150);
+                                      c.Bound(e => e.PoNumber).Width(150);
+                                      c.Bound(e => e.MaterialPricing).Width(190);
+                                      c.Bound(e => e.PriceGroup).Width(150);
+                                      c.Bound(e => e.Modify).Width(100);
+                                  })
+                                      .ColumnMenu()
+                                      .Pageable()
+                                      .Scrollable()
+                            )
+                            <!-- Content Form Routing Table -->
+                    </div>
+                    <!-- Content Form Routinginformation -->
+                </div>
+            </div>
+        </div>
+        <!--routingMid-->
+        <div class="panel">
+            @Html.Partial("_PartialSectionInformation", SharedResource.RequestForAdjustment)
+            <div class="panel-body" style="display: block;">
+                <div class="row">
+                    <div class="col-md-6">
+                        @(Html.Kendo().Grid(Model.RoutingInfoMidViewModel.RoutingInfoMidTableViewModel)
+                            .Name("RequestForAdjustment")
+                            .Columns(
+                                c =>
+                                {
+                                    c.Bound(e => e.Description);
+                                    c.Bound(e => e.Month);
+                                    c.Bound(e => e.Deduction);
+                                    c.Bound(e => e.Currency);
+                                })
+                         )
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--EndroutingMid-->
+        <!--routingWorkFlow-->
+        <div class="panel">
+            @Html.Partial("_PartialSectionInformation", SharedResource.WorkflowApproval)
+            <div class="panel-body" style="display: block;">
+                <div class="row">
+                        @Html.EditorFor(m => m.RoutingInfoWorkflowViewModel)
+                </div>
+            </div>
+        </div>
+        <!--EndroutingWorkFlow-->
+
+    <div class="bootstrap">
+        <div class="@CSSResource.FullPage">
+            <div class="form-group">
+                @Html.Bootstrap().SubmitButton().Text(SharedResource.Save).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                @Html.Bootstrap().Button().Text(SharedResource.AddRouting).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconAdd))
+                @Html.Bootstrap().ActionLink(SharedResource.Submit, "Preview", "ScenarioErrorCharges").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconFinish))
+            </div>
+        </div>
+    </div>
+
+
+}

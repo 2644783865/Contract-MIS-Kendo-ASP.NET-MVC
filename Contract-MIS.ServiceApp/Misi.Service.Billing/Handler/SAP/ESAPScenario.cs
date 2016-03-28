@@ -1,0 +1,23 @@
+﻿namespace Misi.Service.Billing.Handler.SAP
+{
+    public enum ESAPScenario
+    {
+        // QUERY OPERATIONS
+        QUERY_SOLD_TO_PARTIES_LIST,
+        QUERY_BILLING_NUMBERS,
+        QUERY_BILLING_TOTAL_RECORDS,
+        QUERY_INVOICE_HEADER_FROM_SAP,
+        QUERY_INVOICE_HEADER_FROM_DB,
+        QUERY_INVOICE_BILLINGS_ALL,
+        QUERY_BILLING_RUNS,
+
+        // COMMAND OPERATIONS
+        UPDATE_BILLING_ITEM,
+        SAVE_UPDATED_BILLING_ITEMS,
+        SAVE_INITIAL_SAP_DATA,
+
+        //febri
+        SUBMIT_BILLING_ITEMS,
+        SUBMIT_BILLING_ITEMS_BY_ID,
+    }
+}

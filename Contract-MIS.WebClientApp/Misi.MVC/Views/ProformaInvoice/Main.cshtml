@@ -1,0 +1,259 @@
+﻿@using Misi.MVC.Resources
+@using Misi.MVC.ViewModels.ProformaInvoice
+@using Kendo.Mvc.UI
+
+@model MainProformaInvoiceViewModel
+
+@{
+    ViewBag.Title = ProformaInvoiceResource.MainProformaInvoice;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+@Html.Partial("_PartialMainInformationHeader", ViewData.ModelState)
+
+<div class="form-horizontal">
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", ProformaInvoiceResource.MainInvoice)
+        <div class="panel-body" style="display: block;">
+            <div class="row">     
+                <div class="@CSSResource.TwoThirdPage">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingType).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingType).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.BillingDateFrom)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="@CSSResource.TwoThirdPage">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingDateFrom).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            <div class=@CSSResource.HalfPage>
+                                @(Html.Kendo().DatePickerFor(m => m.BillingDateFrom)
+                                      .Format(ConfigResource.FormatDate)
+                                      .ParseFormats(new[] { "dd MMM yyyy" })
+                                      .Events(e => e.Change("startChange"))
+                                      )
+                                @Html.ValidationMessageFor(m => m.BillingDateFrom)
+                            </div>
+                            <div class=@CSSResource.HalfPage>
+                                @(Html.Kendo().DatePickerFor(m => m.BillingDateTo)
+                                      .Format(ConfigResource.FormatDate)
+                                      .ParseFormats(new[] { "dd MMM yyyy" })
+                                      .Events(e => e.Change("endChange"))
+                                      )
+                                @Html.ValidationMessageFor(m => m.BillingDateTo)
+                            </div>
+                            <div class="@CSSResource.HelpText">
+                                @(Html.Bootstrap().LabelFor(m => m.BillingDateTo).Class("global"))
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.TwoThirdPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.SoldToPartyFrom).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                           @(Html.Kendo().DropDownListFor(m => m.SoldToPartyFrom)
+                                          .Name("SoldToPartyFrom_SelectedItem")
+                                  .HtmlAttributes(new { @class = CSSResource.FormControl })
+                                          .DataTextField(Model.SoldToPartyFrom.DataTextField)
+                                          .DataValueField(Model.SoldToPartyFrom.DataValueField)
+                                  .Filter("contains")
+                                  .DataSource(source => 
+                                      source.Read(read => read.Action(Model.SoldToPartyFrom.Action, Model.SoldToPartyFrom.Controller)))
+                                          .Events(e => e.Change("readDropDownBillingRun")))
+                            @Html.ValidationMessageFor(m => m.SoldToPartyFrom)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.TwoThirdPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingRun).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @(Html.Kendo().DropDownListFor(m => m.BillingRun)
+                                  .Name("BillingRun_SelectedItem")
+                                  .HtmlAttributes(new {@class = CSSResource.FormControl})
+                                  .DataTextField(Model.BillingRun.DataTextField)
+                                  .DataValueField(Model.BillingRun.DataValueField)
+                                  .Filter("contains")
+                                  .DataSource(source => source.Read(
+                                      read => read.Action(Model.BillingRun.Action, Model.BillingRun.Controller)
+                                                  .Data("readParameters")))
+                                  .Events(e => e.DataBound("onFilteringBillingRun").Change("onFilteringBillingRun"))
+                                  )
+
+                            @Html.ValidationMessageFor(m => m.BillingRun)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="@CSSResource.TwoThirdPage">
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.SelectedDocuments).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            <div class="row">
+                                @Html.Bootstrap().CheckBoxFor(m => m.SelectedDocuments.IsActiveDocumentSelected)
+                                @(Html.Bootstrap().LabelFor(m => m.SelectedDocuments.IsActiveDocumentSelected))
+                            </div>
+                            <div class="row">
+                                @Html.Bootstrap().CheckBoxFor(m => m.SelectedDocuments.IsBlockedDocumentSelected)
+                                @(Html.Bootstrap().LabelFor(m => m.SelectedDocuments.IsBlockedDocumentSelected))
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <div class="bootstrap">
+                <div class="@CSSResource.FullPage">
+                    <div id="create-new-invoice-wrapper" class="col-md-1" data-toggle="modal" data-target="#modal-routing" data-rel="#">
+                        @Html.Bootstrap().ActionLink(SharedResource.CreateNew, "#").Class(CSSResource.EndFormButton).PrependIcon(CSSResource.IconAdd).HtmlAttributes(new {id = "create-new-invoice-button"})
+                    </div>
+                    <div id="run-and-display-invoice-wrapper" class="col-md-2">
+                        <button class="btn-default  btn btn-sm btn-white" id="run-invoice-button"><i class="process-icon-fa fa-play"></i> Run</button>
+                        <button class="btn-default  btn btn-sm btn-white" id="display-invoice-button"><i class="process-icon-fa fa-chevron-right"></i> Display</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section javaScript{
+    <script type="text/javascript">
+
+        $('#create-new-invoice-button').click(function() {
+                createNewInvoiceAsyncPost();
+            }
+        );
+
+        $('#run-invoice-button').click(function(e) {
+            e.preventDefault();
+            var dropDownBillingRunValue = $("#BillingRun_SelectedItem").data("kendoDropDownList").value();
+            var newUrl = "/ProformaInvoice/Run/" + dropDownBillingRunValue;
+            window.location = newUrl;
+        });
+
+        $('#display-invoice-button').click(function(e) {
+            e.preventDefault();
+            var dropDownBillingRunValue = $("#BillingRun_SelectedItem").data("kendoDropDownList").value();
+            var newUrl = "/ProformaInvoice/Display/" + dropDownBillingRunValue;
+            window.location = newUrl;
+        });
+
+        function createNewInvoiceAsyncPost() {
+            var datePickerDateFromValue = $("#BillingDateFrom").data("kendoDatePicker")._value.toDateString();
+            var datePickerDateToValue = $("#BillingDateTo").data("kendoDatePicker")._value.toDateString();
+            var dropDownSoldToPartyFromValue = $("#SoldToPartyFrom_SelectedItem").data("kendoDropDownList").value();
+            var isBlockedDocCheckBoxValue = $('#SelectedDocuments_IsBlockedDocumentSelected').is(":checked");
+            var isActiveDocCheckBoxValue = $('#SelectedDocuments_IsActiveDocumentSelected').is(":checked");
+
+            $.ajax({
+                url: '/ProformaInvoice/BillingDocument',
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({
+                    iModel:
+                    {
+                        DateFromValue: datePickerDateFromValue,
+                        DateToValue: datePickerDateToValue,
+                        SoldToFromValue: dropDownSoldToPartyFromValue,
+                        IsBlockedDocSelectedValue: isBlockedDocCheckBoxValue,
+                        IsActiveDocSelectedValue: isActiveDocCheckBoxValue
+                    }
+                }),
+                async: true,
+                processData: false,
+                cache: false,
+                beforeSend: function() {
+                    showModalLoading();
+                },
+                success: function(data) {
+                    $('#billing-document-modal-container').html(data.html);
+                },
+                error: function(xhr) {
+                    hideModalLoading();
+                    window.location = "/Error";
+                }
+            });
+        }
+
+        function readParameters() {
+            var datePickerDateFromValue = $("#BillingDateFrom").data("kendoDatePicker")._value.toDateString();
+            var datePickerDateToValue = $("#BillingDateTo").data("kendoDatePicker")._value.toDateString();
+            var dropDownSoldToPartyFromValue = $("#SoldToPartyFrom_SelectedItem").data("kendoDropDownList").value();
+
+            return {
+                soldToParty: dropDownSoldToPartyFromValue,
+                dateFrom: datePickerDateFromValue,
+                dateTo: datePickerDateToValue
+            };
+        }
+
+        function readDropDownBillingRun(e) {
+            var dropDownBillingRun = $("#BillingRun_SelectedItem").data("kendoDropDownList");
+            dropDownBillingRun.dataSource.read();
+        }
+
+        function onFilteringBillingRun() {
+            var dropDownBillingRun = $("#BillingRun_SelectedItem").data("kendoDropDownList");
+            if (typeof dropDownBillingRun != 'undefined' && dropDownBillingRun != null) {
+                if (dropDownBillingRun.value() === "@SharedResource.NA") {
+                    $("#create-new-invoice-wrapper").show();
+                    $("#run-and-display-invoice-wrapper").hide();
+                } else {
+                    $("#create-new-invoice-wrapper").hide();
+                    $("#run-and-display-invoice-wrapper").show();
+                }
+            }
+        }
+
+
+        function startChange() {
+            var endPicker = $("#BillingDateTo").data("kendoDatePicker"),
+                startDate = this.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate() + 1);
+                endPicker.min(startDate);
+            }
+            readDropDownBillingRun();
+        }
+
+        function endChange() {
+            var startPicker = $("#BillingDateFrom").data("kendoDatePicker"),
+                endDate = this.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate() - 1);
+                startPicker.max(endDate);
+            }
+            readDropDownBillingRun();
+        }
+
+        function filterBillingRun() {
+            return {
+                soldToPartId: $("#SoldToPartyFrom_SelectedItem").val()
+            };
+        }
+
+       
+
+    </script>
+
+}

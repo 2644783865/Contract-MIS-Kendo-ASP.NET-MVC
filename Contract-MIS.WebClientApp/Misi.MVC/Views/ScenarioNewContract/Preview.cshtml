@@ -1,0 +1,93 @@
+﻿@using Misi.MVC.Resources;
+@using Kendo.Mvc.UI;
+@using Misi.MVC.ViewModels.ScenarioNewContract
+@model PreviewNewContractViewModel
+
+@{
+    ViewBag.Title = SharedResource.Preview + " " + SharedResource.NewContract;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("Preview", "ScenarioNewContract", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", SharedResource.PreviewServiceRequest)
+        <div class="panel-body" style="display: block;">
+            <!--Begin row-->
+            <div class="row">
+                <!-- Content PreviewServiceRequest -->
+                <div class=@CSSResource.FullPage>
+                    @(Html.Kendo().Grid<PreviewRequestInfoTableLineViewModel>()
+                          .Name("NewContractTable")
+                          .Columns(
+                              c =>
+                              {
+                                  c.Bound(e => e.Item).Width(100);
+                                  c.Bound(e => e.ServiceId).Width(150);
+                                  c.Bound(e => e.RequestedBy).Width(150);
+                                  c.Bound(e => e.IssuedBy).Width(150);
+                                  c.Bound(e => e.IssuedDate).Width(150);
+                                  c.Bound(e => e.SnOrIdNumber).Width(170);
+                                  c.Bound(e => e.Company).Width(150);
+                                  c.Bound(e => e.Location).Width(150);
+                                  c.Bound(e => e.Email).Width(150);
+                                  c.Bound(e => e.RequestedDate).Width(180);
+                                  c.Bound(e => e.RequestedVia).Width(180);
+                                  c.Bound(e => e.RequestMemo).Width(180);
+                                  c.Bound(e => e.Modify).Width(100);
+                              })
+                          .ColumnMenu()
+                          .Pageable()
+                          .Scrollable()
+                          .ClientDetailTemplateId("subitem")
+                          )
+                    <script id="subitem" type="text/kendo-tmpl">
+                            @(Html.Kendo().Grid<PreviewRequestInfoSubTableViewModel>()
+                                  .Name("grid_#=ServiceID#")
+                                  .Columns(columns =>
+                                  {
+                                      columns.Bound(o => o.SubItem).Width(150);
+                                      columns.Bound(o => o.RoutingCreation).Width(180);
+                                      columns.Bound(o => o.IdrWebNumber).Width(180);
+                                      columns.Bound(o => o.QuotationNumber).Width(200);
+                                      columns.Bound(o => o.ContractNumber).Width(200);
+                                      columns.Bound(o => o.PredefinedScenario).Width(200);
+                                      columns.Bound(o => o.RoutingMemo).Width(180);
+                                      columns.Bound(o => o.DivisionStatus).Width(180);
+                                      columns.Bound(o => o.SaStatus).Width(150);
+                                      columns.Bound(o => o.RoutingStatus).Width(180);
+                                      columns.Bound(o => o.ReasonForRejection).Width(200);
+                                  })
+                                  //.Pageable()
+                                  // .Sortable()
+                                  .ToClientTemplate()
+                                  )
+                        </script>
+                    <script>
+                        function dataBound() {
+                            this.expandRow(this.tbody.find("tr.k-master-row").first());
+                        }
+                    </script>
+                </div>
+                <!-- Content PreviewServiceRequest -->
+            </div>
+            <!--End Row-->
+        </div>
+
+        <div class="panel-footer">
+                <div class="bootstrap">
+                    <div class="@CSSResource.FullPage">
+                        <div class="form-group">
+                            @Html.Bootstrap().SubmitButton().Text(SharedResource.Save).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                            @Html.Bootstrap().Button().Text(SharedResource.AddRouting).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconAdd))
+                            @Html.Bootstrap().ActionLink(SharedResource.Submit, "Index", "ScenarioNewContract").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconFinish))
+                            @Html.Bootstrap().ActionLink(SharedResource.Cancel, "Index", "ScenarioNewContract").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+}

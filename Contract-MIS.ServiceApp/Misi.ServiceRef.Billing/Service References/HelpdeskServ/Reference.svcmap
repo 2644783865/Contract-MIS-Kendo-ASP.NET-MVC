@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="53995c92-1b5a-4e85-aeec-712e1b0eabcf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12030/Service/HelpdeskServ.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HelpdeskServ.wsdl" MetadataType="Wsdl" ID="f180d284-4748-4219-9fcb-5da270efca15" SourceId="1" SourceUrl="http://localhost:12030/Service/HelpdeskServ.svc?wsdl" />
+    <MetadataFile FileName="HelpdeskServ.xsd" MetadataType="Schema" ID="252f1e32-b48c-4df4-b0eb-4b0e1e623dda" SourceId="1" SourceUrl="http://localhost:12030/Service/HelpdeskServ.svc?xsd=xsd2" />
+    <MetadataFile FileName="HelpdeskServ1.xsd" MetadataType="Schema" ID="261dd726-f163-4adb-b4df-dc962b7f0214" SourceId="1" SourceUrl="http://localhost:12030/Service/HelpdeskServ.svc?xsd=xsd5" />
+    <MetadataFile FileName="HelpdeskServ2.xsd" MetadataType="Schema" ID="657852fc-6d18-4b0f-884d-5e67ec3b3a3d" SourceId="1" SourceUrl="http://localhost:12030/Service/HelpdeskServ.svc?xsd=xsd0" />
+    <MetadataFile FileName="HelpdeskServ3.xsd" MetadataType="Schema" ID="576c7f55-8763-4aa3-9e5e-054774e58f48" SourceId="1" SourceUrl="http://localhost:12030/Service/HelpdeskServ.svc?xsd=xsd3" />
+    <MetadataFile FileName="HelpdeskServ4.xsd" MetadataType="Schema" ID="b3fd83b0-c4b0-46b1-af56-cf492a7a33fe" SourceId="1" SourceUrl="http://localhost:12030/Service/HelpdeskServ.svc?xsd=xsd1" />
+    <MetadataFile FileName="HelpdeskServ.disco" MetadataType="Disco" ID="7af2e7f7-6db6-4b21-b01f-d56560d6e7d7" SourceId="1" SourceUrl="http://localhost:12030/Service/HelpdeskServ.svc?disco" />
+    <MetadataFile FileName="HelpdeskServ5.xsd" MetadataType="Schema" ID="fea21873-de0a-4944-a2d9-469c18eb1ada" SourceId="1" SourceUrl="http://localhost:12030/Service/HelpdeskServ.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

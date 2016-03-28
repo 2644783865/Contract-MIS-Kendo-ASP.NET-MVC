@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Misi.MVC.ViewModels.BillingReporting.DetailSubMaterialDescriptionLineViewModel>
+    @{
+        Layout = null;
+    }
+
+    
+    <!--Alignnya di ganti Left-->
+
+@foreach (var item in Model)
+    {
+        <tr class="no-border-top">
+        <td></td>
+        <td>
+            <table style="font-size: 12px">
+                <tr> 
+                    <td style="width:20px">@Html.DisplayFor(modelItem => item.No)</td>
+                    <td style="width: 300px">@Html.DisplayFor(modelItem => item.DetailSubDescription)</td>
+                </tr>
+            </table> 
+        </td> 
+        <td>&nbsp;</td>
+        <td align="right">
+            <table>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.RateDetailSubMaterialDescription)</td>
+                </tr>
+            </table>
+        </td>
+        <td align="right">
+            <table>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ChargesDetailSubMaterialDescription)</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+        
+    }
+    

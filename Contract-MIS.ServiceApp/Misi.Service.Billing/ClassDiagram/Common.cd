@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Misi.Service.Billing.Model.Common.CommonRequestInfoDTO">
+    <Position X="6.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAA=</HashCode>
+      <FileName>Model\Common\CommonRequestInfoDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.ContractBaseDTO">
+    <Position X="4.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Common\ContractBaseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.ContractEquipDataDTO">
+    <Position X="4.25" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAgAAAAAAAAQAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Common\ContractEquipDataDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RequestInfoBaseDTO">
+    <Position X="6.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Model\Common\RequestInfoBaseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RoutingInfoBaseDTO">
+    <Position X="0.5" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAoAAAQAAAAAAgAAAAAAABAACAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Model\Common\RoutingInfoBaseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RoutingItemDTO">
+    <Position X="2.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAAAAAABABAAAAAAAAAAAAjAIAAAIIAgAAAAAAAA=</HashCode>
+      <FileName>Model\Common\RoutingItemDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.ServiceRequestDTO">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAAAAAAAAAAAACAAAAAAAAAABAAACAI=</HashCode>
+      <FileName>Model\Common\ServiceRequestDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RequestInfoListItemDTO">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAA=</HashCode>
+      <FileName>Model\Common\RequestInfoListItemDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RequestInfosDTO">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Model\Common\RequestInfoListItemDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

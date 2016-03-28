@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?wsdl" filename="SAPProxyService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd0" filename="SAPProxyService.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd4" filename="SAPProxyService0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd6" filename="SAPProxyService1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd1" filename="SAPProxyService2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd3" filename="SAPProxyService3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd5" filename="SAPProxyService4.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd2" filename="SAPProxyService5.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd7" filename="SAPProxyService6.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

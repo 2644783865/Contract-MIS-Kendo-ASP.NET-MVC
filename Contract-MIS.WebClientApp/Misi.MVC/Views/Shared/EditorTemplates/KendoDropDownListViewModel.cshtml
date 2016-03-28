@@ -1,0 +1,14 @@
+﻿@using Misi.MVC.Resources
+@using Kendo.Mvc.UI
+@model Misi.MVC.ViewModels.Shared.KendoDropDownListViewModel
+
+@{
+    @(Html.Kendo().DropDownListFor(m => m.SelectedItem)
+        .HtmlAttributes(new {@class = CSSResource.FormControl})
+        .DataTextField(Model.DataTextField)
+        .DataValueField(Model.DataValueField)
+        .Filter("contains")
+        .DataSource(source => source.Read(read => read.Action(Model.Action, Model.Controller)))
+        .Value(Model.DefaultValue)
+        )
+}

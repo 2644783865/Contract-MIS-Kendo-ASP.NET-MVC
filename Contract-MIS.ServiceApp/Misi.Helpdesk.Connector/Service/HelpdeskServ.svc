@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Misi.Helpdesk.Connector.Service.HelpdeskServ" CodeBehind="HelpdeskServ.svc.cs" %>

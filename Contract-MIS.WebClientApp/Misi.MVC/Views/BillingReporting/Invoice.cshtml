@@ -1,0 +1,197 @@
+﻿@model Misi.MVC.ViewModels.BillingReporting.ReportInvoiceViewModel
+
+
+    @{
+        ViewBag.Title = "Invoice";
+        Layout = "~/Views/Shared/_LayoutPrint.cshtml";
+    }
+
+@* Header Invoice *@
+<div class="row" style="font-size: 12px">
+    <div class="col-xs-6">
+
+        <p class="text-uppercase" align="left" style="padding-left: 16px">
+
+            @{
+                var a = Html.DisplayFor(m => m.Kunrg).ToString();
+                if (a != "")
+                {
+                    @Html.DisplayFor(m => m.Kunrg) <br />
+                }
+            }
+
+            @{
+                a = Html.DisplayFor(m => m.Name1).ToString();
+                if (a != "")
+                {
+                    @Html.DisplayFor(m => m.Name1) <br />
+                }
+
+            }
+
+            @{
+                a = Html.DisplayFor(m => m.Name2).ToString();
+                if (a != "")
+                {
+                    @Html.DisplayFor(m => m.Name2) <br />
+                }
+
+            }
+
+            @{
+                a = Html.DisplayFor(m => m.Name3).ToString();
+                if (a != "")
+                {
+                    @Html.DisplayFor(m => m.Name3) <br />
+                }
+            }
+
+            @{
+                a = Html.DisplayFor(m => m.Street).ToString();
+                if (a != "")
+                {
+                    @Html.DisplayFor(m => m.Street) <br />
+                }
+            }
+            @Html.DisplayFor(m => m.City1) @Html.DisplayFor(m => m.PostCode1)
+        </p>
+
+    </div>
+    <div class="col-xs-6 text-right" style="font-size: 12px">
+
+        <div class="col-xs-12">
+            <div class="col-xs-6 text-left">Page</div>
+            <div class="col-xs-6 text-left">: <strong>1/&nbsp;&nbsp;&nbsp;&nbsp;1</strong></div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-6 text-left">No</div>
+            <div class="col-xs-6 text-left">: <strong>@Html.DisplayFor(m => m.InvoiceNo)</strong></div>
+        </div>
+        <!--Blank-->
+        <div class="col-xs-12">
+            <div class="col-xs-6 text-left" style="visibility: hidden">.</div>
+            <div class="col-xs-6 text-left" style="visibility: hidden">.</div>
+        </div>
+        <!--Blank-->
+        <div class="col-xs-12">
+            <div class="col-xs-6 text-left">Date</div>
+            <div class="col-xs-6 text-left">: <strong>@Html.DisplayFor(m => m.Fkdat)</strong></div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-6 text-left">Faktur Pajak</div>
+            <div class="col-xs-6 text-left">: <strong>@Html.DisplayFor(m => m.FakturPajak)</strong></div>
+        </div>
+
+    </div>
+</div>
+<br/>
+<br/>
+<div class="container" id="invoice">
+    
+    @*<div class="row" style="margin-top:25px; font-size: 12px">
+        <div class="col-xs-12">
+            NPWP : @Html.DisplayFor(m => m.Stceg)
+        </div>
+    </div>*@
+    <!-- / end client details section --> 
+    
+    <table class="table table-custom" style="font-size: 12px">
+        <thead>
+            <tr>
+                <th style="padding-bottom: 4px">NPWP : @Html.DisplayFor(m => m.Stceg)</th>
+            </tr>
+            <tr>
+                <th>
+                    <p align="left"><strong style="text-align: left">Description</strong></p>
+                </th>
+                <th colspan="2">
+                    <p align="right"><strong>Amount</strong></p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong> @Html.DisplayFor(m => m.Tdline)</strong></td>
+                <td>&nbsp;</td>
+                <td class="text-right"><strong> @Html.DisplayFor(m => m.Htotal2)</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="row text-right total" style="font-size: 12px">
+        <div class="col-xs-4 col-xs-offset-6 total-inner">
+            <p align="left">
+                <strong>
+                    Total Before Tax <br>
+                    VAT/PPN(@Html.DisplayFor(m => m.Vtext)) <br>
+                    Total Invoice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(m => m.Waerk)<br>
+                </strong>
+            </p>
+        </div>
+        <div class="col-xs-2 amount" style="font-size: 12px">
+            <strong>
+                @Html.DisplayFor(m => m.Htotal2) <br>
+                @Html.DisplayFor(m => m.Htotal3) <br>
+                @*@{
+                        var numberOne = Convert.ToDouble(@Html.DisplayFor(m => m.Htotal2));
+                        var numberTwo = Convert.ToDouble(@Html.DisplayFor(m => m.Htotal3));
+                        var totalInvoice = numberOne + numberTwo;
+                    }
+                    @totalInvoice*@
+                @Html.DisplayFor(m => m.TotalInvoice)
+                <br>
+            </strong>
+        </div>
+    </div>
+
+    <div class="row" style="font-size: 12px">
+        <div class="col-xs-12">
+            <p>Term of Payment : @Html.DisplayFor(m => m.Text1)</p>
+        </div>
+    </div>
+
+    <div class="row" style="font-size: 12px">
+        <div class="col-xs-12">
+            <p>
+                Payment should be made through one of our bank belows, related to their original currency.<br />
+                <strong>
+                    Bank Mandiri
+                    <br>Cilandak Commercial Estate
+                    <br>Jl. Raya Cilandak KKO
+                    <br>Jakarta 12560
+                    <br>IDR : 127-000-477-2511
+                </strong>
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="row" style="font-size: 12px">
+        <div class="col-xs-12">
+            <p>
+                <strong>
+                    Citibank, N.A.
+                    <br>Plaza Bapindo
+                    <br>Jl. Jend. Sudirman Kav. 54-55
+                    <br>Jakarta 12190
+                    <br>IDR : 0-106287-015
+                    <br>USD : 0-106287-511
+                </strong>
+            </p>
+        </div>
+    </div>
+    <br/>
+    <br/>
+
+    <div class="row" style="font-size: 12px">
+        <div class="col-xs-12">
+            <p class="text-uppercase">this invoice is electronically generated, no signature is required</p>
+        </div>
+    </div>
+
+</div>
+
+
+

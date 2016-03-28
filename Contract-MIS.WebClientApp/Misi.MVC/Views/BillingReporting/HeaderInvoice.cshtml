@@ -1,0 +1,93 @@
+﻿@model Misi.MVC.ViewModels.BillingReporting.ReportInvoiceViewModel
+
+@{
+    ViewBag.Title = "Invoice";
+    Layout = "~/Views/Shared/_LayoutPrint.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HeaderInvoice</title>
+</head>
+<body onload="subst()">
+    <div class="row" style="font-size: 12px">
+        <div class="col-xs-6"> 
+
+            <p class="text-uppercase" align="left" style="padding-left: 16px">
+
+                @{
+                    var a = Html.DisplayFor(m => m.Kunrg).ToString();
+                    if (a != "")
+                    {
+                        @Html.DisplayFor(m => m.Kunrg) <br />
+                    }
+                }
+
+                @{
+                    a = Html.DisplayFor(m => m.Name1).ToString();
+                    if (a != "")
+                    {
+                        @Html.DisplayFor(m => m.Name1) <br />
+                    }
+
+                }
+
+                @{
+                    a = Html.DisplayFor(m => m.Name2).ToString();
+                    if (a != "")
+                    {
+                        @Html.DisplayFor(m => m.Name2) <br />
+                    }
+
+                }
+
+                @{
+                    a = Html.DisplayFor(m => m.Name3).ToString();
+                    if (a != "")
+                    {
+                        @Html.DisplayFor(m => m.Name3) <br />
+                    }
+                }
+
+                @{
+                    a = Html.DisplayFor(m => m.Street).ToString();
+                    if (a != "")
+                    {
+                        @Html.DisplayFor(m => m.Street) <br />
+                    }
+                }
+                @Html.DisplayFor(m => m.City1) @Html.DisplayFor(m => m.PostCode1)
+            </p>
+
+        </div>
+        <div class="col-xs-6 text-right" style="font-size: 12px">
+
+            <div class="col-xs-12">
+                <div class="col-xs-6 text-left">Page</div>
+                <div class="col-xs-6 text-left">: <strong>1/&nbsp;&nbsp;&nbsp;&nbsp;1</strong></div>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-6 text-left">No</div>
+                <div class="col-xs-6 text-left">: <strong>@Html.DisplayFor(m => m.InvoiceNo)</strong></div>
+            </div>
+            <!--Blank-->
+            <div class="col-xs-12">
+                <div class="col-xs-6 text-left" style="visibility: hidden">.</div>
+                <div class="col-xs-6 text-left" style="visibility: hidden">.</div>
+            </div>
+            <!--Blank-->
+            <div class="col-xs-12">
+                <div class="col-xs-6 text-left">Date</div>
+                <div class="col-xs-6 text-left">: <strong>@Html.DisplayFor(m => m.Fkdat)</strong></div>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-6 text-left">Faktur Pajak</div>
+                <div class="col-xs-6 text-left">: <strong>@Html.DisplayFor(m => m.FakturPajak)</strong></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

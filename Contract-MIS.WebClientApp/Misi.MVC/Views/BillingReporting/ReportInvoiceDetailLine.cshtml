@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Misi.MVC.ViewModels.BillingReporting.ReportInvoiceDetailLineViewModel>
+
+    @{
+        Layout = null;
+    }
+
+    @*<table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaterialCategoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Qty)</td>
+                <td>@Html.Partial("MaterialSubCategoryLine", item.MaterialSubCategoryLineViewModels)</td>
+                            </tr>
+        }
+    </table>*@
+
+
+<!--ReportInvoiceDetailLine-->
+    @foreach (var item in Model)
+    {
+        <tr class="no-border" style="font-size: 15px">  
+            <td colspan="5" class="text-uppercase">
+                <strong>@Html.DisplayFor(modelItem => item.MaterialCategoryName)</strong>
+            </td>
+        </tr>
+        @Html.Partial("MaterialSubCategoryLine", item.MaterialSubCategoryLineViewModels)
+        
+        <!-- QTY dan Total Chargers(ReportInvoiceDetailLine--)-->
+        <tr>
+            <td>&nbsp;</td>
+            <td class="text-uppercase"><strong>Total @Html.DisplayFor(modelItem => item.MaterialCategoryName)</strong></td>
+            <td class="text-center"><strong>@Html.DisplayFor(modelItem => item.Qty)</strong></td>
+            <td class="text-right"><strong></strong></td>
+            <td class="text-right"><strong> @Html.DisplayFor(modelItem => item.TotalCharges)</strong></td>
+            <td><h5></h5></td>
+        </tr>
+        <!-- QTY dan Total Chargers(ReportInvoiceDetailLine--)-->
+        
+    }
+<!--ReportInvoiceDetailLine-->

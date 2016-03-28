@@ -1,0 +1,146 @@
+﻿@using Misi.MVC.Resources;
+@using Kendo.Mvc.UI;
+
+@{
+    ViewBag.Title = ServiceRequestResource.MaintainServiceRequest;
+}
+
+@model Misi.MVC.ViewModels.ServiceRequest.MaintainServiceRequestViewModel
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+@using (Html.BeginForm("Maintain", "ScenarioErrorCharges", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", ServiceRequestResource.MaintainServiceRequest)
+        <div class="panel-body" style="display: block;">
+            <div class="row"> 
+                <!-- Content Form Routinginformation -->
+                <div class=@CSSResource.OneThirdPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.TicketId).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.TicketId).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.TicketId)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.ServiceId).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.ServiceId).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.ServiceId)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.NotificationId).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.NotificationId).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.NotificationId)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.ContractNumber).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.ContractNumber).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.ContractNumber)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.ContractLineNumber).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.ContractLineNumber).Class(CSSResource.FormControlGlobal)
+                            @Html.ValidationMessageFor(m => m.ContractLineNumber)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class=@CSSResource.OneThirdPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.IssuedDate).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DatePickerFor(m => m.IssuedDate).Format(ConfigResource.FormatDate).Value(DateTime.Today)
+                            @Html.ValidationMessageFor(m => m.IssuedDate)
+                           
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RoutingCreationDate).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DatePickerFor(m => m.RoutingCreationDate).Format(ConfigResource.FormatDate).Value(DateTime.Today)
+                            @Html.ValidationMessageFor(m => m.RoutingCreationDate)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BaselineCompletionDate).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DatePickerFor(m => m.BaselineCompletionDate).Format(ConfigResource.FormatDate).Value(DateTime.Today)
+                            @Html.ValidationMessageFor(m => m.BaselineCompletionDate)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.PlanCompletionDate).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DatePickerFor(m => m.PlanCompletionDate).Format(ConfigResource.FormatDate).Value(DateTime.Today)
+                            @Html.ValidationMessageFor(m => m.PlanCompletionDate)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.ActualCompletionDate).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DatePickerFor(m => m.ActualCompletionDate).Format(ConfigResource.FormatDate).Value(DateTime.Today)
+                            @Html.ValidationMessageFor(m => m.ActualCompletionDate)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class=@CSSResource.OneThirdPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.SaStatusList).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DropDownList().Name("SaStatus").BindTo(Model.SaStatusList).Value(Model.SaStatusList.FirstOrDefault(e => e.Selected).Value)
+                            @Html.ValidationMessageFor(m => m.SaStatusList)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.ReasonForRejection).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DropDownList().Name("ReasonForRejection").BindTo(Model.ReasonForRejection).Value(Model.ReasonForRejection.FirstOrDefault(e => e.Selected).Value)
+                            @Html.ValidationMessageFor(m => m.ReasonForRejection)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.RoutingStatusList).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DropDownList().Name("RoutingStatus").BindTo(Model.RoutingStatusList).Value(Model.RoutingStatusList.FirstOrDefault(e => e.Selected).Value)
+                            @Html.ValidationMessageFor(m => m.RoutingStatusList)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.Scenarios).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DropDownList().Name("Scenario").BindTo(Model.Scenarios).Value(Model.Scenarios.FirstOrDefault(e => e.Selected).Value)
+                            @Html.ValidationMessageFor(m => m.Scenarios)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.IssuedByListItems).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Kendo().DropDownList().Name("IssuedBy").BindTo(Model.IssuedByListItems).Value(Model.IssuedByListItems.FirstOrDefault(e => e.Selected).Value)
+                            @Html.ValidationMessageFor(m => m.IssuedByListItems)
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Content Form Routinginformation -->
+            </div>
+        </div>
+            
+        <div class="panel-footer">
+            <div class="row">
+                <div class="@CSSResource.FullPage">
+                    @Html.Bootstrap().SubmitButton().Text(SharedResource.Search).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSearch))
+                    @Html.Bootstrap().Button().Text(SharedResource.Clear).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                </div>
+            </div>
+        </div>
+    </div>
+}

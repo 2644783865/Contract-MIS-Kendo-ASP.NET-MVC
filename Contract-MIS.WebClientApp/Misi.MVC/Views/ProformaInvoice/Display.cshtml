@@ -1,0 +1,208 @@
+﻿@using Misi.MVC.Resources
+@using Misi.MVC.ViewModels.ProformaInvoice
+@model RunProformaInvoiceHeaderViewModel
+
+@{
+    ViewBag.Title = ProformaInvoiceResource.DisplayProformaInvoice;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+<div class="form-horizontal">
+    @Html.AntiForgeryToken()
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", ProformaInvoiceResource.HeaderProformaInvoice)
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingDateFrom).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingDateFrom).Class(CSSResource.FormControlGlobal).Readonly()
+                        </div>
+                    </div>
+                </div>
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingDateTo).Class(CSSResource.FormLabelPair))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingDateTo).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.BillingDateTo)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingRun).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingRun).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.BillingRun)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.BillingType).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.BillingType).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.BillingType)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.SoldToParty).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.SoldToParty).Class(CSSResource.FormControlGlobal).Readonly()
+                            @Html.ValidationMessageFor(m => m.SoldToParty)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.CreatedBy).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.CreatedBy).Class(CSSResource.FormControlGlobal).Readonly()
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.CreatedOn).Class(CSSResource.FormLabel))
+                        <div class=@CSSResource.FormControlDiv>
+                            @Html.Bootstrap().TextBoxFor(m => m.CreatedOn).Class(CSSResource.FormControlGlobal).Readonly()
+                        </div>
+                    </div>
+                </div>
+                <div class=@CSSResource.HalfPage>
+                    <div class="form-group">
+                        @(Html.Bootstrap().LabelFor(m => m.Time).Class(CSSResource.FormLabelPair))
+                        <div class=@CSSResource.FormControlDiv>
+                            @(Html.Bootstrap().TextBoxFor(m => m.Time).Class(CSSResource.FormControlGlobal).Readonly())
+                            @Html.ValidationMessageFor(m => m.Time)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", ProformaInvoiceResource.TableProformaInvoice)
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <div class=@CSSResource.FullPage>
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+                    @(Html.Kendo().Grid<BillingItemViewModel>()
+                          .Name("GridBillingItemViewModel")
+                          .Events(events => events.ExcelExport("excelExportFunction"))
+                          .Excel(ex => ex.FileName(Model.SoldToParty + "_" + DateTime.Now.ToString(ConfigResource.FormatDate + "_" + ConfigResource.FormatTime) + ".xlsx").AllPages(true))
+                          .Columns(
+                              column =>
+                              {
+                                  column.Bound(p => p.ReasonForRejectionVM).Width(200).Locked(true).Lockable(false).ClientTemplate("#=ReasonForRejectionVM.CategoryName#").Filterable(false);
+                                  column.Bound(m => m.LogMessage).Width(200).Locked(true).Lockable(false).ClientTemplate("#= LineItems_Databound(LogMessage)#");
+                                  column.Bound(m => m.Remarks).Width(200).Locked(true).Lockable(false);
+                                  column.Bound(m => m.BillingBlock).Width(200);
+                                  column.Bound(m => m.ContractNumber).Width(200);
+                                  column.Bound(m => m.ContractItem).Width(200);
+                                  column.Bound(m => m.BillingItem).Width(200);
+                                  column.Bound(m => m.BillingNo).Width(200);
+                                  column.Bound(m => m.Type).Width(200);
+                                  column.Bound(m => m.MaterialType).Width(200);
+                                  column.Bound(m => m.MaterialNo).Width(200);
+                                  column.Bound(m => m.Description).Width(300);
+                                  column.Bound(m => m.Equipment).Width(200);
+                                  column.Bound(m => m.SerialNumber).Width(200);
+                                  column.Bound(m => m.Location).Width(150);
+                                  column.Bound(m => m.SalaryNumber).Width(150);
+                                  column.Bound(m => m.HolderName).Width(200);
+                                  column.Bound(m => m.SubArea).Width(150);
+                                  column.Bound(m => m.Year).Width(100);
+                                  column.Bound(m => m.Currency).Width(150);
+                                  column.Bound(m => m.Charge).Width(100);
+                                  column.Bound(m => m.Deduction).Width(200);
+                                  column.Bound(m => m.IdrNo).Width(200);
+                                  column.Bound(m => m.IdrDate).Width(200);
+                                  column.Bound(m => m.ValidFrom).Width(150);
+                                  column.Bound(m => m.ValidTo).Width(150);
+                                  column.Bound(m => m.PersArea).Width(250);
+                                  column.Bound(m => m.OrgUnit).Width(250);
+                                  column.Bound(m => m.OuCode).Width(130);
+                                  column.Bound(m => m.CostCenter).Width(200);
+                                  column.Bound(m => m.OriginMatCode).Width(200);
+                                  column.Bound(m => m.OtherInformation).Width(300);
+                              }
+                          )
+                          .ToolBar(toolbar =>
+                          {
+                              toolbar.Template(@<text>
+                                                    <button class="k-button k-button-icontext k-grid-excel">
+                                                        <span class="k-icon k-i-excel"></span>
+                                                        Export to Excel
+                                                    </button>
+                                                </text>);
+                          })
+                                  .Filterable(ftb => ftb.Mode(GridFilterMode.Row).Operators(operators => operators
+                        .ForString(str => str.Clear()
+                            .StartsWith("Starts with")
+                            .IsEqualTo("Is equal to")
+                            .IsNotEqualTo("Is not equal to")
+                        )))
+                          .Groupable()
+                          .Sortable()
+                          .Resizable(resize => resize.Columns(true))
+                          .Reorderable(reorder => reorder.Columns(true))
+                          .ColumnMenu()
+                          .Scrollable()
+                          .Pageable(pageable => pageable.Refresh(true))
+                          .Excel(excel => excel
+                              .FileName(string.Format("{0}_ProformaInvoiceItems.xlsx", DateTime.Now.ToString(
+                                  ConfigResource.FormatDate + " " + ConfigResource.FormatTime)))
+                              .Filterable(false)
+                              .ProxyURL(Url.Action("Excel_Export_Save", "ProformaInvoice"))
+                          )
+                          .DataSource(dataSource => dataSource
+                              .Ajax()
+                                      .PageSize(1000)
+                              .ServerOperation(false)
+                              .Read(read => read.Action("BillingItemsFromDB_Read", "ProformaInvoice"))
+                          ))
+                </div>
+            </div>
+        </div>
+        <hr class="clearFix" />
+    </div>
+
+    <div class="bootstrap" id="submit-to-sap-div" style="display:none">
+        <div class="@CSSResource.FullPage">
+            <div class="form-group">
+                @Html.Bootstrap().ActionLink(SharedResource.Cancel, "Main", "ProformaInvoice").Class(CSSResource.EndFormButton).PrependIcon(CSSResource.IconCancel)
+            </div>
+        </div>
+    </div>
+
+    <div class="voffset7"></div>
+</div>
+
+<script type="text/javascript">
+    function LineItems_Databound(data) {
+        if (data == "Success") {
+            return "<div'><img style='width:15px;' src='/Content/img/sukses.png'/>" + data + " </div>";
+        }
+        else if (data == "") {
+            return data;
+        } else if (data != "" && data != "Success") {
+            return "<div'><img style='width:15px;' src='/Content/img/gagal.png'/>" + data + " </div>";
+        }
+    }
+</script>

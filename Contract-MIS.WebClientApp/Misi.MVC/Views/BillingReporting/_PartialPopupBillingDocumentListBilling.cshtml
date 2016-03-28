@@ -1,0 +1,38 @@
+﻿@using Misi.MVC.Resources
+@using Kendo.Mvc.UI
+
+@model Misi.MVC.ViewModels.BillingReporting.PopupBillingDocumentViewModel
+
+@using (Html.BeginForm("MSTInvoice", "BillingReporting", FormMethod.Post))
+{
+    //TODO: TO REVISE
+    
+    @Html.HiddenFor(m => m.DateFromValue)
+    @Html.HiddenFor(m => m.DateToValue)
+    @Html.HiddenFor(m => m.SoldToPartyValue)
+
+
+    <div class="panel">
+        <div>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+
+        <h3>@ProformaInvoiceResource.BillingDocumentCreateNewPopupTitle</h3>
+
+        @Html.EditorFor(m => m.Lines)
+        <div class="panel-footer">
+            <div class="bootstrap">
+                <div class="@CSSResource.FullPage">
+                    <div class="form-group">
+                        
+                        @if (Model.Lines.Columns.Any())
+                        {
+                            @Html.Bootstrap().SubmitButton().Text(SharedResource.Printer).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))    
+                        }
+                        @Html.Bootstrap().ActionLink(SharedResource.Cancel, "MSTInvoice", "BillingReporting").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}   

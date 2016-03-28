@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Misi.SAP.Connector.Object" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Misi.SAP.Connector.Object" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8086/Service/SAPConnector.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="InputOutputDTO">
+    <xs:sequence />
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="InputOutputDTO" nillable="true" type="tns:InputOutputDTO" />
+  <xs:complexType name="SoldToPartiesDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:InputOutputDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="List" nillable="true" type="tns:ArrayOfSoldToPartyDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SoldToPartiesDTO" nillable="true" type="tns:SoldToPartiesDTO" />
+  <xs:complexType name="ArrayOfSoldToPartyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SoldToPartyDTO" nillable="true" type="tns:SoldToPartyDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSoldToPartyDTO" nillable="true" type="tns:ArrayOfSoldToPartyDTO" />
+  <xs:complexType name="SoldToPartyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KUNNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOEVM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPART" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VTWEG" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SoldToPartyDTO" nillable="true" type="tns:SoldToPartyDTO" />
+</xs:schema>

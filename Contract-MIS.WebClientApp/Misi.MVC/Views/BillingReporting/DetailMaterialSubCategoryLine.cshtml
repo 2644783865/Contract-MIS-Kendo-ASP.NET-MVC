@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Misi.MVC.ViewModels.BillingReporting.DetailMaterialSubCategoryLineViewModel>
+
+@{
+    Layout = null;
+}
+
+@*<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.MaterialNo)</td>
+            <td>@Html.DisplayFor(modelItem => item.MaterialDescription)</td>
+            <td>@Html.DisplayFor(modelItem => item.MaterialQty)</td>
+            <td>@Html.DisplayFor(modelItem => item.SubTotal)</td>
+            <td>@Html.Partial("DetailSubMaterialDescriptionLine", item.DetailSubMaterialDescriptionLineViewModels)</td>
+        </tr>
+    }
+</table>*@ 
+     
+@foreach (var item in Model)
+{
+    <tr class="no-border-top">
+        <td style="width: 115px">@Html.DisplayFor(modelItem => item.MaterialNo)</td>
+        <td style="width: 300px">@Html.DisplayFor(modelItem => item.MaterialDescription)</td>
+        <td class="text-center">@Html.DisplayFor(modelItem => item.MaterialQty)</td>
+        <td class="text-right">@Html.DisplayFor(modelItem => item.DetailMaterialRate)</td>
+        <td class="text-right">@Html.DisplayFor(modelItem => item.SubTotal)</td>
+    </tr>
+    @Html.Partial("DetailSubMaterialDescriptionLine", item.DetailSubMaterialDescriptionLineViewModels)
+}
+

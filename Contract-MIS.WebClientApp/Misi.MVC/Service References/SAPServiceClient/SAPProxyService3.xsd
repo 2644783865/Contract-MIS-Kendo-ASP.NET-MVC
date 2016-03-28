@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Object" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Object" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:27648/Service/SAPProxyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Model.SAP" />
+  <xs:complexType name="InvoiceProformaBillingRunsDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Model.SAP" base="q1:SAPResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InvoiceProformaBillingRunsDTO" nillable="true" type="tns:InvoiceProformaBillingRunsDTO" />
+  <xs:complexType name="ArrayOfInvoiceProformaItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceProformaItemDTO" nillable="true" type="tns:InvoiceProformaItemDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceProformaItemDTO" nillable="true" type="tns:ArrayOfInvoiceProformaItemDTO" />
+  <xs:complexType name="InvoiceProformaItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ARKTX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUBEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUPOS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FKIMG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITEM_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LogMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MATKL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MATNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBCATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ABGRU_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_APPROVAL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_BEDAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_BSTDK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_BSTKD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_BSTKD_E" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_EMPNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ENDAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_EQUNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_EQ_YEAR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_FAKSK_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_KONDA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_KONDM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_KOSTL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_LOCATION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_MAPAR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_NETWR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_NOTE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ORGUNIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ORGUNIT_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_OUCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_PERNR1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_PERNR2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_PERSAREA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_PERSAREA_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_POSNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_PSTYV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_PS_PSP_PNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_SERGE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_SUBAREA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_SUBAREA_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_TYPBZ" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_VBELN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_VTEXT1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_VTEXT2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_WAERK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ZIEME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ZMENG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBELN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VRKME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WGBEZ" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceProformaItemDTO" nillable="true" type="tns:InvoiceProformaItemDTO" />
+  <xs:complexType name="ArrayOfInvoiceProformaBillingRunDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceProformaBillingRunDTO" nillable="true" type="tns:InvoiceProformaBillingRunDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceProformaBillingRunDTO" nillable="true" type="tns:ArrayOfInvoiceProformaBillingRunDTO" />
+  <xs:complexType name="InvoiceProformaBillingRunDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Draft" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="No" type="xs:int" />
+      <xs:element minOccurs="0" name="SoldToParty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceProformaBillingRunDTO" nillable="true" type="tns:InvoiceProformaBillingRunDTO" />
+</xs:schema>

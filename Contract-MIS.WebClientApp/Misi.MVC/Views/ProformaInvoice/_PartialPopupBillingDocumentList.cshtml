@@ -1,0 +1,64 @@
+﻿@using Misi.MVC.Resources
+@using Kendo.Mvc.UI
+
+@model Misi.MVC.ViewModels.ProformaInvoice.PopupBillingDocumentViewModel
+
+@using (Html.BeginForm("Run", "ProformaInvoice", 
+    FormMethod.Post, new {id = "popup-proforma-invoice-form"}))
+{
+    @Html.HiddenFor(m => m.IsActiveDocSelectedValue)
+    @Html.HiddenFor(m => m.IsBlockedDocSelectedValue)
+
+    <div class="panel">
+        <div>
+            <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+        </div>
+
+        <h3>@ProformaInvoiceResource.BillingDocumentCreateNewPopupTitle</h3>
+
+        @Html.EditorFor(m => m.Lines)
+        <div class="panel-footer">
+            <div class="bootstrap">
+                <div class="@CSSResource.FullPage"> 
+                    <div class="form-group">
+                        
+                        @if (Model.Lines.Columns.Any())
+                        {
+                            @Html.Bootstrap().Button().Text(SharedResource.CreateNew).Class(CSSResource.EndFormButton).PrependIcon(CSSResource.IconAdd).HtmlAttributes(new { id = "create-new-popup-button" })
+                        }
+                        @Html.Bootstrap().ActionLink(SharedResource.Cancel, "Main", "ProformaInvoice").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+
+    $("#create-new-popup-button").click(function (e) {
+        var form = $("#popup-proforma-invoice-form");
+        console.log(form);
+        $.ajax({
+            cache: false,
+            async: true,
+            type: "POST",
+            url: form.attr('action'),
+            data: form.serialize(),
+            beforeSend: function () {
+                showModalLoading();
+            },
+            success: function (data) {
+                hideModalLoading();
+                window.location = data.urlToRedirect;
+            },
+            error: function (data) {
+                hideModalLoading();
+                window.location = "/Error";
+            }
+        });
+    });
+
+</script>

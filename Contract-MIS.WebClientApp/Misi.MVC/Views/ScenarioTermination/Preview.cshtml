@@ -1,0 +1,135 @@
+﻿@using Misi.MVC.Resources;
+@using Kendo.Mvc.UI;
+@using Misi.MVC.ViewModels.ScenarioTermination
+@model PreviewTerminationViewModel
+@{
+    ViewBag.Title = SharedResource.Preview + " " + SharedResource.Termination;
+}
+
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("Preview", "ScenarioTermination", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", SharedResource.PreviewServiceRequest)
+        <div class="panel-body" style="display: block;">
+            <!--Begin row-->
+            <div class="row">
+                <!-- Content PreviewServiceRequest -->
+                <div class="@CSSResource.FullPage">
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+                    @(Html.Kendo().Grid<PreviewRequestInfoTableViewModel>()
+                          .Name("grid")
+                          .Columns(
+                              c =>
+                              {
+                                  c.Bound(e => e.Item).Width(100);
+                                  c.Bound(e => e.ServiceId).Width(150);
+                                  c.Bound(e => e.Scenario).Width(150);
+                                  c.Bound(e => e.DetailScenario).Width(180);
+                                  c.Bound(e => e.IssuedBy).Width(150);
+                                  c.Bound(e => e.IssuedDate).Width(150);
+                                  c.Bound(e => e.RequestedVia).Width(180);
+                                  c.Bound(e => e.RequestMemo).Width(180);
+                                  c.Bound(e => e.Modify).Width(150);
+                              })
+                          .ToolBar(tools => tools.Excel())
+                          .ColumnMenu()
+                          .Sortable()
+                          .Scrollable()
+                          .Excel(excel => excel
+                              .FileName("PreviewTermination.xlsx")
+                              .Filterable(false)
+                              .ProxyURL(Url.Action("Excel_Export_Save", "ScenarioTermination"))
+                          )
+                          .DataSource(dataSource => dataSource
+                              .Ajax()
+                              .PageSize(20)
+                              .Read(read => read.Action("PreviewRead", "ScenarioTermination"))
+                          )
+                          )
+
+                    <script id="subitem" type="text/kendo-tmpl">
+                        @(Html.Kendo().Grid(Model.PreviewRequestInfoViewModel.PreviewRequestInfoTableLineViewModel)
+                              .Name("grid_#=ServiceID#")
+                              .Columns(columns =>
+                              {
+                                  columns.Bound(o => o.SubItem).Width(150);
+                                  columns.Bound(o => o.RoutingCreationDate).Width(200);
+                                  columns.Bound(o => o.Scenario).Width(150);
+                                  columns.Bound(o => o.DetailScenario).Width(180);
+                                  columns.Bound(o => o.RoutingMemo).Width(180);
+                                  columns.Bound(o => o.DivisionStatus).Width(180);
+                                  columns.Bound(o => o.SaStatus).Width(150);
+                                  columns.Bound(o => o.RoutingStatus).Width(180);
+                              })
+                              .ColumnMenu()
+                              .Pageable()
+                              .Sortable()
+                              .ClientDetailTemplateId("itemsubtable")
+                              )
+                    </script>
+                    <script id="itemsubtable" type="text/kendo-tmpl">
+                        @(Html.Kendo().Grid(Model.PreviewRequestInfoViewModel.PreviewRequestInfoSubTableLineViewModel)
+                              .Name("grid_#=Item#")
+                              .Columns(columns =>
+                              {
+                                  columns.Bound(o => o.Item).Width(100);
+                                  columns.Bound(o => o.Company).Width(100);
+                                  columns.Bound(o => o.HolderName).Width(100);
+                                  columns.Bound(o => o.SalaryNumber).Width(100);
+                                  columns.Bound(o => o.UserId).Width(100);
+                                  columns.Bound(o => o.Application).Width(100);
+                                  columns.Bound(o => o.Status).Width(100);
+                                  columns.Bound(o => o.ContractNumber).Width(100);
+                                  columns.Bound(o => o.LineNumber).Width(100);
+                                  columns.Bound(o => o.Material).Width(100);
+                                  columns.Bound(o => o.TargetQty).Width(100);
+                                  columns.Bound(o => o.Unit).Width(100);
+                                  columns.Bound(o => o.MaterialDescription).Width(100);
+                                  columns.Bound(o => o.ReasonForRejection).Width(100);
+                                  columns.Bound(o => o.ItemCategory).Width(100);
+                                  columns.Bound(o => o.ContractStart).Width(100);
+                                  columns.Bound(o => o.ContractEnd).Width(100);
+                                  columns.Bound(o => o.Currency).Width(100);
+                                  columns.Bound(o => o.Charges).Width(100);
+                                  columns.Bound(o => o.WbsElement).Width(100);
+                                  columns.Bound(o => o.Purchase).Width(100);
+                                  columns.Bound(o => o.PoNumber).Width(100);
+                                  columns.Bound(o => o.MaterialPricing).Width(100);
+                                  columns.Bound(o => o.PriceGroup).Width(100);
+                              })
+                              .Pageable()
+                              .Sortable()
+                              .ToClientTemplate()
+                              )
+                    </script>
+                    <script>
+                        function dataBound() {
+                            this.expandRow(this.tbody.find("tr.k-master-row").first());
+                        }
+                    </script>
+                </div>
+                <!-- Content PreviewServiceRequest -->
+            </div>
+            <!--End Row-->
+        </div>
+
+        <div class="panel-footer">
+
+            <div class="bootstrap">
+                <div class="@CSSResource.FullPage">
+                    <div class="form-group">
+                        @Html.Bootstrap().SubmitButton().Text(SharedResource.Save).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                        @Html.Bootstrap().Button().Text(SharedResource.AddRouting).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconAdd))
+                        @Html.Bootstrap().SubmitButton().Text(SharedResource.Submit).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconSave))
+                        @Html.Bootstrap().ActionLink(SharedResource.Cancel, "CreateRequestInfo", "ScenarioTermination").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

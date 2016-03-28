@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Model.SAP" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Model.SAP" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://10.1.5.188:8086/Service/SAPProxyService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Model.Common" />
+  <xs:complexType name="ArrayOfBillingNumberItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingNumberItemDTO" nillable="true" type="tns:BillingNumberItemDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingNumberItemDTO" nillable="true" type="tns:ArrayOfBillingNumberItemDTO" />
+  <xs:complexType name="BillingNumberItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingDocNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillingNumberItemDTO" nillable="true" type="tns:BillingNumberItemDTO" />
+  <xs:complexType name="RunInvoiceHeaderDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RunInvoiceDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BillingDateFrom" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BillingDateTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BillingDocsCriteria" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BillingNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingRun" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreateOn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProformaFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReasonForRejection" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SoldToParty" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SoldToPartyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Time" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RunInvoiceHeaderDTO" nillable="true" type="tns:RunInvoiceHeaderDTO" />
+  <xs:complexType name="RunInvoiceDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SAPResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RunInvoiceDTO" nillable="true" type="tns:RunInvoiceDTO" />
+  <xs:complexType name="SAPResponse">
+    <xs:sequence />
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="SAPResponse" nillable="true" type="tns:SAPResponse" />
+  <xs:complexType name="OKResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SAPResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OKResponse" nillable="true" type="tns:OKResponse" />
+  <xs:complexType name="RunInvoiceBillingsDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RunInvoiceDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BillingItems" nillable="true" type="tns:ArrayOfBillingItemDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RunInvoiceBillingsDTO" nillable="true" type="tns:RunInvoiceBillingsDTO" />
+  <xs:complexType name="ArrayOfBillingItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingItemDTO" nillable="true" type="tns:BillingItemDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingItemDTO" nillable="true" type="tns:ArrayOfBillingItemDTO" />
+  <xs:complexType name="BillingItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingBlock" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingItem" type="xs:int" />
+      <xs:element minOccurs="0" name="BillingItemLines" nillable="true" type="tns:ArrayOfBillingItemLineDTO" />
+      <xs:element minOccurs="0" name="Charge" type="xs:double" />
+      <xs:element minOccurs="0" name="ContractItem" type="xs:int" />
+      <xs:element minOccurs="0" name="ContractNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CostCenter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deduction" type="xs:double" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Equipment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HolderName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdrDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdrWebNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="No" type="xs:long" />
+      <xs:element minOccurs="0" name="OrgUnit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginMatCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtherInformation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OuCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonForRejection" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalaryNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillingItemDTO" nillable="true" type="tns:BillingItemDTO" />
+  <xs:complexType name="ArrayOfBillingItemLineDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingItemLineDTO" nillable="true" type="tns:BillingItemLineDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingItemLineDTO" nillable="true" type="tns:ArrayOfBillingItemLineDTO" />
+  <xs:complexType name="BillingItemLineDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssuedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssuedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ItemNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestMemo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RequestedView" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNorIDNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scenario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillingItemLineDTO" nillable="true" type="tns:BillingItemLineDTO" />
+  <xs:complexType name="SoldToPartiesListDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SAPResponse">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Misi.Service.Billing.Model.Common" minOccurs="0" name="List" nillable="true" type="q1:ArrayOfKeyValueDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SoldToPartiesListDTO" nillable="true" type="tns:SoldToPartiesListDTO" />
+  <xs:complexType name="BillingNumberItemsDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SAPResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Numbers" nillable="true" type="tns:ArrayOfBillingNumberItemDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BillingNumberItemsDTO" nillable="true" type="tns:BillingNumberItemsDTO" />
+  <xs:complexType name="Contract">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SAPResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conItem" nillable="true" type="tns:ArrayOfContractItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Contract" nillable="true" type="tns:Contract" />
+  <xs:complexType name="ArrayOfContractItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContractItem" nillable="true" type="tns:ContractItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContractItem" nillable="true" type="tns:ArrayOfContractItem" />
+  <xs:complexType name="ContractItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ARKTX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUBEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUPOS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FKIMG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITEM_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MATKL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MATNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBCATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ABGRU_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_BEDAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_BSTDK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_BSTKD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_BSTKD_E" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_EMPNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ENDAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_EQ_YEAR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_FAKSK_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_KOSTL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_LOCATION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_ORGUNIT_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_OUCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_PERNR2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_PERSAREA_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_SERGE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_SUBAREA_T" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBAK_WAERK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBELN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VRKME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WGBEZ" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractItem" nillable="true" type="tns:ContractItem" />
+  <xs:complexType name="RunPrintBillingsDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SAPResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="_printBillingHeader" nillable="true" type="tns:PrintBillingHeaderDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RunPrintBillingsDTO" nillable="true" type="tns:RunPrintBillingsDTO" />
+  <xs:complexType name="PrintBillingHeaderDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CITY1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERDAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERNAM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERZET" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FKDAT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FPAJAK_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HTOTAL1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HTOTAL2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HTOTAL3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HTOTAL4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HTOTAL5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KUNRG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KURRF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POST_CODE1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportInvoiceDetail" nillable="true" type="tns:ArrayOfPrintBillingItemDTO" />
+      <xs:element minOccurs="0" name="STCEG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STREET" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TDLINE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TEXT1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VBELN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VTEXT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WAERK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZTERM" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrintBillingHeaderDTO" nillable="true" type="tns:PrintBillingHeaderDTO" />
+  <xs:complexType name="ArrayOfPrintBillingItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrintBillingItemDTO" nillable="true" type="tns:PrintBillingItemDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrintBillingItemDTO" nillable="true" type="tns:ArrayOfPrintBillingItemDTO" />
+  <xs:complexType name="PrintBillingItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaterialCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialSubCategoryLineViewModel" nillable="true" type="tns:ArrayOfMaterialSubCategory" />
+      <xs:element minOccurs="0" name="Qty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCharges" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrintBillingItemDTO" nillable="true" type="tns:PrintBillingItemDTO" />
+  <xs:complexType name="ArrayOfMaterialSubCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialSubCategory" nillable="true" type="tns:MaterialSubCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMaterialSubCategory" nillable="true" type="tns:ArrayOfMaterialSubCategory" />
+  <xs:complexType name="MaterialSubCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaterialSubCategoryLineViewModel" nillable="true" type="tns:ArrayOfDetailMaterialSubCategory" />
+      <xs:element minOccurs="0" name="MaterialSubCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubQty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubTotalCharges" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaterialSubCategory" nillable="true" type="tns:MaterialSubCategory" />
+  <xs:complexType name="ArrayOfDetailMaterialSubCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetailMaterialSubCategory" nillable="true" type="tns:DetailMaterialSubCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetailMaterialSubCategory" nillable="true" type="tns:ArrayOfDetailMaterialSubCategory" />
+  <xs:complexType name="DetailMaterialSubCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DetailSubMaterialDescriptionLineViewModels" nillable="true" type="tns:ArrayOfDetailSubMaterialDescription" />
+      <xs:element minOccurs="0" name="MatCharge" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MatQty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubTotal" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetailMaterialSubCategory" nillable="true" type="tns:DetailMaterialSubCategory" />
+  <xs:complexType name="ArrayOfDetailSubMaterialDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetailSubMaterialDescription" nillable="true" type="tns:DetailSubMaterialDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetailSubMaterialDescription" nillable="true" type="tns:ArrayOfDetailSubMaterialDescription" />
+  <xs:complexType name="DetailSubMaterialDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChargesDetailSubMaterialDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetailSubDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="No" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetailSubMaterialDescription" nillable="true" type="tns:DetailSubMaterialDescription" />
+  <xs:complexType name="NumberResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SAPResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NumberResult" nillable="true" type="tns:NumberResult" />
+</xs:schema>

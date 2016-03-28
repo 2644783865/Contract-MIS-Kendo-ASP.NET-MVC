@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B85F98E4-E45F-4B3A-870A-E999C16DA8C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Misi.DAL.Billing</RootNamespace>
+    <AssemblyName>Misi.DAL.Billing</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DaoUtil\BillingDbContext.cs" />
+    <Compile Include="DaoUtil\BrokenDeviceDAO.cs" />
+    <Compile Include="DaoUtil\InvoiceProformaDAO.cs" />
+    <Compile Include="DaoUtil\ErrorChargesDAO.cs" />
+    <Compile Include="DaoUtil\IndexDAO.cs" />
+    <Compile Include="DaoUtil\NewContractDAO.cs" />
+    <Compile Include="DaoUtil\NewScenarioDAO.cs" />
+    <Compile Include="DaoUtil\ReturnDeviceDAO.cs" />
+    <Compile Include="DaoUtil\TerminationDAO.cs" />
+    <Compile Include="DaoUtil\TransferAssetDAO.cs" />
+    <Compile Include="DaoUtil\UserRoleDAO.cs" />
+    <Compile Include="Migrations\201506150828535_DalBilling.cs" />
+    <Compile Include="Migrations\201506150828535_DalBilling.Designer.cs">
+      <DependentUpon>201506150828535_DalBilling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Common\Company.cs" />
+    <Compile Include="Model\Common\ContractBase.cs" />
+    <Compile Include="Model\Contract\BrokenDeviceContract.cs" />
+    <Compile Include="Model\Contract\ContractBilling.cs" />
+    <Compile Include="Model\Contract\ContractEquipmentData.cs" />
+    <Compile Include="Model\Contract\ContractWithBillings.cs" />
+    <Compile Include="Model\Contract\NewContractExtLineContract.cs" />
+    <Compile Include="Model\Contract\NewContractIpPhoneContract.cs" />
+    <Compile Include="Model\Contract\NewContractLaptopContract.cs" />
+    <Compile Include="Model\Contract\NewContractSoftwareContract.cs" />
+    <Compile Include="Model\Contract\NewScenarioContract.cs" />
+    <Compile Include="Model\Contract\ReturnDeviceOldContract.cs" />
+    <Compile Include="Model\Contract\ReturnDeviceUpdatedContract.cs" />
+    <Compile Include="Model\Contract\TerminatedContract.cs" />
+    <Compile Include="Model\Contract\TransferAssetNewContract.cs" />
+    <Compile Include="Model\Contract\TransferAssetOldContract.cs" />
+    <Compile Include="Model\Contract\TransferAssetUpdatedContract.cs" />
+    <Compile Include="Model\Common\Division.cs" />
+    <Compile Include="Model\Common\Index.cs" />
+    <Compile Include="Model\Common\RequestInfoBase.cs" />
+    <Compile Include="Model\RequestInfo\BrokenDeviceRequestInfo.cs" />
+    <Compile Include="Model\RequestInfo\CommonIssueRequestInfo.cs" />
+    <Compile Include="Model\RequestInfo\ErrorChargesRequestInfo.cs" />
+    <Compile Include="Model\RequestInfo\NewContractRequestInfo.cs" />
+    <Compile Include="Model\RequestInfo\NewScenarioRequestInfo.cs" />
+    <Compile Include="Model\RequestInfo\ReturnDeviceRequestInfo.cs" />
+    <Compile Include="Model\RequestInfo\TerminationRequestInfo.cs" />
+    <Compile Include="Model\RequestInfo\TransferAssetRequestInfo.cs" />
+    <Compile Include="Model\Object\ERoutingStatus.cs" />
+    <Compile Include="Model\Object\EScenario.cs" />
+    <Compile Include="Model\Object\EServiceRequestState.cs" />
+    <Compile Include="Model\Object\ESubScenario.cs" />
+    <Compile Include="Model\Request\NewScenarioRequest.cs" />
+    <Compile Include="Model\Common\RoutingInfoBase.cs" />
+    <Compile Include="Model\Request\BrokenDeviceRequest.cs" />
+    <Compile Include="Model\Request\ErrorChargesRequest.cs" />
+    <Compile Include="Model\Request\NewContractRequest.cs" />
+    <Compile Include="Model\Request\ReturnDeviceRequest.cs" />
+    <Compile Include="Model\Request\TerminationRequest.cs" />
+    <Compile Include="Model\Request\TransferAssetRequest.cs" />
+    <Compile Include="Model\RoutingInfo\NewContractExtLineRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\NewContractIpPhoneRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\NewScenarioRoutingInfo.cs" />
+    <Compile Include="Model\Common\ServiceRequestBase.cs" />
+    <Compile Include="Model\Common\RoutingItem.cs" />
+    <Compile Include="Model\RoutingInfo\BrokenDeviceRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\ErrorChargesRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\NewContractLaptopRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\NewContractSoftwareRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\NewContractRoutingInfoBase.cs" />
+    <Compile Include="Model\RoutingInfo\ReturnDeviceRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\TerminationRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\TransferAssetByHolderRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\TransferAssetByLocationRoutingInfo.cs" />
+    <Compile Include="Model\RoutingInfo\TransferAssetRoutingInfo.cs" />
+    <Compile Include="Model\Common\TerminationItem.cs" />
+    <Compile Include="Model\Common\UserAndRole.cs" />
+    <Compile Include="Model\SAP\InvoiceProformaBilling.cs" />
+    <Compile Include="Model\SAP\InvoiceProformaHeader.cs" />
+    <Compile Include="Model\SAP\InvoiceProformaItemDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram\TransferAsset.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Misi.Common.Lib\Misi.Common.Lib.csproj">
+      <Project>{528f35b2-8d02-44f4-be05-85b08679c200}</Project>
+      <Name>Misi.Common.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201506150828535_DalBilling.resx">
+      <DependentUpon>201506150828535_DalBilling.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:12030/Service/HelpdeskServ.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Object" />
+  <xs:complexType name="Tickets">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Object" minOccurs="0" name="Collection" nillable="true" type="q1:ArrayOfTicketVo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tickets" nillable="true" type="tns:Tickets" />
+</xs:schema>

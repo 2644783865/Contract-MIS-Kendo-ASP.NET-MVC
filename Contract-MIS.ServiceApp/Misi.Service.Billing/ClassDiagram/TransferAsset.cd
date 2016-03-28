@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Misi.Service.Billing.Model.TransferAsset.TransferAssetRequestDTO">
+    <Position X="5.75" Y="3.25" Width="2" />
+    <AssociationLine Name="_requestInfo" Type="Misi.Service.Billing.Model.TransferAsset.TransferAssetRequestInfoDTO">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.15" Y="0.104" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_routings" Type="Misi.Service.Billing.Model.TransferAsset.TransferAssetRoutingInfoDTO">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.282" Y="0.079" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAQAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Model\TransferAsset\TransferAssetRequestDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_requestInfo" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_routings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.ServiceRequestDTO">
+    <Position X="5.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAAAAAAAAAAAACAAAAAAAAAABAAACAI=</HashCode>
+      <FileName>Model\Common\ServiceRequestDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.TransferAsset.TransferAssetRequestInfoDTO">
+    <Position X="9" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACiAEAAAAAAIAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\TransferAsset\TransferAssetRequestInfoDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.CommonRequestInfoDTO">
+    <Position X="9.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAA=</HashCode>
+      <FileName>Model\Common\CommonRequestInfoDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.TransferAsset.TransferAssetRoutingInfoDTO">
+    <Position X="2.5" Y="3.25" Width="2" />
+    <InheritanceLine Type="Misi.Service.Billing.Model.Common.RoutingInfoBaseDTO" ManuallyRouted="true">
+      <Path>
+        <Point X="3.5" Y="2.575" />
+        <Point X="3.5" Y="2.908" />
+        <Point X="3.5" Y="2.908" />
+        <Point X="3.5" Y="3.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\TransferAsset\TransferAssetRoutingInfoDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RoutingInfoBaseDTO">
+    <Position X="2.5" Y="0.5" Width="2" />
+    <AssociationLine Name="_routings" Type="Misi.Service.Billing.Model.Common.RoutingItemDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="0.877" />
+        <Point X="1.688" Y="0.877" />
+        <Point X="1.688" Y="1.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.711" Y="0.693" Height="0.182" Width="1.128" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAoAAAQAAAAAAgAAAAAAABAACAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Model\Common\RoutingInfoBaseDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_routings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.TransferAsset.TransferAssetByHolderRoutingInfoDTO">
+    <Position X="2" Y="5.5" Width="3" />
+    <AssociationLine Name="_oldContract" Type="Misi.Service.Billing.Model.TransferAsset.TransferAssetOldContractDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.125" Y="6.925" />
+        <Point X="4.125" Y="7.844" />
+        <Point X="6" Y="7.844" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.787" Y="0.092" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_newContract" Type="Misi.Service.Billing.Model.TransferAsset.TransferAssetNewContractDTO" FixedFromPoint="true">
+      <Path>
+        <Point X="2.688" Y="6.925" />
+        <Point X="2.688" Y="8.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.138" Y="0.86" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAACAAAAAAAQAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\TransferAsset\TransferAssetByHolderRoutingInfoDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_oldContract" />
+      <Field Name="_newContract" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.TransferAsset.TransferAssetByLocationRoutingInfoDTO">
+    <Position X="5.25" Y="5.5" Width="3" />
+    <InheritanceLine Type="Misi.Service.Billing.Model.TransferAsset.TransferAssetRoutingInfoDTO" FixedFromPoint="true">
+      <Path>
+        <Point X="4.062" Y="4.483" />
+        <Point X="4.062" Y="5.125" />
+        <Point X="6.75" Y="5.125" />
+        <Point X="6.75" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="_oldContract" Type="Misi.Service.Billing.Model.TransferAsset.TransferAssetOldContractDTO">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.086" Y="0.193" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_updContract" Type="Misi.Service.Billing.Model.TransferAsset.TransferAssetUpdatedContractDTO" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="6.591" />
+        <Point X="9.312" Y="6.591" />
+        <Point X="9.312" Y="7.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.127" Y="0.381" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAKAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\TransferAsset\TransferAssetByLocationRoutingInfoDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_oldContract" />
+      <Field Name="_updContract" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RequestInfoBaseDTO">
+    <Position X="9.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Model\Common\RequestInfoBaseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.TransferAsset.TransferAssetNewContractDTO">
+    <Position X="2" Y="8.25" Width="2.5" />
+    <InheritanceLine Type="Misi.Service.Billing.Model.Common.ContractEquipDataDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="10.062" />
+        <Point X="4.5" Y="10.062" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQEAAAAAAAYAgAAAAAAAAAAAAAAAAAAAAAEAAAAAQI=</HashCode>
+      <FileName>Model\TransferAsset\TransferAssetNewContractDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.TransferAsset.TransferAssetOldContractDTO">
+    <Position X="6" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAEAAkAAAAAAABAAA=</HashCode>
+      <FileName>Model\TransferAsset\TransferAssetOldContractDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.TransferAsset.TransferAssetUpdatedContractDTO">
+    <Position X="8.75" Y="7.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\TransferAsset\TransferAssetUpdatedContractDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.ContractEquipDataDTO">
+    <Position X="6.25" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAgAAAAAAAAQAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Common\ContractEquipDataDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.ContractBaseDTO">
+    <Position X="8.75" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Common\ContractBaseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.Common.RoutingItemDTO">
+    <Position X="0.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAAAAAABABAAAAAAAAAAAAjAIAAAIIAgAAAAAAAA=</HashCode>
+      <FileName>Model\Common\RoutingItemDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Misi.Service.Billing.Model.SAP.RunInvoiceDTO">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SAP\RunInvoiceDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.SAP.BillingItemDTO">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="_billingItemLines" Type="Misi.Service.Billing.Model.SAP.BillingItemLineDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="1.5" />
+        <Point X="8.625" Y="1.5" />
+        <Point X="8.625" Y="2.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.565" Y="1.131" Height="0.182" Width="1.295" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAEABAjIYgAgACIQMEIAQASAEhACAAAWEAAAAAAMA=</HashCode>
+      <FileName>Model\SAP\BillingItemDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_billingItemLines" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.SAP.BillingItemLineDTO">
+    <Position X="8.25" Y="2.5" Width="1.75" />
+    <AssociationLine Name="_billingSubItemLines" Type="Misi.Service.Billing.Model.SAP.BillingSubItemLineDTO" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="3" />
+        <Point X="11.062" Y="3" />
+        <Point X="11.062" Y="3.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.536" Y="0.602" Height="0.182" Width="1.495" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAACAABiAQAAAAAAIAICCAAAAEAAAAAAAAVAAACAI=</HashCode>
+      <FileName>Model\SAP\BillingItemLineDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_billingSubItemLines" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.SAP.BillingSubItemLineDTO">
+    <Position X="10.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BIkAAABAAAAAAgAAABAAQAAAAAAhAAAAAAAAACAAAAI=</HashCode>
+      <FileName>Model\SAP\BillingSubItemLineDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.SAP.RunInvoiceHeaderDTO">
+    <Position X="0.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IBAggAAAAAAJCAAAQAAAAAAAAAAAQAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Model\SAP\RunInvoiceHeaderDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Misi.Service.Billing.Model.SAP.RunInvoiceBillingsDTO">
+    <Position X="3.25" Y="0.5" Width="2" />
+    <AssociationLine Name="_billingItems" Type="Misi.Service.Billing.Model.SAP.BillingItemDTO">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.287" Y="0.081" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAgAAAAAAABAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Model\SAP\RunInvoiceBillingsDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_billingItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,69 @@
+﻿@using Misi.MVC.Resources
+@using Kendo.Mvc.UI
+
+@model Misi.MVC.ViewModels.ScenarioErrorCharges.RoutingInfoWorkflowViewModel
+
+@{
+    
+    <div class="row table-responsive">
+        <table cellspacing="0" cellpadding="0" border="0" id="tabelRouting" class="table table-striped table-hover no-footer">
+            <thead>
+                <tr class="heading">
+                    <th class="text-center">Status</th>
+                </tr>
+                <tr class="heading">
+                    <th class="text-center">Sales Admin</th>
+                    <th class="text-center">Account Manager</th>
+                    <th class="text-center">Billing</th>
+                    <th class="text-center">Routing Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int index = 0; index < Model.RoutingInfoWorkflowTableViewModel.ToList().Count; index++)
+                {
+                    <tr>
+                        <td class="center">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @(Html.Bootstrap().CheckBoxFor(m => m.RoutingInfoWorkflowTableViewModel.ToArray()[index].SalesAdmin)
+                                              .HtmlAttributes(new { @class = "SAStatus form-control global" }))
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="center">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @(Html.Bootstrap().CheckBoxFor(m => m.RoutingInfoWorkflowTableViewModel.ToArray()[index].AccountManager)
+                                              .HtmlAttributes(new { @class = "SAStatus form-control global" }))
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="center">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @(Html.Bootstrap().CheckBoxFor(m => m.RoutingInfoWorkflowTableViewModel.ToArray()[index].Billing)
+                                            .HtmlAttributes(new { @class = "SAStatus form-control global" }))
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="form-group">
+                                    @(Html.Bootstrap().DropDownListFor(m => m.RoutingInfoWorkflowTableViewModel.ToArray()[index].RoutingStatusListItems.PostData,
+                                Model.RoutingInfoWorkflowTableViewModel.ToArray()[index].RoutingStatusListItems.Sources)
+                                .Class("rountingStatus form-control global"))
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
+}

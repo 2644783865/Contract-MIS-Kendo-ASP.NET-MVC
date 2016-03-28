@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Object" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Object" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfTicketVo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TicketVo" nillable="true" type="tns:TicketVo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTicketVo" nillable="true" type="tns:ArrayOfTicketVo" />
+  <xs:complexType name="TicketVo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssetNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attach" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyWBS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Counter" type="xs:long" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeptCodeEscalate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeptEscalate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetailCategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetailCategoryId" type="xs:long" />
+      <xs:element minOccurs="0" name="DeviceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceTypeId" type="xs:long" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDateAct" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTimeAct" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Escalate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EscalateSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExistingDevice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDeptCodeEscalate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDeptEscalate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromEscalate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromEscalateSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Idx" type="xs:long" />
+      <xs:element minOccurs="0" name="IdxReqProblem" type="xs:long" />
+      <xs:element minOccurs="0" name="Impact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSmup" type="xs:long" />
+      <xs:element minOccurs="0" name="LastIp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpdate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LocationId" type="xs:long" />
+      <xs:element minOccurs="0" name="MTicketId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrjId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrjName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Problem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProblemHeader" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferenceNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReopenLevel" type="xs:long" />
+      <xs:element minOccurs="0" name="ReportBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportHelpdeskBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportVia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportedTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Resolution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RevenueType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sla" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusTicket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubRevenueType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TicketId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Urgency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserAccess" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WBSNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Warranty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkingTime" type="xs:long" />
+      <xs:element minOccurs="0" name="YearPurchase" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TicketVo" nillable="true" type="tns:TicketVo" />
+</xs:schema>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8087/Service/HelpdeskServ.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Service" />
+  <xs:import schemaLocation="http://localhost:8087/Service/HelpdeskServ.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Object" />
+  <xs:element name="SelectAllTickets">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectAllTicketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Service" minOccurs="0" name="SelectAllTicketsResult" nillable="true" type="q1:Tickets" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectLimitedTickets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="offset" type="xs:int" />
+        <xs:element minOccurs="0" name="limit" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectLimitedTicketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Service" minOccurs="0" name="SelectLimitedTicketsResult" nillable="true" type="q2:Tickets" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Misi.Helpdesk.Connector.Object" minOccurs="0" name="SelectTicketResult" nillable="true" type="q3:TicketVo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TotalTickets">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TotalTicketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TotalTicketsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

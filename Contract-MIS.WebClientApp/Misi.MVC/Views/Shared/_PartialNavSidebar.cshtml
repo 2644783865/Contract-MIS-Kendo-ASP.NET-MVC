@@ -1,0 +1,45 @@
+﻿<nav id="nav-sidebar" role="navigation">
+    <ul class="menu" style="display: block;">
+        <li class="searchtab">
+            <form role="search" action="" method="post" class="bo_search_form" id="header_search">
+                <div class="form-group">
+                    <input type="hidden" id="bo_search_type" name="bo_search_type">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                <i class="fa fa-search" id="search_type_icon"></i>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" id="header_search_options">
+                                <li class="search-all search-option active">
+                                    <a data-icon="fa fa-search" data-placeholder="What are you looking for?" data-value="0" href="#">
+                                        <i class="fa fa-search"></i> Everywhere
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="search-book search-option">
+                                    <a data-icon="fa fa-book" data-placeholder="Employee Data..." data-value="1" href="#">
+                                        <i class="fa fa-book"></i> Employee Data
+                                    </a>
+                                </li>
+                                <li class="search-customers-name search-option">
+                                    <a data-icon="fa fa-group" data-placeholder="Customers by name..." data-value="2" href="#">
+                                        <i class="fa fa-group"></i> Customers by name
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="clear_search hide" href="#">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                        <input type="text" placeholder="Search" value="" class="form-control" name="bo_query" id="bo_query">
+                    </div>
+                </div>
+            </form>
+        </li>
+
+        @Html.MvcSiteMap().Menu("BootstrapNavSidebarHelperModel")
+
+    </ul>
+    <span class="menu-collapse"><i class="icon-align-justify"></i></span>
+</nav>

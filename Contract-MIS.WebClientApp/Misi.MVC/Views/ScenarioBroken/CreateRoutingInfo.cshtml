@@ -1,0 +1,218 @@
+﻿@using Misi.MVC.Resources
+@using Misi.MVC.ViewModels.ScenarioBroken
+@model RoutingInfoBrokenViewModel
+
+@{
+    ViewBag.Title = SharedResource.Create + " " + SharedResource.RoutingInfo + " " + SharedResource.Broken;
+}
+
+@Html.Partial("_PartialValidationSummary", ViewData.ModelState)
+
+@using (Html.BeginForm("CreateRoutingInfoBroken", "ScenarioBroken", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    
+        <div class="panel">
+            @Html.Partial("_PartialSectionInformation", SharedResource.RoutingInfo)
+            <div class="panel-body" style="display: block;">
+                <!--Row-->
+                <div class="row">
+                    <!-- Content Form Routinginformation -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.RoutingCreationDate).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @Html.Kendo().DatePickerFor(m => m.RoutingInfoHeadingViewModel.RoutingCreationDate).Value(DateTime.Today).Format(ConfigResource.FormatDate).Enable(false)
+                                @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.RoutingCreationDate)
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form Routinginformation -->
+                </div>
+                <!--End Row-->
+                <!--Row-->
+                <div class="row">
+                    <!-- Content Form Routinginformation -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.PredefinedScenarioList).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @Html.Bootstrap().DropDownListFor(m => m.RoutingInfoHeadingViewModel.PredefinedScenarioList.PostData, Model.RoutingInfoHeadingViewModel.PredefinedScenarioList.Sources).Class("form-control global")
+                                @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.PredefinedScenarioList)
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form Routinginformation -->
+                </div>
+                <!--End Row-->
+                <!--Row-->
+                <div class="row">
+                    <!-- Content Form Routinginformation -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.ContractNumberViewModel.ContractNumber).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                <div class="row">
+                                    <div class=@CSSResource.HalfPage>
+                                        @(Html.Bootstrap().TextBoxFor(m => m.RoutingInfoHeadingViewModel.ContractNumberViewModel.ContractNumber).Class("form-control global"))
+                                        @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.ContractNumberViewModel.ContractNumber)
+                                    </div>
+                                    <div class="@CSSResource.SecondaryControlDiv">
+                                        @(Html.Bootstrap().TextBoxFor(m => m.RoutingInfoHeadingViewModel.ContractNumberViewModel.ContractLineNumber).Class("form-control global"))
+                                        @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.ContractNumberViewModel.ContractLineNumber)
+                                    </div>
+                                    <div class="@CSSResource.HelpText">
+                                        @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.ContractNumberViewModel.ContractLineNumber))
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form Routinginformation -->
+                </div>
+                <!--End Row-->
+                <!--Equipment Row-->
+                <div class="row">
+                    <!-- Content Form Routinginformation -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.EquipmentViewModel.Equipment).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                <div class="row">
+                                    <div class=@CSSResource.HalfPage>
+                                        @(Html.Bootstrap().TextBoxFor(m => m.RoutingInfoHeadingViewModel.EquipmentViewModel.Equipment).Class("form-control global"))
+                                        @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.EquipmentViewModel.Equipment)
+                                    </div>
+                                    <div class="@CSSResource.SecondaryControlDiv">
+                                        @(Html.Bootstrap().TextBoxFor(m => m.RoutingInfoHeadingViewModel.EquipmentViewModel.EquipmentDescription).Class("form-control global"))
+                                        @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.EquipmentViewModel.EquipmentDescription)
+                                    </div>
+                                    <div class="@CSSResource.HelpText">
+                                        @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.EquipmentViewModel.EquipmentDescription))
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form Routinginformation -->
+                </div>
+                <!--Equipment End Row-->
+                <!--Device Row-->
+                <div class="row">
+                    <!-- Content Form Routinginformation -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.DeviceList).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @Html.Bootstrap().DropDownListFor(m => m.RoutingInfoHeadingViewModel.DeviceList.PostData, Model.RoutingInfoHeadingViewModel.DeviceList.Sources).Class("form-control global")
+                                @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.DeviceList)
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form Routinginformation -->
+                </div>
+                <!--Device End Row-->
+                <!--SNDevice Row-->
+                <div class="row">
+                    <!-- Content Form Routinginformation -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.SnDevice).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @Html.Bootstrap().TextBoxFor(m => m.RoutingInfoHeadingViewModel.SnDevice).Class("form-control global")
+                                @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.SnDevice)
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form Routinginformation -->
+                </div>
+                <!--SNDevice End Row-->
+                <!--RoutingMemo Row-->
+                <div class="row">
+                    <!-- Content Form Routinginformation -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.RoutingInfoHeadingViewModel.RoutingMemo).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @(Html.Bootstrap().TextAreaFor(m => m.RoutingInfoHeadingViewModel.RoutingMemo).Class("form-control global textarea-autosize"))
+                                @Html.ValidationMessageFor(m => m.RoutingInfoHeadingViewModel.RoutingMemo)
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form Routinginformation -->
+                </div>
+                <!--RoutingMemo End Row-->
+
+            </div>
+        </div>
+        
+        <div class="panel">
+            @Html.Partial("_PartialSectionInformation", SharedResource.ScenarioAttribute)
+            <div class="panel-body" style="display: block;">
+                <!--Row-->
+                <div class="row">
+                    <!-- Content Form ScenarioAttribute -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.ScenarioAttributeBrokenViewModel.UserHolderNameList).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @Html.Bootstrap().DropDownListFor(m => m.ScenarioAttributeBrokenViewModel.UserHolderNameList.PostData, Model.ScenarioAttributeBrokenViewModel.UserHolderNameList.Sources).Class("form-control global")
+                                @Html.ValidationMessageFor(m => m.ScenarioAttributeBrokenViewModel.UserHolderNameList)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.ScenarioAttributeBrokenViewModel.BackupEquipmentNumberList).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @Html.Bootstrap().DropDownListFor(m => m.ScenarioAttributeBrokenViewModel.BackupEquipmentNumberList.PostData, Model.ScenarioAttributeBrokenViewModel.BackupEquipmentNumberList.Sources).Class("form-control global")
+                                @Html.ValidationMessageFor(m => m.ScenarioAttributeBrokenViewModel.BackupEquipmentNumberList)
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form ScenarioAttribute -->
+                </div>
+                <!--End Row-->
+                <!--Row-->
+                <div class="row">
+                    <!-- Content Form ScenarioAttribute -->
+                    <div class=@CSSResource.HalfPage>
+                        <div class="form-group">
+                            @(Html.Bootstrap().LabelFor(m => m.ScenarioAttributeBrokenViewModel.UserSalaryNumberList).Class(CSSResource.FormLabel))
+                            <div class=@CSSResource.FormControlDiv>
+                                @Html.Bootstrap().DropDownListFor(m => m.ScenarioAttributeBrokenViewModel.UserSalaryNumberList.PostData, Model.ScenarioAttributeBrokenViewModel.UserSalaryNumberList.Sources).Class("form-control global")
+                                @Html.ValidationMessageFor(m => m.ScenarioAttributeBrokenViewModel.UserSalaryNumberList)
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Form ScenarioAttribute -->
+                </div>
+                <!--End Row-->
+            </div>
+        </div>
+        
+    <div class="panel">
+        @Html.Partial("_PartialSectionInformation", SharedResource.RoutingTable)
+        <div class="panel-body" style="display: block;">
+            <div class="row">
+                <!-- Content Form Routinginformation -->
+                @Html.EditorFor(m => m.RoutingTableViewModel)
+
+                <!-- Content Form Routinginformation -->
+            </div>
+        </div>
+    </div>
+    <div class="bootstrap">
+        <div class="@CSSResource.FullPage">
+            <div class="form-group">
+                @Html.Bootstrap().Button().Text(SharedResource.AddRouting).Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconAdd))
+                @Html.Bootstrap().ActionLink(SharedResource.Finish, "Preview", "ScenarioBroken").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconFinish))
+                @Html.Bootstrap().ActionLink(SharedResource.Cancel, "Index", "ScenarioBroken").Class(CSSResource.EndFormButton).PrependIcon(new Icon(CSSResource.IconCancel))
+            </div>
+        </div>
+    </div>
+
+
+
+}

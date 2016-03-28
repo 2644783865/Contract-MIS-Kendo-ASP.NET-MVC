@@ -1,0 +1,53 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.MenuHelperModel
+@using System.Linq
+
+@helper NavSidebar(List<SiteMapNodeModel> nodeList)
+{
+    foreach (SiteMapNodeModel node in nodeList)
+    {
+        if (node.Attributes.ContainsKey("isHidden"))
+        {
+            continue;
+        }
+        
+        string url = node.IsClickable ? node.Url : "#";
+
+        if (!node.Children.Any() || node.Children.All(e => e.Attributes.ContainsKey("isHidden")))
+        {
+            <li class="maintab">
+                <a class="title" href="@url">
+                    <i class="@node.Description"></i>
+                    <span>@node.Title</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="maintab has_submenu">
+                <a class="title" href="#">
+                    <i class="@node.Description"></i>
+                    <span>@node.Title</span>
+                    <span class="icon-chevron-right pull-right pos-absolute pos-top-10 pos-right-10"></span>
+                </a>
+                <ul class="submenu">
+                    @DropDownMenu(node.Children)
+                </ul>
+            </li>
+        }
+    }
+}
+
+@helper DropDownMenu(SiteMapNodeModelList nodeList)
+{
+    foreach (var node in nodeList)
+    {
+        if (!node.Attributes.ContainsKey("isHidden"))
+        {
+            <li id="subtab">
+                <a href="@node.Url">@node.Title</a>
+            </li>
+        }
+    }
+}
+
+@NavSidebar(Model.Nodes)
