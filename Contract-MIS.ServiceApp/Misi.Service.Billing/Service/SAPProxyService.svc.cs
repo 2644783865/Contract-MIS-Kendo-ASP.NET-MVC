@@ -137,8 +137,6 @@ namespace Misi.Service.Billing.Service
                 AppServerHost = "10.1.3.115",
                 SystemNumber = "00",
                 SystemID = "QM5",
-                SAPUser = "ECEOS.BROMO",
-                Password = "trakindo1",
                 Client = "999",
                 Language = "EN",
                 PoolSize = 10
