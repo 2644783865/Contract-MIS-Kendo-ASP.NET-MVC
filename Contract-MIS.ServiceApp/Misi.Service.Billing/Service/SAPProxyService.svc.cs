@@ -244,99 +244,6 @@ namespace Misi.Service.Billing.Service
             SAPDataCopier.Instance.CopyFromStruct(headerStruct, ret._printBillingHeader);
 
 
-            //for (var a = 0; a < proformaTbl.RowCount; a++)
-            //{
-            //    proformaTbl.CurrentIndex = a;
-            //    var pit = new ContractItem();
-            //    SAPDataCopier.Instance.CopyFromStruct(proformaTbl.CurrentRow, pit);
-            //    ReportInvoiceDetailExcel.Add(pit);
-            //}
-
-
-            //var It = ReportInvoiceDetailExcel.ToList();
-            //var categorylist = (from c in It
-            //                    select c.CATEGORY).Distinct().ToList();
-            //Int32 j = 0;
-            //Int64 jj = 0;
-            //foreach (var category in categorylist)
-            //{
-            //    PrintBillingItemDTO cat = new PrintBillingItemDTO();
-            //    cat.MaterialSubCategoryLineViewModel = new List<MaterialSubCategory>();
-            //    cat.MaterialCategoryName = category;
-
-            //    var subcategorylist = (from c in It
-            //                           where c.CATEGORY == category
-            //                           select c.SUBCATEGORY).Distinct().ToList();
-
-            //    Int32 k = 0;
-            //    Int64 kk = 0;
-            //    foreach (var subcategory in subcategorylist)
-            //    {
-            //        MaterialSubCategory subCat = new MaterialSubCategory();
-            //        subCat.MaterialSubCategoryLineViewModel = new List<DetailMaterialSubCategory>();
-            //        var materiallist = (from c in It
-            //                            where c.SUBCATEGORY == subcategory && c.CATEGORY == category
-            //                            select new { c.MATNR }).Distinct().ToList();
-            //        int l = 0;
-            //        Int64 ll = 0;
-            //        foreach (var material in materiallist)
-            //        {
-            //            DetailMaterialSubCategory mat = new DetailMaterialSubCategory();
-
-            //            mat.DetailSubMaterialDescriptionLineViewModels = new List<DetailSubMaterialDescription>();
-
-            //            var billinglist = It.Where(x => x.CATEGORY == category && x.SUBCATEGORY == subcategory && x.MATNR == material.MATNR);
-
-            //            Int32 i = 0;
-            //            Int64 ii = Convert.ToInt64(billinglist.Sum(x => double.Parse(x.TOTAL5)));
-            //            ll = ll + ii;
-            //            mat.MatCharge = "0";
-            //            foreach (var lineitem in billinglist)
-            //            {
-            //                i++;
-            //                DetailSubMaterialDescription subMat = new DetailSubMaterialDescription();
-            //                subMat.No = i.ToString();
-            //                subMat.ChargesDetailSubMaterialDescription = ii.ToString();
-            //                subMat.DetailSubDescription = "Holder : " + lineitem.VBAK_EMPNAME + "; SN : " + lineitem.VBAK_PERNR2 + "Location : " + lineitem.VBAK_SUBAREA_T;
-
-            //                subMat.ChargesDetailSubMaterialDescription = lineitem.TOTAL5;
-            //                if (mat.MatCharge=="0")
-            //                {
-            //                    mat.MatCharge = lineitem.TOTAL5;
-            //                }
-
-            //                mat.MaterialDescription = lineitem.ARKTX;
-            //                mat.DetailSubMaterialDescriptionLineViewModels.Add(subMat);
-
-            //            }
-            //            l = l + i;
-
-            //            mat.MaterialNo = material.MATNR;
-            //            mat.SubTotal = ii.ToString();
-            //            mat.MatQty = billinglist.Count().ToString();
-            //            subCat.MaterialSubCategoryLineViewModel.Add(mat);
-            //        }
-            //        kk = kk + ll;
-
-            //        k = k + l;
-            //        subCat.SubQty = materiallist.Count().ToString();
-            //        subCat.MaterialSubCategoryName = subcategory;
-            //        subCat.SubTotalCharges = ll.ToString();
-            //        subCat.SubQty = k.ToString();
-
-            //        cat.MaterialSubCategoryLineViewModel.Add(subCat);
-            //    }
-            //    j = j + k;
-            //    jj = jj + kk;
-
-            //    cat.MaterialCategoryName = category;
-            //    cat.Qty = k.ToString();
-            //    cat.TotalCharges = kk.ToString();
-            //    ret._printBillingHeader.ReportInvoiceDetail.Add(cat);
-            //}
-
-            //NOTO
-            //RfcDestinationManager.UnregisterDestinationConfiguration(dest);
             return ret;
         }
 
@@ -347,10 +254,6 @@ namespace Misi.Service.Billing.Service
             if (dest == null) return null;
             var getitem = "";
 
-            // if (anvoiceDetail.ToUpper()=="X" || appendix.ToUpper()=="X")
-            // {
-            getitem = "x";
-            //}
 
             const string FUNCTIONAL_BAPI1 = "ZBAPI_PRINT_BILLING";
 
@@ -540,10 +443,7 @@ namespace Misi.Service.Billing.Service
             if (dest == null) return null;
             var getitem = "";
 
-            // if (anvoiceDetail.ToUpper()=="X" || appendix.ToUpper()=="X")
-            // {
             getitem = "";
-            //}
 
             const string FUNCTIONAL_BAPI1 = "ZBAPI_PRINT_BILLING";
 
